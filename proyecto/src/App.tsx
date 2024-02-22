@@ -1,15 +1,16 @@
-import './App.css'
-import NavBar from './common/NavBar'
-import './styles/NavBar.css';
+// src/App.tsx
+import React from 'react';
+import NavBar from './common/NavBar';
 
-function App() {
-  
+
+
+const App: React.FC = () => {
   return (
-    <div className="app">
-    <NavBar />
-   
-  </div>
-  )
-}
+    <div>
+      
+      <NavBar></NavBar>
+    </div>
+  );
+};
 
-export default App
+export default App;
