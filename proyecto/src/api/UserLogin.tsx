@@ -1,11 +1,15 @@
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { useState } from "react";
+import NavBar from "../common/NavBar";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const navigate = useNavigate(); 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,7 +38,12 @@ const LoginForm: React.FC = () => {
         console.log("User Name:", userName);
         console.log("Role ID:", roleId);
 
-        // navigate('/home'); // Redirect to the dashboard
+      
+         
+        navigate('/dashboard');
+        
+
+        
       
     } catch (error) {
       setError("Hubo un error al procesar la solicitud.");
@@ -42,6 +51,8 @@ const LoginForm: React.FC = () => {
   };
 
   return (
+    <>
+  <NavBar/>
     <div>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
@@ -66,9 +77,10 @@ const LoginForm: React.FC = () => {
           />
         </div>
         {error && <p style={{ color: "red" }}>{error}</p>}
-        <button type="submit">Iniciar sesión</button>
+        <button type="submit" >Iniciar sesión</button>
       </form>
     </div>
+    </>
   );
 };
 

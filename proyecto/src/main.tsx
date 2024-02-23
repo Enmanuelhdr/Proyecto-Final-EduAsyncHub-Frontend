@@ -2,9 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import App from './App.tsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserLogin from './api/UserLogin.tsx'
+import { HomePage } from './pages/home/home.tsx'
+import { DashBoard } from './pages/dashboard/dashboard.tsx'
+import './_custom-variables.scss';
 
 
 
@@ -12,7 +14,11 @@ import UserLogin from './api/UserLogin.tsx'
 const router= createBrowserRouter([
   {
     path: '/',
-    element: <App/>
+    element: <HomePage/>
+  },
+  {
+    path: '/dashboard',
+    element: <DashBoard/>
   },
   {
     path:'login',

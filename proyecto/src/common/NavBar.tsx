@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="bg-primary navbar navbar-expand-lg navbar-light ">
       <div className="container">
-        <Link className="navbar-brand" to="/">Nombre de tu Página</Link>
+        <Link className="navbar-brand  fs-3" to="/">EduAsynchub</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
