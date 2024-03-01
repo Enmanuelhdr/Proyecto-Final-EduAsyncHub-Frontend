@@ -2,43 +2,38 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Cookies from "universal-cookie";
 
-function GetUsers() {
+function TableUser() {
   interface User {
     usuarioId: number;
     nombre: string;
     correoElectronico: string;
   }
-  const [userToken, setUserToken] = useState("");
+
   const [users, setUsers] = useState<User[]>([]);
+  const cookies = new Cookies();
 
-  useEffect(() => {
-    const cookies = new Cookies();
-    const token = cookies.get("token");
-    setUserToken(token);
-  }, []);
+  const fetchUsers = async () => {
+    try {
+      const token = cookies.get("token");
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-  useEffect(() => {
-    if (userToken) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${userToken}`;
-
-      const fetchUsers = async () => {
-        try {
-          const response = await axios.get(
-            "https://localhost:7152/api/Admin/ObtenerUsuarios"
-          );
-          setUsers(response.data);
-        } catch (error) {
-          console.error("Error fetching users:", error);
-        }
-      };
-
-      fetchUsers();
+      const response = await axios.get(
+        "https://localhost:7152/api/Admin/ObtenerUsuarios"
+      );
+      setUsers(response.data);
+    } catch (error) {
+      console.error("Error fetching users:", error);
     }
-  }, [userToken]);
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []); 
 
   return (
     <div>
       <h1>Lista de Usuarios</h1>
+      <button onClick={fetchUsers}>Actualizar</button>
       <table className="table">
         <thead>
           <tr>
@@ -56,20 +51,21 @@ function GetUsers() {
               <td>{user.correoElectronico}</td>
               <td>
                 <button
-                  key={user.usuarioId}
                   onClick={() => {
-                    console.log("Usuario Eliminado ",user.usuarioId);
+                    console.log("Usuario Eliminado ", user.usuarioId);
                   }}
-                  className="btn btn-primary">
+                  className="btn btn-primary"
+                >
                   D
                 </button>
               </td>
-
               <td>
-                <button key={user.usuarioId} className="btn btn-primary"
+                <button
                   onClick={() => {
-                    console.log("Usuario Editado ",user.usuarioId);
-                  }}>
+                    console.log("Usuario Editado ", user.usuarioId);
+                  }}
+                  className="btn btn-primary"
+                >
                   E
                 </button>
               </td>
@@ -81,4 +77,4 @@ function GetUsers() {
   );
 }
 
-export default GetUsers;
+export default TableUser;
