@@ -97,7 +97,7 @@ const AddUserForm: React.FC = () => {
         <label htmlFor="rolID" className="form-label">
           Rol
         </label>
-        <select
+        <select className="form-select"
           name="rolID"
           id="rolID"
           value={formData.rolID}
