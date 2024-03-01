@@ -13,7 +13,7 @@ function ButtonLogout() {
     
   return (
     <>
-  <Link to={"/"} onClick={logout} className="text-white bg-primary p-2 rounded-sm">logout</Link>
+  <Link to={"/"} onClick={logout} className="text-white bg-primary p-2 rounded-sm">Log Out</Link>
 
 
   </>

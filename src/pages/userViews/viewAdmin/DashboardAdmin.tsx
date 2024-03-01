@@ -1,5 +1,7 @@
 import NavBarAdmin from "../../../components/NavBarAdmin"
 import AddUserForm from "./AddUserForm"
+import TableUser from "./TableUser"
+
 
 
 function DashboardAdmin() {
@@ -7,6 +9,7 @@ function DashboardAdmin() {
     <>
    <NavBarAdmin/>
    <AddUserForm/>
+   <TableUser/>
 
    </>
   )
