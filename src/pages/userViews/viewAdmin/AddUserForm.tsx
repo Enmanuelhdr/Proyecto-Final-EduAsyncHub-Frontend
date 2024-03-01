@@ -5,10 +5,10 @@ const AddUserForm: React.FC = () => {
     nombre: '',
     correoElectronico: '',
     contraseña: '',
-    rolID: 0
+    rolID: '1' // Establecemos un valor por defecto
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -33,7 +33,7 @@ const AddUserForm: React.FC = () => {
           nombre: '',
           correoElectronico: '',
           contraseña: '',
-          rolID: 0
+          rolID: '1' // Restablecemos el valor por defecto después de enviar el formulario
         });
       } else {
         throw new Error('Error al añadir usuario');
@@ -59,8 +59,12 @@ const AddUserForm: React.FC = () => {
         <input type="password" className="form-control" id="contraseña" name="contraseña" value={formData.contraseña} onChange={handleChange} required />
       </div>
       <div className="mb-3">
-        <label htmlFor="rolID" className="form-label">Rol ID</label>
-        <input type="number" className="form-control" id="rolID" name="rolID" value={formData.rolID} onChange={handleChange} required />
+        <label htmlFor="rolID" className="form-label">Rol</label>
+        <select name="rolID" id="rolID" value={formData.rolID} onChange={handleChange} required>
+          <option value="1" >Estudiante</option>
+          <option value="2">Profesor</option>
+          <option value="3">Administrador</option>
+        </select>
       </div>
       <button type="submit" className="btn btn-primary">Añadir Usuario</button>
     </form>
