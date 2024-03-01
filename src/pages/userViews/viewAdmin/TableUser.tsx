@@ -54,8 +54,7 @@ function TableUser() {
                   onClick={() => {
                     console.log("Usuario Eliminado ", user.usuarioId);
                   }}
-                  className="btn btn-primary"
-                >
+                  className="btn btn-primary">
                   D
                 </button>
               </td>
@@ -64,8 +63,7 @@ function TableUser() {
                   onClick={() => {
                     console.log("Usuario Editado ", user.usuarioId);
                   }}
-                  className="btn btn-primary"
-                >
+                  className="btn btn-primary">
                   E
                 </button>
               </td>
