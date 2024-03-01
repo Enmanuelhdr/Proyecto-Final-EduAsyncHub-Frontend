@@ -5,7 +5,7 @@ const AddUserForm: React.FC = () => {
     nombre: '',
     correoElectronico: '',
     contraseña: '',
-    rolID: '1' // Establecemos un valor por defecto
+    rolID: '1' 
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -33,7 +33,7 @@ const AddUserForm: React.FC = () => {
           nombre: '',
           correoElectronico: '',
           contraseña: '',
-          rolID: '1' // Restablecemos el valor por defecto después de enviar el formulario
+          rolID: '1' 
         });
       } else {
         throw new Error('Error al añadir usuario');
