@@ -30,6 +30,25 @@ function TableUser() {
     fetchUsers();
   }, []); 
 
+
+  // Eliminar usuario
+
+  // const deleteUser=(id:number)=>{
+  
+  //   axios.delete('https://localhost:7152/api/Admin/EliminarUsuario', {
+  //     data: {
+  //       userId: id
+  //     }
+  //   })
+  //     .then(response => {
+  //       console.log('Usuario eliminado con éxito',response);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error al eliminar el usuario:', error);
+  //     });
+    
+  // }
+
   return (
     <div>
       <h1>Lista de Usuarios</h1>
@@ -50,19 +69,20 @@ function TableUser() {
               <td>{user.nombre}</td>
               <td>{user.correoElectronico}</td>
               <td>
-                <button
-                  onClick={() => {
-                    console.log("Usuario Eliminado ", user.usuarioId);
-                  }}
+                {/* <button
+                  onClick={()=>{deleteUser(user.usuarioId)}}
+                  className="btn btn-primary">
+                  D
+                </button> */}
+                 <button
+                  onClick={()=>{console.log("Usuario Eliminado",user.usuarioId)}}
                   className="btn btn-primary">
                   D
                 </button>
               </td>
               <td>
                 <button
-                  onClick={() => {
-                    console.log("Usuario Editado ", user.usuarioId);
-                  }}
+                  onClick={()=>{console.log("Usuario editado",user.usuarioId)}}
                   className="btn btn-primary">
                   E
                 </button>
