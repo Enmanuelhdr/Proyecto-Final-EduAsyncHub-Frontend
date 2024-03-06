@@ -7,6 +7,7 @@ function ButtonLogout() {
     const logout=()=>{
         cookies.remove("token")
         cookies.remove("userRole")
+        cookies.remove("userId")
         window.localStorage.removeItem("youare")
         
     }
