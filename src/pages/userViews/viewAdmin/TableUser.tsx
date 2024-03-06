@@ -137,7 +137,7 @@ function TableUser() {
                   settemporalUserId(0);
                   settemporalUserName("");
                 }}>
-                Cancelar
+                Regresar
               </button>
               <button
                 type="button"
