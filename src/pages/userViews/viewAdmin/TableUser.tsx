@@ -38,8 +38,7 @@ function TableUser() {
   // Eliminar usuario
 
   const deleteUser = (id: number) => {
-    axios
-      .delete("https://localhost:7152/api/Admin/EliminarUsuario", {
+    axios.delete("https://localhost:7152/api/Admin/EliminarUsuario", {
         data: {
           userId: id,
         },
@@ -122,8 +121,9 @@ function TableUser() {
                 type="button"
                 className="btn-close"
                 data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+                aria-label="Close">
+                  
+                </button>
             </div>
             <div className="modal-body">
               ID: {temporalUserId} Nombre: {temporalUserName}
@@ -136,8 +136,7 @@ function TableUser() {
                 onClick={() => {
                   settemporalUserId(0);
                   settemporalUserName("");
-                }}
-              >
+                }}>
                 Cancelar
               </button>
               <button
@@ -147,8 +146,7 @@ function TableUser() {
                   deleteUser(temporalUserId);
                   settemporalUserId(0);
                   settemporalUserName("");
-                }}
-              >
+                }}>
                 Confirmar
               </button>
             </div>
