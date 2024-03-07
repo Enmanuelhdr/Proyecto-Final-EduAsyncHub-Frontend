@@ -8,6 +8,7 @@ const AddUserForm: React.FC = () => {
     rolID: "1",
     gradoId: "1", 
   });
+  const [successMessage, setSuccessMessage] = useState<string | null>(null); // Nuevo estado para el mensaje de éxito
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -34,8 +35,11 @@ const AddUserForm: React.FC = () => {
       );
 
       if (response.ok) {
-    
-        alert("Usuario añadido correctamente");
+        setSuccessMessage("Usuario añadido correctamente");
+        setTimeout(() => {
+          setSuccessMessage(null); 
+        }, 3000); 
+
         setFormData({
           nombre: "",
           correoElectronico: "",
@@ -43,9 +47,6 @@ const AddUserForm: React.FC = () => {
           rolID: "1",
           gradoId: "1", 
         });
-
-
-        
       } else {
         throw new Error("Error al añadir usuario");
       }
@@ -56,95 +57,102 @@ const AddUserForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="mb-3">
-        <label htmlFor="nombre" className="form-label">
-          Nombre
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="nombre"
-          name="nombre"
-          value={formData.nombre}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="correoElectronico" className="form-label">
-          Correo Electrónico
-        </label>
-        <input
-          type="email"
-          className="form-control"
-          id="correoElectronico"
-          name="correoElectronico"
-          value={formData.correoElectronico}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="contraseña" className="form-label">
-          Contraseña
-        </label>
-        <input
-          type="password"
-          className="form-control"
-          id="contraseña"
-          name="contraseña"
-          value={formData.contraseña}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="rolID" className="form-label">
-          Rol
-        </label>
-        <select
-          className="form-select"
-          name="rolID"
-          id="rolID"
-          value={formData.rolID}
-          onChange={handleChange}
-          required
-        >
-          <option value="1">Estudiante</option>
-          <option value="2">Profesor</option>
-          <option value="3">Administrador</option>
-        </select>
+    <div>
+      {successMessage && (
+        <div className="alert alert-success" role="alert">
+          {successMessage}
+        </div>
+      )}
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="nombre" className="form-label">
+            Nombre
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="nombre"
+            name="nombre"
+            value={formData.nombre}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="correoElectronico" className="form-label">
+            Correo Electrónico
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="correoElectronico"
+            name="correoElectronico"
+            value={formData.correoElectronico}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="contraseña" className="form-label">
+            Contraseña
+          </label>
+          <input
+            type="password"
+            className="form-control"
+            id="contraseña"
+            name="contraseña"
+            value={formData.contraseña}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="rolID" className="form-label">
+            Rol
+          </label>
+          <select
+            className="form-select"
+            name="rolID"
+            id="rolID"
+            value={formData.rolID}
+            onChange={handleChange}
+            required
+          >
+            <option value="1">Estudiante</option>
+            <option value="2">Profesor</option>
+            <option value="3">Administrador</option>
+          </select>
 
-        <label htmlFor="gradoId" className="form-label">
-          Grado
-        </label>
-        <select
-          className="form-select"
-          name="gradoId" 
-          id="gradoId" 
-          value={formData.gradoId}
-          onChange={handleChange}
-          required
-        >
-          <option value="1">Primero de Primaria</option>
-          <option value="2">Segundo de Primaria</option>
-          <option value="3">Tercero de Primaria</option>
-          <option value="4">Cuarto de Primaria</option>
-          <option value="5">Quinto de Primaria</option>
-          <option value="6">Sexto de Primaria</option>
-          <option value="7">Primero de Secundaria</option>
-          <option value="8">Segundo de Secundaria</option>
-          <option value="9">Tercero de Secundaria</option>
-          <option value="10">Cuarto de Secundaria</option>
-          <option value="11">Quinto de Secundaria</option>
-          <option value="12">Sexto de Secundaria</option>
-        </select>
-      </div>
-      <button type="submit" className="btn btn-primary">
-        Añadir Usuario
-      </button>
-    </form>
+          <label htmlFor="gradoId" className="form-label">
+            Grado
+          </label>
+          <select
+            className="form-select"
+            name="gradoId" 
+            id="gradoId" 
+            value={formData.gradoId}
+            onChange={handleChange}
+            required
+          >
+            <option value="1">Primero de Primaria</option>
+            <option value="2">Segundo de Primaria</option>
+            <option value="3">Tercero de Primaria</option>
+            <option value="4">Cuarto de Primaria</option>
+            <option value="5">Quinto de Primaria</option>
+            <option value="6">Sexto de Primaria</option>
+            <option value="7">Primero de Secundaria</option>
+            <option value="8">Segundo de Secundaria</option>
+            <option value="9">Tercero de Secundaria</option>
+            <option value="10">Cuarto de Secundaria</option>
+            <option value="11">Quinto de Secundaria</option>
+            <option value="12">Sexto de Secundaria</option>
+          </select>
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Añadir Usuario
+        </button>
+      </form>
+    </div>
   );
 };
 
