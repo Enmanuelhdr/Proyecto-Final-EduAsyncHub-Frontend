@@ -6,13 +6,7 @@ function Eventos() {
   return (
     <>
     <NavBar/>
-    <div>
-      <h2 className="text-3xl text-success"> 
-      Eventos
-      </h2>
-      </div>
-
-      <div className="container pb-5">
+      <div className="container pt-3 pb-3">
         <Evento cantidadMostrar={9999}/>
       </div>
 
