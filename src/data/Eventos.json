@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "img": "https://media.istockphoto.com/id/1456063654/es/foto/fondo-bokeh-desenfocado-de-corazones-rojos-con-espacio-para-copiar.jpg?s=612x612&w=is&k=20&c=KYxiyY9V7m2btuL9LMtCd3XmpP3PDQgxan7nm5XKgLU=",
+        "titulo": "Día de San Valentín",
+        "fecha": "14 de Febrero 2024",
+        "descripcion": "Regalos para el día de San Valentín"
+    },
+    {
+        "id": 2,
+        "img": "https://media.istockphoto.com/id/1153842737/es/foto/ciencia-qu%C3%ADmica-biolog%C3%ADa-medicina-y-el-concepto-de-personas-cient%C3%ADfico-mano-con-muestra-de.jpg?s=612x612&w=is&k=20&c=1g5AiuGptqsNfvkj4OPaQ1x0aVxb-p-tunSXzjUK7v8=",
+        "titulo": "Feria de Ciencias",
+        "fecha": "5 de Mayo 2024",
+        "descripcion": "Presentación de proyectos científicos y actividades educativas."
+    },
+    {
+        "id": 3,
+        "img": "https://media.istockphoto.com/id/1460007178/es/foto/biblioteca-libros-sobre-la-mesa-y-fondo-para-estudiar-aprender-e-investigar-en-educaci%C3%B3n.jpg?s=612x612&w=is&k=20&c=EZYd0M3yiXrGf_6xFjhw0HSi00hLYgsGGS8tI6NGaKQ=",
+        "titulo": "Día del Libro",
+        "fecha": "23 de Abril 2024",
+        "descripcion": "Actividades relacionadas con la lectura, cuentacuentos, intercambio de libros, etc."
+    },
+    {
+        "id": 4,
+        "img": "https://media.istockphoto.com/id/496708071/es/foto/adolescentes-alcanzar-el-mundo-en-campus.jpg?s=612x612&w=is&k=20&c=xeiolfYZRA4XLr86SqXEuK86xzHmhHTTujdcjuf1jmQ=",
+        "titulo": "Semana Cultural",
+        "fecha": "Del 10 al 15 de Junio 2024",
+        "descripcion": "Talleres, exposiciones, representaciones teatrales y actividades artísticas."
+    }
+]
