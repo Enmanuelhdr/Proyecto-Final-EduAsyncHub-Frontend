@@ -30,7 +30,7 @@ function TableUser() {
         "https://localhost:7152/api/Admin/ObtenerUsuarios"
       );
       setUsers(response.data);
-      fetchUsers();
+      
     } catch (error) {
       console.error("Error fetching users:", error);
     }
