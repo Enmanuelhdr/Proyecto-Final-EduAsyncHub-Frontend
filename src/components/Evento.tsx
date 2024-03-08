@@ -27,7 +27,7 @@ const Evento: React.FC<Props> = ({ cantidadMostrar }) => {
                 />
                 <div className="card-body">
                   <div className="fs-6">{evento.date}</div>
-                  <h4 className="card-title">{evento.tittle}</h4>
+                  <h4 className="card-title">{evento.title}</h4>
                   <p className="card-text">{evento.description}</p>
                 </div>
               </div>

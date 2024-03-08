@@ -2,39 +2,39 @@
     {
         "id": 1,
         "img":"https://i.ytimg.com/vi/_XbSBh7AgSQ/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEMgXihlMA8=&rs=AOn4CLD41YK_c8GrdQENZJa_TwScBN_RWA",
-        "tittle": "Marcha de los estudiantes 1",
+        "title": "Marcha de los estudiantes 1",
         "date": "27 de Febrero de 2024",
         "description": "Marcha de los estudiantes celebrando la independencia Dominicana."
     },
  {
         "id": 2,
         "img":"https://i.ytimg.com/vi/_XbSBh7AgSQ/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEMgXihlMA8=&rs=AOn4CLD41YK_c8GrdQENZJa_TwScBN_RWA",
-        "tittle": "Marcha de los estudiantes 2",
+        "title": "Marcha de los estudiantes 2",
         "date": "27 de Febrero de 2024",
         "description": "Marcha de los estudiantes celebrando la independencia Dominicana."
     },
  {
         "id": 3,
         "img":"https://i.ytimg.com/vi/_XbSBh7AgSQ/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEMgXihlMA8=&rs=AOn4CLD41YK_c8GrdQENZJa_TwScBN_RWA",
-        "tittle": "Marcha de los estudiantes 3",
+        "title": "Marcha de los estudiantes 3",
         "date": "27 de Febrero de 2024",
         "description": "Marcha de los estudiantes celebrando la independencia Dominicana."
  },{
         "id": 4,
         "img":"https://i.ytimg.com/vi/_XbSBh7AgSQ/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEMgXihlMA8=&rs=AOn4CLD41YK_c8GrdQENZJa_TwScBN_RWA",
-        "tittle": "Marcha de los estudiantes 4",
+        "title": "Marcha de los estudiantes 4",
         "date": "27 de Febrero de 2024",
         "description": "Marcha de los estudiantes celebrando la independencia Dominicana."
  },{
     "id": 5,
     "img":"https://i.ytimg.com/vi/_XbSBh7AgSQ/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEMgXihlMA8=&rs=AOn4CLD41YK_c8GrdQENZJa_TwScBN_RWA",
-    "tittle": "Marcha de los estudiantes 5",
+    "title": "Marcha de los estudiantes 5",
     "date": "27 de Febrero de 2024",
     "description": "Marcha de los estudiantes celebrando la independencia Dominicana."
 },{
     "id": 6,
     "img":"https://i.ytimg.com/vi/_XbSBh7AgSQ/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEMgXihlMA8=&rs=AOn4CLD41YK_c8GrdQENZJa_TwScBN_RWA",
-    "tittle": "Marcha de los estudiantes 6",
+    "title": "Marcha de los estudiantes 6",
     "date": "27 de Febrero de 2024",
     "description": "Marcha de los estudiantes celebrando la independencia Dominicana."
 }
