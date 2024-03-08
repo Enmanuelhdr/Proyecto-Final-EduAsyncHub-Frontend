@@ -26,5 +26,19 @@
         "titulo": "Semana Cultural",
         "fecha": "Del 10 al 15 de Junio 2024",
         "descripcion": "Talleres, exposiciones, representaciones teatrales y actividades artísticas."
+    },
+    {
+        "id": 5,
+        "img": "https://media.istockphoto.com/id/1327919661/es/foto/concepto-del-d%C3%ADa-mundial-de-la-tierra-energ%C3%ADa-verde-recursos-renovables-y-sostenibles-cuidado.jpg?s=612x612&w=is&k=20&c=FGDsXvBF0bqBhgcn3cUGpKADOsnLHcBoKiIwD85lzK8=",
+        "titulo": "Día de la Tierra",
+        "fecha": "22 de Abril 2024",
+        "descripcion": "Celebración del Día de la Tierra con actividades relacionadas con la conciencia ambiental, charlas sobre sostenibilidad, limpieza de áreas verdes, entre otras actividades."
+    },
+    {
+        "id": 6,
+        "img": "https://media.istockphoto.com/id/1324561072/es/foto/la-gente-de-la-fiesta-disfruta-del-concierto-en-el-festival-festival-de-m%C3%BAsica-de-verano.jpg?s=612x612&w=is&k=20&c=bdAyKxN8_5SRO6TtYZjb8yOPJfYwutnVWkevv6P_uAs=",
+        "titulo": "Festival de Música",
+        "fecha": "20 de Julio 2024",
+        "descripcion": "Un día lleno de música y diversión con la participación de bandas locales e internacionales, actividades para toda la familia, puestos de comida y más."
     }
 ]
