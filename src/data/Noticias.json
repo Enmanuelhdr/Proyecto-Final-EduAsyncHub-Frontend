@@ -1,26 +1,41 @@
 [
     {
         "id": 1,
-        "name": "Dia del amor y la amistad",
-        "date": "2024-02-14",
-        "description": "El día de San Valentín es una festividad de origen cristiano que se celebra anualmente el 14 de febrero como conmemoración a las buenas obras realizadas por San Valentín de Roma que están relacionadas con el concepto universal del amor y la afectividad."
+        "img":"https://i.ytimg.com/vi/_XbSBh7AgSQ/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEMgXihlMA8=&rs=AOn4CLD41YK_c8GrdQENZJa_TwScBN_RWA",
+        "tittle": "Marcha de los estudiantes 1",
+        "date": "27 de Febrero de 2024",
+        "description": "Marcha de los estudiantes celebrando la independencia Dominicana."
     },
-    {
+ {
         "id": 2,
-        "name": "Dia de la independencia",
-        "date": "2024-09-16",
-        "description": "El Día de la Independencia de México es la festividad cívica más importante de México. Se celebra el 16 de septiembre de cada año y es día festivo en todo el país. Conmemora el inicio de la Guerra de Independencia de México contra el dominio español."
+        "img":"https://i.ytimg.com/vi/_XbSBh7AgSQ/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEMgXihlMA8=&rs=AOn4CLD41YK_c8GrdQENZJa_TwScBN_RWA",
+        "tittle": "Marcha de los estudiantes 2",
+        "date": "27 de Febrero de 2024",
+        "description": "Marcha de los estudiantes celebrando la independencia Dominicana."
     },
-    {
+ {
         "id": 3,
-        "name": "Dia de la revolucion",
-        "date": "2024-11-20",
-        "description": "El Día de la Revolución Mexicana es una festividad cívica de México que se celebra el 20 de noviembre de cada año. Es día festivo en México. Conmemora el aniversario del inicio de la Revolución Mexicana, que comenzó el 20 de noviembre de 1910."
-    },
-    {
+        "img":"https://i.ytimg.com/vi/_XbSBh7AgSQ/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEMgXihlMA8=&rs=AOn4CLD41YK_c8GrdQENZJa_TwScBN_RWA",
+        "tittle": "Marcha de los estudiantes 3",
+        "date": "27 de Febrero de 2024",
+        "description": "Marcha de los estudiantes celebrando la independencia Dominicana."
+ },{
         "id": 4,
-        "name": "Dia de muertos",
-        "date": "2024-11-02",
-        "description": "El Día de Muertos es una celebración mexicana de origen prehispánico que honra a los difuntos el 2 de noviembre, comienza el 1 de noviembre, y coincide con las celebraciones católicas de Día de los Fieles Difuntos y Todos los Santos."
-    }
+        "img":"https://i.ytimg.com/vi/_XbSBh7AgSQ/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEMgXihlMA8=&rs=AOn4CLD41YK_c8GrdQENZJa_TwScBN_RWA",
+        "tittle": "Marcha de los estudiantes 4",
+        "date": "27 de Febrero de 2024",
+        "description": "Marcha de los estudiantes celebrando la independencia Dominicana."
+ },{
+    "id": 5,
+    "img":"https://i.ytimg.com/vi/_XbSBh7AgSQ/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEMgXihlMA8=&rs=AOn4CLD41YK_c8GrdQENZJa_TwScBN_RWA",
+    "tittle": "Marcha de los estudiantes 5",
+    "date": "27 de Febrero de 2024",
+    "description": "Marcha de los estudiantes celebrando la independencia Dominicana."
+},{
+    "id": 6,
+    "img":"https://i.ytimg.com/vi/_XbSBh7AgSQ/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEMgXihlMA8=&rs=AOn4CLD41YK_c8GrdQENZJa_TwScBN_RWA",
+    "tittle": "Marcha de los estudiantes 6",
+    "date": "27 de Febrero de 2024",
+    "description": "Marcha de los estudiantes celebrando la independencia Dominicana."
+}
 ]
