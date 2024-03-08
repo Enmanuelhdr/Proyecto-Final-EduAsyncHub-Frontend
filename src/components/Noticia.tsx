@@ -1,34 +1,34 @@
 import React from 'react';
-import eventos from '../data/Eventos.json'; 
+import noticias from '../data/Noticias.json'; 
 
 interface Props {
   cantidadMostrar: number; 
 }
 
 
-const Evento: React.FC<Props> = ({ cantidadMostrar }) => {
+const Noticia: React.FC<Props> = ({ cantidadMostrar }) => {
   return (
     <>
       <div className="container-fluid">
         <div className="row row-cols-1 row-cols-md-3 row-cols-lg-3 g-4">
-          {eventos.slice(0, cantidadMostrar).map((evento) => (
+          {noticias.slice(0, cantidadMostrar).map((noticia) => (
             <div
               className="col"
-              key={evento.id}
+              key={noticia.id}
               onClick={() => {
-                console.log(evento.id);
+                console.log(noticia.id);
               }}
             >
               <div className="card h-100">
                 <img
                   className="card-img-top"
-                  src={evento.img}
-                  alt="Imagen del evento"
+                  src={noticia.img}
+                  alt="Imagen del noticia"
                 />
                 <div className="card-body">
-                  <div className="fs-6">{evento.date}</div>
-                  <h4 className="card-title">{evento.tittle}</h4>
-                  <p className="card-text">{evento.description}</p>
+                  <div className="fs-6">{noticia.date}</div>
+                  <h4 className="card-title">{noticia.tittle}</h4>
+                  <p className="card-text">{noticia.description}</p>
                 </div>
               </div>
             </div>
@@ -39,4 +39,4 @@ const Evento: React.FC<Props> = ({ cantidadMostrar }) => {
   );
 }
 
-export default Evento;
+export default Noticia;
