@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
+import axios from "axios";
 import Cookies from "universal-cookie";
 import { MdDeleteForever } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
@@ -16,21 +16,20 @@ function TableUser() {
 
   const [temporalUser, setTemporalUser] = useState<User | null>(null);
   const [users, setUsers] = useState<User[]>([]);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null); // Nuevo estado para el mensaje de éxito
-  const [temporalUserName, settemporalUserName] = useState("");
-  const [temporalUserId, settemporalUserId] = useState(0);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [temporalUserName, setTemporalUserName] = useState("");
+  const [temporalUserId, setTemporalUserId] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
   const cookies = new Cookies();
 
   const fetchUsers = async () => {
     try {
       const token = cookies.get("token");
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-
       const response = await axios.get(
         "https://localhost:7152/api/Admin/ObtenerUsuarios"
       );
       setUsers(response.data);
-      
     } catch (error) {
       console.error("Error fetching users:", error);
     }
@@ -39,8 +38,6 @@ function TableUser() {
   useEffect(() => {
     fetchUsers();
   }, []);
-
-  // Eliminar usuario
 
   const deleteUser = (id: number) => {
     axios
@@ -58,22 +55,20 @@ function TableUser() {
       });
   };
 
-
   const editUser = async (editedUser: User) => {
     try {
       const token = cookies.get("token");
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-
       const response = await axios.put(
         "https://localhost:7152/api/Admin/EditarUsuario",
         editedUser
       );
       console.log("Usuario editado con éxito", response);
       fetchUsers();
-      setSuccessMessage("Usuario editado con éxito"); 
+      setSuccessMessage("Usuario editado con éxito");
       setTimeout(() => {
-        setSuccessMessage(null); 
-      }, 3000); 
+        setSuccessMessage(null);
+      }, 3000);
     } catch (error) {
       console.error("Error al editar el usuario:", error);
     }
@@ -90,69 +85,81 @@ function TableUser() {
     }
   };
 
+  const filteredUsers = users.filter((user) =>
+    user.usuarioId.toString().includes(searchTerm)
+  );
+
   return (
-    <div>
-      <h1>Lista de Usuarios</h1>
-      <button onClick={fetchUsers} className="btn btn-primary">
-        <IoReload />
-      </button>
+    <div className="row gap-3">
       {successMessage && (
         <div className="alert alert-success" role="alert">
           {successMessage}
         </div>
       )}
-      <table className="table">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Correo</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr key={user.usuarioId}>
-              <th scope="row">{user.usuarioId}</th>
-              <td>{user.nombre}</td>
-              <td>{user.correoElectronico}</td>
-              <td>
-                
-                {/* Boton de eliminar */}
 
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#modaleliminar"
-                  onClick={() => {
-                    settemporalUserId(user.usuarioId);
-                    settemporalUserName(user.nombre);
-                  }}
-                >
-                  <MdDeleteForever />
-                </button>
+      <div className="d-flex gap-2">
+        <div className="">
+        <button onClick={fetchUsers} className="btn btn-primary ">
+          <IoReload />
+        </button>
+        </div>
+        <input
+          className="form-control mb-3 w-30"
+          type="text"
+          placeholder="Buscar por ID"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
 
-                {/* Boton de editar */}
-
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#modalEdit"
-                  onClick={() => {
-                    handleEditModal(user);
-                  }}
-                >
-                  <FaEdit />
-                </button>
-
-              </td>
+      <div className="table-responsive" style={{ maxHeight: "315px" }}>
+        <table className="table table-striped ">
+          <thead className="table-dark ">
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Acciones</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-
+          </thead>
+          <tbody>
+            {filteredUsers.map((user) => (
+              <tr key={user.usuarioId}>
+                <th scope="row">{user.usuarioId}</th>
+                <td>{user.nombre}</td>
+                <td style={{ maxWidth: "150px", overflow: "hidden", textOverflow: "ellipsis", wordWrap: "break-word" }}>{user.correoElectronico}</td>
+                <td className="d-flex flex-column flex-sm-row gap-1">
+                  {/* Boton de editar */}
+                  <button
+                    type="button"
+                    className="btn btn-success"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalEdit"
+                    onClick={() => {
+                      handleEditModal(user);
+                    }}
+                  >
+                    <FaEdit />
+                  </button>
+                  {/* Boton de eliminar */}
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modaleliminar"
+                    onClick={() => {
+                      setTemporalUserId(user.usuarioId);
+                      setTemporalUserName(user.nombre);
+                    }}
+                  >
+                    <MdDeleteForever />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       {/* Modal para eliminar  */}
       <div
         className="modal fade"
@@ -164,7 +171,7 @@ function TableUser() {
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="modaleliminarLabel">
-                Quieres eliminar este usuario?
+                ¿Quieres eliminar este usuario?
               </h1>
               <button
                 type="button"
@@ -182,19 +189,19 @@ function TableUser() {
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
                 onClick={() => {
-                  settemporalUserId(0);
-                  settemporalUserName("");
+                  setTemporalUserId(0);
+                  setTemporalUserName("");
                 }}
               >
                 Regresar
               </button>
               <button
                 type="button"
-                className="btn btn-primary"
+                className="btn btn-danger"
                 onClick={() => {
                   deleteUser(temporalUserId);
-                  settemporalUserId(0);
-                  settemporalUserName("");
+                  setTemporalUserId(0);
+                  setTemporalUserName("");
                 }}
               >
                 Confirmar
@@ -204,8 +211,8 @@ function TableUser() {
         </div>
       </div>
 
-      {/* Modal para editar */}
 
+      {/* Modal para editar */}
       <div
         className="modal fade"
         id="modalEdit"
@@ -320,7 +327,7 @@ function TableUser() {
               </button>
               <button
                 type="button"
-                className="btn btn-primary"
+                className="btn btn-success"
                 onClick={handleEditSubmit}
               >
                 Guardar Cambios
@@ -329,10 +336,6 @@ function TableUser() {
           </div>
         </div>
       </div>
-
-
-
-
     </div>
   );
 }

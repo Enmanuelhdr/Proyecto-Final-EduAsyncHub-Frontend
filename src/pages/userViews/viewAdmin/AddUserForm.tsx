@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 
 const AddUserForm: React.FC = () => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     nombre: "",
     correoElectronico: "",
     contraseña: "",
     rolID: "1",
-    gradoId: "1", 
-  });
+    gradoId: "1",
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
   const [successMessage, setSuccessMessage] = useState<string | null>(null); // Nuevo estado para el mensaje de éxito
 
   const handleChange = (
@@ -37,16 +39,10 @@ const AddUserForm: React.FC = () => {
       if (response.ok) {
         setSuccessMessage("Usuario añadido correctamente");
         setTimeout(() => {
-          setSuccessMessage(null); 
-        }, 3000); 
+          setSuccessMessage(null);
+        }, 3000);
 
-        setFormData({
-          nombre: "",
-          correoElectronico: "",
-          contraseña: "",
-          rolID: "1",
-          gradoId: "1", 
-        });
+        setFormData(initialFormData); // Restablecer el formulario después de enviar
       } else {
         throw new Error("Error al añadir usuario");
       }
@@ -54,6 +50,10 @@ const AddUserForm: React.FC = () => {
       console.error("Error:", error);
       alert("Error al añadir usuario");
     }
+  };
+
+  const handleClearForm = () => {
+    setFormData(initialFormData);
   };
 
   return (
@@ -78,6 +78,7 @@ const AddUserForm: React.FC = () => {
             required
           />
         </div>
+
         <div className="mb-3">
           <label htmlFor="correoElectronico" className="form-label">
             Correo Electrónico
@@ -111,7 +112,7 @@ const AddUserForm: React.FC = () => {
             Rol
           </label>
           <select
-            className="form-select"
+            className="form-select mb-3"
             name="rolID"
             id="rolID"
             value={formData.rolID}
@@ -128,8 +129,8 @@ const AddUserForm: React.FC = () => {
           </label>
           <select
             className="form-select"
-            name="gradoId" 
-            id="gradoId" 
+            name="gradoId"
+            id="gradoId"
             value={formData.gradoId}
             onChange={handleChange}
             required
@@ -148,9 +149,18 @@ const AddUserForm: React.FC = () => {
             <option value="12">Sexto de Secundaria</option>
           </select>
         </div>
-        <button type="submit" className="btn btn-primary">
-          Añadir Usuario
-        </button>
+        <div className="d-flex gap-2 row mb-3">
+          <button type="submit" className="btn btn-primary ">
+            Añadir Usuario
+          </button>
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={handleClearForm}
+          >
+            Limpiar Campos
+          </button>
+        </div>
       </form>
     </div>
   );
