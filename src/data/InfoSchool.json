@@ -1,0 +1,69 @@
+[
+    {
+        "aboutUs": {
+            "imgAboutUs": "https://fundacion-nph.org/wp-content/uploads/2023/01/escuela-republica-dominicana.jpg",
+            "content": [
+                "Somos una escuela comprometida con la excelencia educativa y arraigada en la rica historia y cultura de la República Dominicana. Guiados por una visión moderna, abrazamos las últimas tendencias pedagógicas y tecnológicas para preparar a nuestros estudiantes para un mundo en constante cambio.",
+                "Nuestra comunidad educativa se caracteriza por su diversidad y respeto mutuo, creando un ambiente enriquecedor donde cada estudiante puede alcanzar su máximo potencial."
+
+            ]
+        }
+        ,
+        "history": {
+            "imgHistory": "https://upload.wikimedia.org/wikipedia/commons/0/06/Dominican_Republic_People.JPG",
+            "content": [
+                "En el corazón de la vibrante República Dominicana, nace nuestra querida institución educativa: la Escuela Lumina. Fundada hace más de tres décadas por un grupo de visionarios educadores, la Escuela Lumina se ha convertido en un faro de excelencia académica y compromiso con el desarrollo integral de cada estudiante.",
+                "Desde nuestros inicios, nos hemos dedicado a fusionar la rica historia y cultura de nuestra nación con una visión moderna y progresista. En la Escuela Lumina, abrazamos las últimas tendencias pedagógicas y tecnológicas para preparar a nuestros estudiantes para un mundo en constante cambio."
+            ]
+        },
+        "mission": "Nuestra misión es proporcionar una educación de calidad...",
+        "imgMission": "https://royalarcadenorwich.co.uk/wp-content/uploads/2017/07/200x200.png",
+        "vision": "Ser reconocidos como líderes en la formación de...",
+        "imgVision": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png",
+        "values": ["Excelencia", "Integridad", "Respeto", "Innovación"],
+        "programs": [
+            {
+                "id": 1,
+                "program": "Bachillerato en Ciencias",
+                "imgProgram": "https://i.pinimg.com/564x/1f/87/b2/1f87b29a2df46100a75aa86b170a21cb.jpg"
+            },
+            {
+                "id": 2,
+                "program": "Bachillerato en Humanidades",
+                "imgProgram": "https://i.pinimg.com/564x/71/53/42/71534272bed1723803fe85452b147ecf.jpg" 
+            },
+            {
+                "id": 3,
+                "program": "Bachillerato en Artes",
+                "imgProgram": "https://i.pinimg.com/564x/08/5b/e7/085be7b941421f0493e0270784eb5495.jpg" 
+            }
+        ],
+        "niveles": [
+            {
+                "nombre": "Inicial",
+                "imagen": "https://i.pinimg.com/564x/16/86/d7/1686d7c544f8ba7843824e11354e67ae.jpg",
+                "color": "bg-primary",
+                "descripcion": "Nivel inicial para los más pequeños."
+            },
+            {
+                "nombre": "Primario",
+                "imagen": "https://www.elsoldelcentro.com.mx/local/9ezth4-alumnos-estudiantes-salondeclases/ALTERNATES/LANDSCAPE_768/Alumnos-Estudiantes-SalonDeClases",
+                "color": "bg-success",
+                "descripcion": "Nivel primario para los primeros años de escolaridad."
+            },
+            {
+                "nombre": "Secundario",
+                "imagen": "https://i.pinimg.com/564x/a7/2c/5d/a72c5d305888d2470e6a14e72c6d3b9c.jpg",
+                "color": "bg-warning",
+                "descripcion": "Nivel secundario para los últimos años de escolaridad."
+            }
+        ],
+        "imgNiveles": "https://fard.mil.do/wp-content/uploads/2023/01/img-20230129-wa0043-1280x853.jpg",
+        "contactInfo": {
+            "address": "123 Calle Principal, Ciudad",
+            "phone": "(123) 456-7890",
+            "email": "info@escuela.com",
+            "imagContact": ""
+        }
+    }
+]
