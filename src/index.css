@@ -1,7 +1,66 @@
 .carousel-inner {
-    max-height: 800px; 
-  }
-  .carousel-item {
+  max-height: 800px; 
+}
   
-    object-fit: cover; 
-  }
+.carousel-item {
+  object-fit: cover; 
+}
+
+.display-7::after {
+  content: ''; /* Añade un elemento después del texto */
+  display: block; /* Permite aplicar estilos de bloque */
+  width: 100px; /* Longitud de la línea */
+  border-bottom: 3px solid #007bff; /* Estilo de la línea */
+  margin-top: 10px; /* Espacio entre el título y la línea */
+}
+
+.align-items-stretch {
+  align-items: stretch !important;
+}
+
+.card-cover {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap:normal;
+  background-clip: border-box;
+}
+
+.mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.bg-image {
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  transition: all 0.3s;
+}
+
+.hover-zoom:hover img {
+  transform: scale(1.1);
+  transition: transform 0.5s ease;
+}
