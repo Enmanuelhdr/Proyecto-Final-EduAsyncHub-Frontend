@@ -14,7 +14,7 @@ function ButtonLogout() {
     
   return (
     <>
-  <Link to={"/"} onClick={()=>{logout();location.reload()} }className="dropdown-item text-light" style={{backgroundColor: 'transparent'}}>Log Out</Link>
+  <Link to={"/"} onClick={()=>{logout();location.reload()} }className="dropdown-item text-danger" style={{backgroundColor: 'transparent'}}>Log Out</Link>
 
 
   </>
