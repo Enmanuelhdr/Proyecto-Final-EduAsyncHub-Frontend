@@ -5,9 +5,12 @@ import MisionVisionValores from "./MisionVisionValores";
 import Programas from "./Programas";
 import Niveles from "./Niveles";
 import ContactUs from "./ContactUs";
+import NavBar from "./NavBar";
 
 function InfoSchool() {
   return (
+    <>
+    <NavBar/>
     <div className="school-info">
 
       {/* Quienes somos */}
@@ -32,6 +35,7 @@ function InfoSchool() {
       
 
     </div>
+    </>
   );
 }
 
