@@ -67,7 +67,7 @@ function NavBar() {
                   ) : (
                     <Link
                       to="/login"
-                      className="dropdown-item text-light"
+                      className="dropdown-item text-primary"
                       style={{ backgroundColor: "transparent" }}
                     >
                       Acceder
