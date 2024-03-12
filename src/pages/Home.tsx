@@ -4,9 +4,11 @@ import Eventos from "../components/Evento";
 import Noticias from "../components/Noticia";
 import ButtonRuta from "../components/ButtonRuta";
 function Home() {
+
+
   return (
     <>
-      <NavBar />
+      <NavBar   />
       <div className="pt-3">
         <Carousel />
       </div>
