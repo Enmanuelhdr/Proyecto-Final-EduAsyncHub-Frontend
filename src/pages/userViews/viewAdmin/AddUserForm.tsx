@@ -64,7 +64,7 @@ const AddUserForm: React.FC = () => {
         </div>
       )}
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
+        <div className="form-group">
           <label htmlFor="nombre" className="form-label">
             Nombre
           </label>
@@ -77,9 +77,9 @@ const AddUserForm: React.FC = () => {
             onChange={handleChange}
             required
           />
-        </div>
+      
 
-        <div className="mb-3">
+      
           <label htmlFor="correoElectronico" className="form-label">
             Correo Electrónico
           </label>
@@ -92,8 +92,7 @@ const AddUserForm: React.FC = () => {
             onChange={handleChange}
             required
           />
-        </div>
-        <div className="mb-3">
+ 
           <label htmlFor="contraseña" className="form-label">
             Contraseña
           </label>
@@ -106,8 +105,7 @@ const AddUserForm: React.FC = () => {
             onChange={handleChange}
             required
           />
-        </div>
-        <div className="mb-3">
+
           <label htmlFor="rolID" className="form-label">
             Rol
           </label>
@@ -149,7 +147,8 @@ const AddUserForm: React.FC = () => {
             <option value="12">Sexto de Secundaria</option>
           </select>
         </div>
-        <div className="d-flex gap-2 row mb-3">
+
+        <div className="form-group d-flex gap-2 mb-3 mt-4 justify-content-center">
           <button type="submit" className="btn btn-primary ">
             Añadir Usuario
           </button>
@@ -160,6 +159,7 @@ const AddUserForm: React.FC = () => {
           >
             Limpiar Campos
           </button>
+
         </div>
       </form>
     </div>
