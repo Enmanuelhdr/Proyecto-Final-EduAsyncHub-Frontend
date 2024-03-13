@@ -9,17 +9,17 @@ function Home() {
   return (
     <>
       <NavBar   />
-      <div className="pt-3">
+      <div className="">
         <Carousel />
       </div>
 
-      <div className=" pt-5 d-flex flex-column justify-content-center align-items-center gap-3 pb-5">
+      <div className=" container pt-5  d-flex flex-column justify-content-center align-items-center gap-3 ">
         <h3>Eventos</h3>
         <Eventos cantidadMostrar={3} />
         <ButtonRuta path="/eventos" text="Ver todos los eventos" className="btn btn-primary" />
       </div>
 
-      <div className=" pt-5 d-flex flex-column justify-content-center align-items-center gap-3 pb-5">
+      <div className="container pt-5 d-flex flex-column justify-content-center align-items-center gap-3 pb-5">
         <h3>Noticias</h3>
         <Noticias cantidadMostrar={3} />
         <ButtonRuta path="/noticias" text="Ver todas las noticias" className="btn btn-primary" />
