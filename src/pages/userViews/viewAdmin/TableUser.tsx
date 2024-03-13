@@ -130,6 +130,7 @@ function TableUser() {
                 <td style={{ maxWidth: "150px", overflow: "hidden", textOverflow: "ellipsis", wordWrap: "break-word" }}>{user.correoElectronico}</td>
                 <td className="d-flex flex-column flex-sm-row gap-1">
                   {/* Boton de editar */}
+             
                   <button
                     type="button"
                     className="btn btn-success"
@@ -144,7 +145,7 @@ function TableUser() {
                   {/* Boton de eliminar */}
                   <button
                     type="button"
-                    className="btn btn-danger"
+                    className="btn btn-danger "
                     data-bs-toggle="modal"
                     data-bs-target="#modaleliminar"
                     onClick={() => {

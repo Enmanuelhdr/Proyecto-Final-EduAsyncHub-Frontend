@@ -6,7 +6,7 @@ function DashboardAdmin() {
   return (
     <>
       <NavBarAdmin />
-      <div className="container-fluid row gap-5 justify-content-between justify-content-md-center align-itemns-md-center justify-content-center w-full ">
+      <div className="p-3 row gap-5 justify-content-between justify-content-md-center align-itemns-md-center justify-content-center w-full ">
         <div className="col-lg-3 col-md-9">
           <AddUserForm />
         </div>
