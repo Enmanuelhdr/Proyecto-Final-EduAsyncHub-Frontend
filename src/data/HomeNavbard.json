@@ -1,5 +1,9 @@
 [
     {
+    "brand":"EduAsyncHub",
+    "goto":"/"
+    },
+    {
         "name": "Noticias",
         "url": "/noticias"
     },
