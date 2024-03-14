@@ -9,7 +9,7 @@ function Home() {
 
   return (
     <>
-      <NavBar  navData={Navbardata} />
+      <NavBar  brand="EduAsyncHub" goto="/" navData={Navbardata} />
       <div className="">
         <Carousel />
       </div>

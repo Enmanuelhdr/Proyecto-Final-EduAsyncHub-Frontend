@@ -5,17 +5,18 @@ import { FaRegUserCircle } from "react-icons/fa";
 import ButtonLogout from "./ButtonLogout";
 
 interface NavItem {
-  brand: string;
-  goto: string;
   name: string;
   url: string;
 }
 
 interface NavBarProps {
+  brand: string;
+  goto: string;
   navData: NavItem[];
 }
 
-const NavBar: React.FC<NavBarProps> = ({ navData }) => {
+function NavBar(props: NavBarProps) {
+  const { brand, goto, navData } = props;
   const cookies = new Cookies();
   const [isLogged, setIsLogged] = useState(false);
 
@@ -41,8 +42,8 @@ const NavBar: React.FC<NavBarProps> = ({ navData }) => {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <Link to={navData[0].goto} className="navbar-brand">
-              {navData[0].brand}
+            <Link to={goto} className="navbar-brand">
+              {brand}
             </Link>
 
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -91,6 +92,6 @@ const NavBar: React.FC<NavBarProps> = ({ navData }) => {
       </nav>
     </>
   );
-};
+}
 
 export default NavBar;
