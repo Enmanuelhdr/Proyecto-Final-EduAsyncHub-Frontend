@@ -3,12 +3,13 @@ import Carousel from "../components/Carousel";
 import Eventos from "../components/Evento";
 import Noticias from "../components/Noticia";
 import ButtonRuta from "../components/ButtonRuta";
+import Navbardata from "../data/HomeNavbard.json";
 function Home() {
 
 
   return (
     <>
-      <NavBar   />
+      <NavBar  brand="EduAsyncHub" goto="/" navData={Navbardata} />
       <div className="">
         <Carousel />
       </div>

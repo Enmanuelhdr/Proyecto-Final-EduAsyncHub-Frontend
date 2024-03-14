@@ -1,17 +1,28 @@
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Navbardata from "../data/HomeNavbard.json";
 import Cookies from "universal-cookie";
-import { useEffect, useState } from "react";
 import { FaRegUserCircle } from "react-icons/fa";
 import ButtonLogout from "./ButtonLogout";
 
-function NavBar() {
-  const cookies = new Cookies();
+interface NavItem {
+  name: string;
+  url: string;
+}
 
+interface NavBarProps {
+  brand: string;
+  goto: string;
+  navData: NavItem[];
+}
+
+function NavBar(props: NavBarProps) {
+  const { brand, goto, navData } = props;
+  const cookies = new Cookies();
   const [isLogged, setIsLogged] = useState(false);
+
   useEffect(() => {
     const token = cookies.get("token");
-    setIsLogged(!!token); 
+    setIsLogged(!!token);
   }, []);
 
   return (
@@ -31,13 +42,13 @@ function NavBar() {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <Link to="/" className="navbar-brand">
-              EduAsyncHub
+            <Link to={goto} className="navbar-brand">
+              {brand}
             </Link>
 
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              {Navbardata.map((data) => (
-                <li className="nav-item" key={data.name}>
+              {navData.map((data, index) => (
+                <li className="nav-item" key={index}>
                   <Link to={data.url} className="nav-link">
                     {data.name}
                   </Link>
