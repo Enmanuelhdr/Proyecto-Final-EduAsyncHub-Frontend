@@ -6,6 +6,7 @@ import DashboardStudent from "./pages/userViews/viewStudent/DashboardStudent";
 import DashboardTeacher from "./pages/userViews/viewTeacher/DashboardTeacher";
 import Noticias from "./pages/Noticias";
 import Eventos from "./pages/Eventos";
+import Nosotros from "./pages/Nosotros";
 import NotFound from "./pages/NotFound";
 import Cookies from "universal-cookie";
 import { useState } from "react";
@@ -45,6 +46,7 @@ function Rutas() {
         <Route path="/login" element={<ApiLogin updateUserRole={updateUserRole} />} />
         <Route path="/noticias" element={<Noticias />} />
         <Route path="/eventos" element={<Eventos />} />
+        <Route path="/nosotros" element={<Nosotros />}/>
 
         {/* Rutas privadas */}
         <Route element={(isAuthenticated("Administrador", "/login"))}>

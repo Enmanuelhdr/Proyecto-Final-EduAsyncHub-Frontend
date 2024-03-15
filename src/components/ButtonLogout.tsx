@@ -7,13 +7,14 @@ function ButtonLogout() {
     const logout=()=>{
         cookies.remove("token")
         cookies.remove("userRole")
+        cookies.remove("userId")
         window.localStorage.removeItem("youare")
         
     }
     
   return (
     <>
-  <Link to={"/"} onClick={logout} className="text-white bg-primary p-2 rounded-sm">Log Out</Link>
+  <Link to={"/"} onClick={()=>{logout();location.reload()} }className="dropdown-item text-danger" style={{backgroundColor: 'transparent'}}>Log Out</Link>
 
 
   </>
