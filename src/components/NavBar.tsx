@@ -74,7 +74,16 @@ function NavBar(props: NavBarProps) {
               >
                 <li>
                   {isLogged ? (
+                    <>
+                    <Link
+                      to={`/dashboard${cookies.get("userRole")}`}
+                      className="dropdown-item text-primary"
+                      style={{ backgroundColor: "transparent" }}
+                    >
+                      Dashboard
+                    </Link>
                     <ButtonLogout />
+                    </>
                   ) : (
                     <Link
                       to="/login"

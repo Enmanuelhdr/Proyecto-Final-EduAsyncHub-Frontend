@@ -51,17 +51,17 @@ function Rutas() {
         {/* Rutas privadas */}
         <Route element={(isAuthenticated("Administrador", "/login"))}>
         
-          <Route path="/dashboardadmin" element={<DashboardAdmin />} />
+          <Route path="/dashboardAdministrador" element={<DashboardAdmin />} />
         </Route>
 
 
         <Route element={(isAuthenticated("Estudiante", "/login"))}>
-          <Route path="/dashboardstudent" element={<DashboardStudent />} />
+          <Route path="/dashboardEstudiante" element={<DashboardStudent />} />
         </Route>
 
 
         <Route element={(isAuthenticated("Profesor", "/login"))}>
-          <Route path="/dashboardteacher" element={<DashboardTeacher />} />
+          <Route path="/dashboardProfesor" element={<DashboardTeacher />} />
         </Route>
       </Routes>
 
