@@ -27,7 +27,7 @@ function NavBar(props: NavBarProps) {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-5 pb-3">
+      <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark mb-5 pb-3">
         <div className="container-fluid">
           <button
             className="navbar-toggler"
