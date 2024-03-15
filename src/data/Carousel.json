@@ -2,21 +2,21 @@
     {
         "id":1,
         "name":"Imagen1",
-        "img":"https://images.unsplash.com/photo-1553774651-905c1bc85a56?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        "img":"https://presidencia.gob.do/sites/default/files/styles/large/public/news/2022-11/Escuela%20dominicana%20%282%29.jpg?itok=hYvfZSms"
     },
     {
         "id":2,
         "name":"Imagen2",
-        "img":"https://images.unsplash.com/photo-1553949345-eb786bb3f7ba?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        "img":"https://lh3.googleusercontent.com/proxy/wb_i95vXAbIeBJM2jpgYuhvZeybnpMtkkCtyGw-WrbCI_qS0v1JSu3_FLlj3SU2ucL4Ycy_CLBWbsqHQ-_N42hDsq9he34YLMemvyCC4xlor4yJFUPiKvm8584Y"
     },
     {
         "id":3,
         "name":"Imagen3",
-        "img":"https://images.unsplash.com/photo-1553649033-3fbc8d0fa3cb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        "img":"https://almomento.net/wp-content/uploads/2022/01/980b0bd3-se-preparan-6144cc3be3912-2.png"
     },
     {
         "id":4,
         "name":"Imagen4",
-        "img":"https://images.unsplash.com/photo-1553901753-215db344677a?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        "img":"https://colorvision.com.do/wp-content/uploads/2021/02/destacada-color-vision-2-26.jpg"
     }
 ]
