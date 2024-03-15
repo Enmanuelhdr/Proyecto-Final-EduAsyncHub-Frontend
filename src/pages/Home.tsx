@@ -4,6 +4,7 @@ import Eventos from "../components/Evento";
 import Noticias from "../components/Noticia";
 import ButtonRuta from "../components/ButtonRuta";
 import Navbardata from "../data/HomeNavbard.json";
+import Footer from "../components/Footer";
 function Home() {
 
 
@@ -25,6 +26,8 @@ function Home() {
         <Noticias cantidadMostrar={3} />
         <ButtonRuta path="/noticias" text="Ver todas las noticias" className="btn btn-primary" />
       </div>
+
+      <Footer />
     </>
   );
 }
