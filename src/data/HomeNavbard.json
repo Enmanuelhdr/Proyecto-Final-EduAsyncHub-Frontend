@@ -6,6 +6,10 @@
     {
         "name": "Eventos",
         "url": "/eventos"
+    },
+    {
+        "name":"Nosotros",
+        "url":"/nosotros"
     }
    
 ]
