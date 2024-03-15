@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Carouseldata from "../data/Carousel.json";
-
+import { FcPrevious } from "react-icons/fc";
+import { FcNext } from "react-icons/fc";
 function Carousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -26,12 +27,12 @@ function Carousel() {
             </div>
           ))}
         </div>
-        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev" onClick={prevSlide}>
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <button className="carousel-control-prev " type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev" onClick={prevSlide}>
+        <FcPrevious className='fs-1'/>
           <span className="visually-hidden">Previous</span>
         </button>
         <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next" onClick={nextSlide}>
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <FcNext className='fs-1'/>
           <span className="visually-hidden">Next</span>
         </button>
       </div>
