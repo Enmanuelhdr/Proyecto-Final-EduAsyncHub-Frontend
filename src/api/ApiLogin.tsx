@@ -22,13 +22,13 @@ const cookies = new Cookies()
     clearFields();
     switch (roleId) {
       case "Estudiante":
-        navigate("/dashboardstudent");
+        navigate("/dashboardEstudiante");
         break;
       case "Profesor":
-        navigate("/dashboardteacher");
+        navigate("/dashboardProfesor");
         break;
       case "Administrador":
-        navigate("/dashboardadmin");
+        navigate("/dashboardAdministrador");
         break;
       default:
         navigate("/login");
