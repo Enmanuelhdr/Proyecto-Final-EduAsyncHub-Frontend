@@ -1,6 +1,6 @@
 import React from 'react';
 import noticias from '../data/Noticias.json'; 
-
+import { Link } from 'react-router-dom';
 interface Props {
   cantidadMostrar: number; 
 }
@@ -12,7 +12,7 @@ const Noticia: React.FC<Props> = ({ cantidadMostrar }) => {
       <div className="container-fluid">
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 d-flex justify-content-center align-items-center">
           {noticias.slice(0, cantidadMostrar).map((noticia) => (
-            <div
+             <Link to={`/noticias/${noticia.id}`}>  <div
               className="col"
               style={{
                 height: "300px",
@@ -37,6 +37,7 @@ const Noticia: React.FC<Props> = ({ cantidadMostrar }) => {
                 </div>
               </div>
             </div>
+            </Link>
           ))}
         </div>
       </div>
