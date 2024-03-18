@@ -1,5 +1,6 @@
 
 import ButtonRuta from '../../../components/ButtonRuta';
+import Footer from '../../../components/Footer';
 import NavBar from '../../../components/NavBar';
 import eventos from '../../../data/Eventos.json';
 import Navbardata from '../../../data/HomeNavbard.json';
@@ -28,6 +29,8 @@ function EventoView() {
         <p>{evento.description}</p>
         {/* Add more event details as needed */}
       </div>
+
+      <Footer />
       </>
     );
   }
