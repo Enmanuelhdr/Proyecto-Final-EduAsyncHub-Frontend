@@ -1,5 +1,6 @@
 import React from 'react';
 import eventos from '../data/Eventos.json'; 
+import { Link } from 'react-router-dom';
 
 interface Props {
   cantidadMostrar: number; 
@@ -12,7 +13,7 @@ const Evento: React.FC<Props> = ({ cantidadMostrar }) => {
       <div className="container-fluid">
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 d-flex justify-content-center align-items-center">
           {eventos.slice(0, cantidadMostrar).map((evento) => (
-            <div
+           <Link to={`/eventos/${evento.id}`}>  <div
               className="col"
               style={{
                 height: "300px",
@@ -32,11 +33,12 @@ const Evento: React.FC<Props> = ({ cantidadMostrar }) => {
                 />
                 <div className="mask d-flex flex-column h-100 align-items-center text-center justify-content-center p-5 pb-3 " style={{backgroundColor: 'hsla(0, 0%, 0%, 0.6)'}}>
                   <div className="fs-6 text-white overflow-hidden">{evento.date}</div>
-                  <h4 className="fw-bold text-white mb-4">{evento.title}</h4>
+                 <h4 className="fw-bold text-white mb-4">{evento.title}</h4>
                   <p className="text-white overflow-hidden">{evento.description}</p>
                 </div>
               </div>
             </div>
+            </Link>
           ))}
         </div>
       </div>
