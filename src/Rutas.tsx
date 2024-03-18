@@ -8,8 +8,10 @@ import Noticias from "./pages/Noticias";
 import Eventos from "./pages/Eventos";
 import Nosotros from "./pages/Nosotros";
 import NotFound from "./pages/NotFound";
+import EventoView from "./pages/userViews/views/EventoView"
 import Cookies from "universal-cookie";
 import { useState } from "react";
+import NoticiaView from "./pages/userViews/views/NoticiaView";
 
 function Rutas() {
   const cookies = new Cookies();
@@ -47,6 +49,8 @@ function Rutas() {
         <Route path="/noticias" element={<Noticias />} />
         <Route path="/eventos" element={<Eventos />} />
         <Route path="/nosotros" element={<Nosotros />}/>
+        <Route path="/eventos/:id" element={<EventoView />} />
+        <Route path="/noticias/:id" element={<NoticiaView />} />
 
         {/* Rutas privadas */}
         <Route element={(isAuthenticated("Administrador", "/login"))}>
