@@ -1,5 +1,7 @@
 [
     {
+        "nameSchool": "Centro Educativo Mister Crystal",
+        "typeSchool": "una escuela pública",
         "aboutUs": {
             "imgAboutUs": "https://fundacion-nph.org/wp-content/uploads/2023/01/escuela-republica-dominicana.jpg",
             "content": [
