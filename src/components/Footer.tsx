@@ -1,120 +1,70 @@
 import { FaFacebook } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
-import { FaGraduationCap } from "react-icons/fa6";
+import  ImagenEstudiante from "../img/student.webp"
 import { FaGithub } from "react-icons/fa6";
-
+import ButtonRuta from "./ButtonRuta";
 
 function Footer() {
   return (
     <>
-      <footer className="page-footer shadow bg-dark p-5">
-        <div className="d-flex flex-column mx-auto py-5">
-          <div className="d-flex flex-wrap justify-content-between">
-            <div>
-              <a href="/" className="d-flex align-items-center p-0 text-white">
-               
-                <FaGraduationCap />
-                <span className="ms-3 h5 font-weight-bold">EduAsyncHub</span>
+      <footer className=" footer p-2 mt-auto bg-dark text-white d-flex flex-column  ">
+        <div className="container-fluid row p-0 m-0 gap-4">
+         
+         
+            <div className="col-12 col-md-4  d-flex justify-content-center ">
+              <a href="/">
+               <img src={ImagenEstudiante} alt="Imagen estudiantes" className="img-fluid" />
               </a>
-              <p className="my-3 pb-3 text-white">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti fugiat ut modi nemo laboriosam ex aliquam atque nostrum? Ut, deleniti! Corrupti, molestias?
-              </p>
-              <div className="container d-flex justify-content-between mb-4 border-dark shadow-lg p-2  rounded w-50">
-                <a
-                  data-mdb-ripple-init
-                  className="btn btn-outline btn-dark btn-floating m-1 text-white fs-3 "
-                  href="#!"
-                  role="button"
-                >
+            </div>
+            
+            <div className="col-12 col-md-4 ">
+          
+
+            <div className="d-flex flex-column justify-content-center">
+              <h3 className="d-flex justify-content-center">Contacto</h3>
+              <div className="container-fluid d-flex flex-column justify-content-center">
+                <p>E2 first floor, Church COmpound</p>
+                <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Dolores, voluptatum.
+                </p>
+                <p>Email: colegiomrcrystal@gmail.com</p>
+                <p>Phone: 123-456-7890</p>
+              </div>
+
+              <div className="d-flex justify-content-center gap-4">
+                <a href="https://www.facebook.com/">
                   <FaFacebook />
                 </a>
-
-                <a
-                  data-mdb-ripple-init
-                  className="btn btn-outline btn-dark btn-floating m-1 text-white fs-3 "
-                  href="#!"
-                  role="button"
-                >
-                <AiFillInstagram />
-                </a>    <a
-                  data-mdb-ripple-init
-                  className="btn btn-outline btn-dark btn-floating m-1 text-white fs-3 "
-                  href="#!"
-                  role="button"
-                >
+                <a href="https://www.instagram.com/">
+                  <AiFillInstagram />
+                </a>
+                <a href="https://www.github.com/">
                   <FaGithub />
                 </a>
               </div>
-            </div>
-            <div>
-              <p className="h5 mb-4 text-white">Help</p>
-              <ul className="p-0">
-                <li className="my-2">
-                  <a className="text-white" href="/">
-                    Resources
-                  </a>
-                </li>
-                <li className="my-2">
-                  <a className="text-white" href="/">
-                    About Us
-                  </a>
-                </li>
-                <li className="my-2">
-                  <a className="text-white" href="/">
-                    Contact
-                  </a>
-                </li>
-                <li className="my-2">
-                  <a className="text-white" href="/">
-                    Blog
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p className="h5 mb-4 text-white">Help</p>
-              <ul className="p-0">
-                <li className="my-2">
-                  <a className="text-white" href="/">
-                    Support
-                  </a>
-                </li>
-                <li className="my-2">
-                  <a className="text-white" href="/">
-                    Sign Up
-                  </a>
-                </li>
-                <li className="my-2">
-                  <a className="text-white" href="/">
-                    Sign In
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p className="h5 mb-4 text-white">Help</p>
-              <ul className="p-0">
-                <li className="my-2">
-                  <a className="text-white" href="/">
-                    Support
-                  </a>
-                </li>
-                <li className="my-2">
-                  <a className="text-white" href="/">
-                    Sign Up
-                  </a>
-                </li>
-                <li className="my-2">
-                  <a className="text-white" href="/">
-                    Sign In
-                  </a>
-                </li>
-              </ul>
-            </div>
+              </div>
+          
+            
           </div>
-          <small className="text-center mt-5 text-white">
-            &copy; EduAsyncHub, 2024. All rights reserved.
-          </small>
+
+          <div className="col-12 col-md-2 d-flex flex-column justify-content-center ">
+            <h3 className="">Spread</h3>
+            <p className="">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+              cumque quo perspiciatis doloremque voluptate error quos nostrum
+              aspernatur, beatae distinctio quidem ea. Fugiat!
+            </p>
+            <ButtonRuta
+              path="/nosotros"
+              text="Acerca de nosotros"
+              className="btn btn-primary"
+            />
+          </div>
+        </div>
+
+        <div className="d-flex justify-content-center align-items-center">
+          <p>&copy; 2024 MRCrystal. All rights reserved.</p>
         </div>
       </footer>
     </>
