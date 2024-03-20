@@ -26,7 +26,7 @@ const AddUserForm: React.FC = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `https://localhost:7152/api/User/RegistrarUsuarios?gradoId=${formData.gradoId}`,
+        `http://www.eduasynchub.somee.com/api/User/RegistrarUsuarios?gradoId=${formData.gradoId}`,
         {
           method: "POST",
           headers: {
