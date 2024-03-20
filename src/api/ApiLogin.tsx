@@ -40,7 +40,7 @@ const cookies = new Cookies()
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://localhost:7152/api/User/LoguearUsuarios",
+        "http://www.eduasynchub.somee.com/api/User/LoguearUsuarios",
         { correoElectronico: email, contraseña: password }
       );
   
