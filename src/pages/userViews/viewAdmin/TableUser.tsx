@@ -3,6 +3,7 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import { MdDeleteForever } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
+import { FaRegEye } from "react-icons/fa";
 import { IoReload } from "react-icons/io5";
 
 function TableUser() {
@@ -19,7 +20,9 @@ function TableUser() {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [temporalUserName, setTemporalUserName] = useState("");
   const [temporalUserId, setTemporalUserId] = useState(0);
+  const [temporalUserEmail, setTemporalUserEmail] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const [viewModalOpen, setViewModalOpen] = useState(false);
   const cookies = new Cookies();
 
   const fetchUsers = async () => {
@@ -87,7 +90,11 @@ function TableUser() {
 
   const filteredUsers = users.filter((user) =>
     user.usuarioId.toString().includes(searchTerm)
+    
   );
+
+ 
+
 
   return (
     <div className="row gap-3">
@@ -99,9 +106,9 @@ function TableUser() {
 
       <div className="d-flex gap-2">
         <div className="">
-        <button onClick={fetchUsers} className="btn btn-primary ">
-          <IoReload />
-        </button>
+          <button onClick={fetchUsers} className="btn btn-primary ">
+            <IoReload />
+          </button>
         </div>
         <input
           className="form-control mb-3 w-30"
@@ -110,6 +117,8 @@ function TableUser() {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
+
+
       </div>
 
       <div className="table-responsive" style={{ maxHeight: "315px" }}>
@@ -118,7 +127,6 @@ function TableUser() {
             <tr>
               <th scope="col">Id</th>
               <th scope="col">Nombre</th>
-              <th scope="col">Correo</th>
               <th scope="col">Acciones</th>
             </tr>
           </thead>
@@ -127,10 +135,25 @@ function TableUser() {
               <tr key={user.usuarioId}>
                 <th scope="row">{user.usuarioId}</th>
                 <td>{user.nombre}</td>
-                <td style={{ maxWidth: "150px", overflow: "hidden", textOverflow: "ellipsis", wordWrap: "break-word" }}>{user.correoElectronico}</td>
                 <td className="d-flex flex-column flex-sm-row gap-1">
+                  {/* Boton de ver */}
+                  <button
+                    type="button"
+                    className="btn btn-info text-white"
+                    data-bs-toggle="modal"
+                    data-bs-target="#viewModal"
+                    onClick={() => {
+                      setTemporalUserId(user.usuarioId);
+                      setTemporalUserName(user.nombre);
+                      setTemporalUserEmail(user.correoElectronico);
+                      setViewModalOpen(true);
+                      console.log(viewModalOpen);
+                    }}
+                  >
+                    <FaRegEye />
+                  </button>
                   {/* Boton de editar */}
-             
+
                   <button
                     type="button"
                     className="btn btn-success"
@@ -161,6 +184,57 @@ function TableUser() {
           </tbody>
         </table>
       </div>
+
+      {/* Modal para ver */}
+      <div
+        className="modal fade"
+        id="viewModal"
+        aria-labelledby="viewModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="viewModalLabel">
+                Datos del usuario
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                onClick={() => {
+                  setTemporalUserId(0);
+                  setTemporalUserName("");
+                  setTemporalUserEmail("");
+                  setViewModalOpen(false);
+                }}
+              ></button>
+            </div>
+            <div className="modal-body">
+              <p>{temporalUserId}</p>
+              <p>{temporalUserName}</p>
+              <p>{temporalUserEmail}</p>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+                onClick={() => {
+                  setTemporalUserId(0);
+                  setTemporalUserName("");
+                  setTemporalUserEmail("");
+                  setViewModalOpen(false);
+                }}
+              >
+                Regresar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Modal para eliminar  */}
       <div
         className="modal fade"
@@ -199,6 +273,7 @@ function TableUser() {
               <button
                 type="button"
                 className="btn btn-danger"
+                data-bs-dismiss="modal"
                 onClick={() => {
                   deleteUser(temporalUserId);
                   setTemporalUserId(0);
@@ -211,7 +286,6 @@ function TableUser() {
           </div>
         </div>
       </div>
-
 
       {/* Modal para editar */}
       <div
@@ -292,6 +366,7 @@ function TableUser() {
                         })
                       }
                     />
+                    
                   </div>
                   <div className="mb-3">
                     <label htmlFor="rolID" className="form-label">
@@ -329,6 +404,7 @@ function TableUser() {
               <button
                 type="button"
                 className="btn btn-success"
+                data-bs-dismiss="modal"
                 onClick={handleEditSubmit}
               >
                 Guardar Cambios
