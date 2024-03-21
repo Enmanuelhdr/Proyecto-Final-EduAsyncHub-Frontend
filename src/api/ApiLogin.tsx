@@ -69,7 +69,7 @@ const cookies = new Cookies()
         <div className="text-white p-4">
           <h1 className="mb-4 text-center">Login</h1>
           <h5 className="mb-4 text-center">
-            Hello! Entra con tu correo institucional
+            ¡Bienvenido! Ingresa con tu correo institucional
           </h5>
 
           {error && (
@@ -107,7 +107,7 @@ const cookies = new Cookies()
             <div className="form-group mt-3">
               <button
                 type="submit"
-                className="btn btn-success btn-block mb-2 w-100"
+                className="btn btn-primary btn-block mb-2 w-100"
               >
                 Iniciar sesión
               </button>

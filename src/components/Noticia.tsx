@@ -33,7 +33,7 @@ const Noticia: React.FC<Props> = ({ cantidadMostrar }) => {
                 <div className="mask d-flex flex-column h-100 align-items-center text-center justify-content-center p-5 pb-3 " style={{backgroundColor: 'hsla(0, 0%, 0%, 0.6)'}}>
                   <div className="fs-6 text-white overflow-hidden">{noticia.date}</div>
                   <h4 className="fw-bold text-white mb-4">{noticia.title}</h4>
-                  <p className="text-white overflow-hidden">{noticia.description}</p>
+                  <p className="text-white overflow-hidden">{noticia.description.length > 100 ? noticia.description.slice(0, 100) + "..." : noticia.description}</p>
                 </div>
               </div>
             </div>
