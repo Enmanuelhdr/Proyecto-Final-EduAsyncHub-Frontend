@@ -10,7 +10,8 @@ const AddUserForm: React.FC = () => {
   };
 
   const [formData, setFormData] = useState(initialFormData);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null); // Nuevo estado para el mensaje de éxito
+  const [successMessage, setSuccessMessage] = useState<string | null>(null); 
+  const [errorMessage, setErrorMessage] = useState<string | null>(null); 
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -24,6 +25,14 @@ const AddUserForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if(formData.contraseña.length < 8){
+      setErrorMessage("La contraseña debe tener al menos 8 caracteres");
+      setTimeout(() => {
+        setErrorMessage(null);
+      }, 3000);
+      return;
+    }
+
     try {
       const response = await fetch(
         `http://www.eduasynchub.somee.com/api/User/RegistrarUsuarios?gradoId=${formData.gradoId}`,
@@ -42,7 +51,7 @@ const AddUserForm: React.FC = () => {
           setSuccessMessage(null);
         }, 3000);
 
-        setFormData(initialFormData); // Restablecer el formulario después de enviar
+        setFormData(initialFormData); 
       } else {
         throw new Error("Error al añadir usuario");
       }
@@ -63,6 +72,11 @@ const AddUserForm: React.FC = () => {
           {successMessage}
         </div>
       )}
+      {errorMessage && (
+        <div className="alert alert-danger" role="alert">
+          {errorMessage}
+        </div>
+      )}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="nombre" className="form-label">
@@ -73,6 +87,7 @@ const AddUserForm: React.FC = () => {
             className="form-control"
             id="nombre"
             name="nombre"
+            placeholder="Nombre completo"
             value={formData.nombre}
             onChange={handleChange}
             required
@@ -88,6 +103,7 @@ const AddUserForm: React.FC = () => {
             className="form-control"
             id="correoElectronico"
             name="correoElectronico"
+            placeholder="ejemplo@gmail.com"
             value={formData.correoElectronico}
             onChange={handleChange}
             required
@@ -101,6 +117,7 @@ const AddUserForm: React.FC = () => {
             className="form-control"
             id="contraseña"
             name="contraseña"
+            placeholder="Contraseña"
             value={formData.contraseña}
             onChange={handleChange}
             required

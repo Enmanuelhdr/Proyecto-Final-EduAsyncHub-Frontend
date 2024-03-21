@@ -100,14 +100,14 @@ function TableUser() {
         </div>
       )}
 
-      <div className="d-flex gap-2">
+      <div className="d-flex gap-2 pt-3">
         <div className="">
           <button onClick={fetchUsers} className="btn btn-primary ">
             <IoReload />
           </button>
         </div>
         <input
-          className="form-control mb-3 w-30"
+          className="form-control "
           type="text"
           placeholder="Buscar por ID"
           value={searchTerm}
