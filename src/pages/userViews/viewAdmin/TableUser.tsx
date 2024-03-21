@@ -30,7 +30,7 @@ function TableUser() {
       const token = cookies.get("token");
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       const response = await axios.get(
-        "https://localhost:7152/api/Admin/ObtenerUsuarios"
+        "http://www.eduasynchub.somee.com/api/Admin/ObtenerUsuarios"
       );
       setUsers(response.data);
     } catch (error) {
@@ -44,13 +44,13 @@ function TableUser() {
 
   const deleteUser = (id: number) => {
     axios
-      .delete("https://localhost:7152/api/Admin/EliminarUsuario", {
+      .delete("http://www.eduasynchub.somee.com/api/Admin/EliminarUsuario", {
         data: {
           userId: id,
         },
       })
-      .then((response) => {
-        console.log("Usuario eliminado con éxito", response);
+      .then(() => {
+       
         fetchUsers();
       })
       .catch((error) => {
@@ -63,7 +63,7 @@ function TableUser() {
       const token = cookies.get("token");
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       const response = await axios.put(
-        "https://localhost:7152/api/Admin/EditarUsuario",
+        "http://www.eduasynchub.somee.com/api/Admin/EditarUsuario",
         editedUser
       );
       console.log("Usuario editado con éxito", response);
@@ -90,11 +90,7 @@ function TableUser() {
 
   const filteredUsers = users.filter((user) =>
     user.usuarioId.toString().includes(searchTerm)
-    
   );
-
- 
-
 
   return (
     <div className="row gap-3">
@@ -104,21 +100,19 @@ function TableUser() {
         </div>
       )}
 
-      <div className="d-flex gap-2">
+      <div className="d-flex gap-2 pt-3">
         <div className="">
           <button onClick={fetchUsers} className="btn btn-primary ">
             <IoReload />
           </button>
         </div>
         <input
-          className="form-control mb-3 w-30"
+          className="form-control "
           type="text"
           placeholder="Buscar por ID"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-
-
       </div>
 
       <div className="table-responsive" style={{ maxHeight: "315px" }}>
@@ -305,6 +299,12 @@ function TableUser() {
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                onClick={() => {
+                  setTemporalUser(null);
+                  setTemporalUserEmail("");
+                  setTemporalUserId(0);
+                  setTemporalUserName("");
+                }}
               ></button>
             </div>
             {temporalUser && (
@@ -366,7 +366,6 @@ function TableUser() {
                         })
                       }
                     />
-                    
                   </div>
                   <div className="mb-3">
                     <label htmlFor="rolID" className="form-label">
@@ -398,6 +397,12 @@ function TableUser() {
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
+                onClick={() => {
+                  setTemporalUser(null);
+                  setTemporalUserEmail("");
+                  setTemporalUserId(0);
+                  setTemporalUserName("");
+                }}
               >
                 Cerrar
               </button>
@@ -405,7 +410,13 @@ function TableUser() {
                 type="button"
                 className="btn btn-success"
                 data-bs-dismiss="modal"
-                onClick={handleEditSubmit}
+                onClick={() => {
+                  handleEditSubmit;
+                  setTemporalUser(null);
+                  setTemporalUserEmail("");
+                  setTemporalUserId(0);
+                  setTemporalUserName("");
+                }}
               >
                 Guardar Cambios
               </button>

@@ -7,8 +7,8 @@ import TableUser from "./TableUser";
 function DashboardAdmin() {
   return (
     <>
-      <NavBar brand="DashboardAdmin" goto="/dashboardadmin" navData={Navbardata} />
-      <div className=" row m-0 pt-4 justify-content-md-between  align-itemns-md-center justify-content-center ">
+      <NavBar brand="DashboardAdmin" goto="/dashboardAdministrador" navData={Navbardata} />
+      <div className=" row m-0 p-4  justify-content-md-between  align-itemns-center justify-content-center ">
         <div className="col-10 col-md-4 p-2">
           <AddUserForm />
         </div>
