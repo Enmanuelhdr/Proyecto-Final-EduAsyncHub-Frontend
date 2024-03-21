@@ -34,7 +34,7 @@ const Evento: React.FC<Props> = ({ cantidadMostrar }) => {
                 <div className="mask d-flex flex-column h-100 align-items-center text-center justify-content-center p-5 pb-3 " style={{backgroundColor: 'hsla(0, 0%, 0%, 0.6)'}}>
                   <div className="fs-6 text-white overflow-hidden">{evento.date}</div>
                  <h4 className="fw-bold text-white mb-4">{evento.title}</h4>
-                  <p className="text-white overflow-hidden">{evento.description}</p>
+                  <p className="text-white overflow-hidden">{evento.description.length > 100 ? evento.description.slice(0, 100) + "..." : evento.description}</p>
                 </div>
               </div>
             </div>
