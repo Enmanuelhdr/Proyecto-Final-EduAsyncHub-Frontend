@@ -59,6 +59,7 @@ function TableUser() {
   };
 
   const editUser = async (editedUser: User) => {
+
     try {
       const token = cookies.get("token");
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -411,7 +412,7 @@ function TableUser() {
                 className="btn btn-success"
                 data-bs-dismiss="modal"
                 onClick={() => {
-                  handleEditSubmit;
+                  handleEditSubmit();
                   setTemporalUser(null);
                   setTemporalUserEmail("");
                   setTemporalUserId(0);
