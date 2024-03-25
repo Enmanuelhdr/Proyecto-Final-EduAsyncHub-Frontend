@@ -3,6 +3,8 @@ import { AiFillInstagram } from "react-icons/ai";
 import  ImagenEstudiante from "../img/student.webp"
 import { FaGithub } from "react-icons/fa6";
 import ButtonRuta from "./ButtonRuta";
+import { Link } from "react-router-dom";
+
 
 function Footer() {
   return (
@@ -18,18 +20,14 @@ function Footer() {
             </div>
             
             <div className="col-12 col-md-4 ">
-          
-
+        
             <div className="d-flex flex-column justify-content-center">
-              <h3 className="d-flex justify-content-center">Contacto</h3>
+              <h3 className="d-flex justify-content-center fw-bold">Contacto</h3>
               <div className="container-fluid d-flex flex-column justify-content-center">
-                <p>E2 first floor, Church COmpound</p>
-                <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Dolores, voluptatum.
-                </p>
-                <p>Email: colegiomrcrystal@gmail.com</p>
-                <p>Phone: 123-456-7890</p>
+                <p>123 Calle Principal, Ciudad</p>
+                
+                <p>Correo electronico: colegiolafe@gmail.com</p>
+                <p>Teléfono: 123-456-7890</p>
               </div>
 
               <div className="d-flex justify-content-center gap-4">
@@ -49,22 +47,19 @@ function Footer() {
           </div>
 
           <div className="col-12 col-md-2 d-flex flex-column justify-content-center ">
-            <h3 className="">Spread</h3>
-            <p className="">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
-              cumque quo perspiciatis doloremque voluptate error quos nostrum
-              aspernatur, beatae distinctio quidem ea. Fugiat!
-            </p>
-            <ButtonRuta
-              path="/nosotros"
-              text="Acerca de nosotros"
-              className="btn btn-primary"
-            />
+            <h3 className="fw-bold">Sobre Nosotros</h3>
+            <ul className="list-group list-group-flush">
+              <ButtonRuta path="/nosotros" text="Quiénes Somos" className="text-white"></ButtonRuta>
+              <br></br>
+              <ButtonRuta path="/nosotros" text="Historia" className="text-white"></ButtonRuta>
+              <ButtonRuta path="/nosotros" text="Programas" className="text-white"></ButtonRuta>
+              <ButtonRuta path="/nosotros" text="Niveles" className="text-white"></ButtonRuta>        
+            </ul>
           </div>
         </div>
 
         <div className="d-flex justify-content-center align-items-center">
-          <p>&copy; 2024 MRCrystal. All rights reserved.</p>
+          <p>&copy; 2024 La Fe. Todos los derechos reservados.</p>
         </div>
       </footer>
     </>

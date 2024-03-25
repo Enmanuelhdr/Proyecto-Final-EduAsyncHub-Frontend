@@ -67,7 +67,7 @@ const cookies = new Cookies()
     <>
       <div className="container-fluid bg-dark vh-100 d-flex justify-content-center align-items-center">
         <div className="text-white p-4">
-          <h1 className="mb-4 text-center">Login</h1>
+          <h1 className="mb-4 text-center">Iniciar Sesión</h1>
           <h5 className="mb-4 text-center">
             ¡Bienvenido! Ingresa con tu correo institucional
           </h5>
@@ -109,7 +109,7 @@ const cookies = new Cookies()
                 type="submit"
                 className="btn btn-primary btn-block mb-2 w-100"
               >
-                Iniciar sesión
+                Ingresar
               </button>
             </div>
           </form>
