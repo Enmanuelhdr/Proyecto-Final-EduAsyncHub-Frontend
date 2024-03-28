@@ -4,6 +4,10 @@
         "url": "/usuariosAdmin"
     },
     {
+        "name": "Asignar Materias",
+        "url": "/materiasAdmin"
+    },
+    {
         "name": "Noticias",
         "url": "/noticiasAdmin"
     },
