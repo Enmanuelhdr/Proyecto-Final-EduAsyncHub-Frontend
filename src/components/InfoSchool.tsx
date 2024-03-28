@@ -9,7 +9,7 @@ import ContactUs from "./ContactUs";
 function InfoSchool() {
   return (
     <>
-    <div className="school-info">
+    <div className="pt-5">
 
       {/* Quienes somos */}
       <QuienesSomos data={InfoSchoolData[0].aboutUs}/>
@@ -21,10 +21,12 @@ function InfoSchool() {
        <MisionVisionValores data={InfoSchoolData[0]}/>
 
         {/* Oferta Educativa */}
-       <div className="container px-4 py-3">
+       <div className="container py-3">
           <h1 className='display-7 fw-bold'>Oferta Educativa</h1>
+          <h2 className='pb-2 fw-bold text-center text-primary'>Programas</h2>
           <Programas data={InfoSchoolData[0].programs}/>
-          <Niveles data={InfoSchoolData[0]}/>
+          <h2 className='fw-bold text-center text-primary py-2'>Niveles</h2>
+          <Niveles data={InfoSchoolData[0]} fontSizeBig={true}/>
       </div>
 
       <ContactUs data={InfoSchoolData[0].contactInfo}/>

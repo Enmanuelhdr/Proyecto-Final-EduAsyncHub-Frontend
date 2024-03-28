@@ -1,23 +1,14 @@
-import Footer from "../../../components/Footer";
 import NavBar from "../../../components/NavBar";
 import Navbardata from "../../../data/AdminNavbard.json";
-import AddUserForm from "./AddUserForm";
 import TableUser from "./TableUser";
 
 function DashboardAdmin() {
   return (
     <>
-      <NavBar brand="DashboardAdmin" goto="/dashboardAdministrador" navData={Navbardata} />
+      <NavBar brand="Panel Admin" goto="/dashboardAdministrador" navData={Navbardata} />
       <div className=" row m-0 p-4  justify-content-md-between  align-itemns-center justify-content-center ">
-        <div className="col-10 col-md-4 p-2">
-          <AddUserForm />
-        </div>
-        <div className="col-10  col-md-8 p-2">
-          <TableUser />
-        </div>
+        <TableUser />
       </div>
-
-      <Footer />
 
     </>
   );

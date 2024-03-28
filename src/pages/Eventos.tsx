@@ -8,12 +8,10 @@ function Eventos() {
   return (
     <>
     <NavBar brand="EduAsyncHub" goto="/" navData={Navbardata} />
-      <div className="container pt-3 pb-3">
+      <div className="container d-flex flex-column pt-3 pb-3 justify-content-center align-items-center">
+        <h2 className="display-7 fw-bold py-4 ">Eventos</h2>
         <Evento cantidadMostrar={9999}/>
       </div>
-
-
-
 
     </>
   )
