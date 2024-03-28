@@ -2,23 +2,53 @@
 import ButtonRuta from '../../../components/ButtonRuta';
 import Footer from '../../../components/Footer';
 import NavBar from '../../../components/NavBar';
-import noticias from '../../../data/Noticias.json';
 import Navbardata from '../../../data/HomeNavbard.json';
 import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import Cookies from "universal-cookie";
+
+interface Noticia {
+  id: number;
+  img: string;
+  title: string;
+  date: string;
+  description: string;
+}
 
 function NoticiaView() {
-    const { id } = useParams();
-    const noticia = noticias.find(noticia => noticia.id === Number(id));
+  const [news, setNews] = useState<Noticia[]>([]);
+  const cookies = new Cookies();
+  const { id } = useParams();
+  const noticia = news.find(noticia => noticia.id === Number(id));
+
+  useEffect(() => {
+    const fetchNews = async () => {
+
+      try {
+        const token = cookies.get("token");
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        const response = await axios.get(
+          "http://www.eduasynchub.somee.com/api/Noticias/VerNoticias"
+        );
+        setNews(response.data);
+      } catch (error) {
+        console.error("Error fetching news:", error);
+      }
+    };
+
+    fetchNews();
+  }, []);
   
-    if (!noticia) {
-      return (
-        <>
+  if (!noticia) {
+    return (
+      <>
         <NavBar navData={Navbardata} brand='EduAsyncHub' goto='/noticias'/>
-      <div>noticia no encontrada</div>
-      <ButtonRuta path="/noticias" text="Volver a noticias" className='btn btn-primary' />
+        <div>noticia no encontrada</div>
+        <ButtonRuta path="/noticias" text="Volver a noticias" className='btn btn-primary' />
       </>
-      )
-    }
+    )
+  }
   
     return (
         <>

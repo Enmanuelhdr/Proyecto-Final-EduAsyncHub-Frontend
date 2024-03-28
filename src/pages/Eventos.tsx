@@ -13,9 +13,6 @@ function Eventos() {
         <Evento cantidadMostrar={9999}/>
       </div>
 
-
-
-
     </>
   )
 }
