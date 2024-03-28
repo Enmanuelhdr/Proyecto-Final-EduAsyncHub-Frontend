@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound";
 import EventoView from "./pages/userViews/views/EventoView"
 import Cookies from "universal-cookie";
 import NoticiaView from "./pages/userViews/views/NoticiaView";
+import AddTeacherSubjects from "./pages/userViews/viewAdmin/AddTeacherSubjects";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -67,6 +68,8 @@ function Rutas() {
           <Route path="/usuariosAdmin" element={<UsuariosAdmin />} />
           <Route path="/eventosAdmin" element={<EventosAdmin/>}/>
           <Route path="/noticiasAdmin" element={<NoticiasAdmin/>}/>
+          <Route path="/materiasAdmin" element={<AddTeacherSubjects/>} />
+         
         </Route>
 
         <Route element={(isAuthenticated("Estudiante", "/login"))}>
