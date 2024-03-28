@@ -1,13 +1,43 @@
 import ButtonRuta from '../../../components/ButtonRuta';
 import Footer from '../../../components/Footer';
 import NavBar from '../../../components/NavBar';
-import eventos from '../../../data/Eventos.json';
 import Navbardata from '../../../data/HomeNavbard.json';
 import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import Cookies from "universal-cookie";
+
+interface Evento {
+  id: number;
+  img: string;
+  title: string;
+  date: string;
+  description: string;
+}
+
 
 function EventoView() {
+  const [events, setEvents] = useState<Evento[]>([]);
+  const cookies = new Cookies();
   const { id } = useParams();
-  const evento = eventos.find(evento => evento.id === Number(id));
+  const evento = events.find(evento => evento.id === Number(id));
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const token = cookies.get("token");
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        const response = await axios.get(
+          "http://www.eduasynchub.somee.com/api/Evento/VerEvento"
+        );
+        setEvents(response.data); // Establece los eventos recibidos de la API
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      }
+    };
+
+    fetchEvents(); // Llama a la función para obtener los eventos cuando el componente se monta
+  }, []);
 
   if (!evento) {
     return (

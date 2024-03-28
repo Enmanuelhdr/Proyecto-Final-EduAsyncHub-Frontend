@@ -118,7 +118,7 @@ function TableUser() {
 
       <div className="table-responsive" style={{ maxHeight: "315px" }}>
         <table className="table table-striped ">
-          <thead className="table-dark ">
+          <thead className="">
             <tr>
               <th scope="col">Id</th>
               <th scope="col">Nombre</th>

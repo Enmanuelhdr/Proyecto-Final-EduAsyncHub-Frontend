@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route, Navigate, Outlet, useLocation } from "rea
 import { useState, useEffect } from "react";
 import Home from "./pages/Home";
 import DashboardAdmin from "./pages/userViews/viewAdmin/DashboardAdmin";
+import EventosAdmin from "./pages/userViews/viewAdmin/EventosAdmin";
+import NoticiasAdmin from "./pages/userViews/viewAdmin/NoticiasAdmin";
+import UsuariosAdmin from "./pages/userViews/viewAdmin/UsuariosAdmin";
 import ApiLogin from "./api/ApiLogin";
 import DashboardStudent from "./pages/userViews/viewStudent/DashboardStudent";
 import DashboardTeacher from "./pages/userViews/viewTeacher/DashboardTeacher";
@@ -61,6 +64,9 @@ function Rutas() {
         {/* Rutas privadas */}
         <Route element={(isAuthenticated("Administrador", "/login"))}>
           <Route path="/dashboardAdministrador" element={<DashboardAdmin />} />
+          <Route path="/usuariosAdmin" element={<UsuariosAdmin />} />
+          <Route path="/eventosAdmin" element={<EventosAdmin/>}/>
+          <Route path="/noticiasAdmin" element={<NoticiasAdmin/>}/>
         </Route>
 
         <Route element={(isAuthenticated("Estudiante", "/login"))}>
