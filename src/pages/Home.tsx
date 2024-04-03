@@ -33,7 +33,8 @@ function Home() {
         <ButtonRuta path="/noticias" text="Ver todas las noticias" className="btn btn-primary" />
       </div>
 
-      <Footer />
+      <Footer/>
+      
     </>
   );
 }
