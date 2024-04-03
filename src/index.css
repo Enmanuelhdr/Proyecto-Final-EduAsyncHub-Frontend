@@ -127,3 +127,19 @@ table.table-striped.table-hover tbody tr:hover {
   resize: vertical;
 }
 
+/* FOOTER */
+
+.custom-footer {
+  background-color: #343a40; /* Color de fondo oscuro */
+  color: white; /* Color de texto blanco */
+}
+
+.custom-footer .nav-link {
+  color: white; /* Color de texto blanco para los enlaces */
+}
+
+/* DASHBOARD ADMIN */
+
+.card-footer a {
+  text-decoration: none; /* Elimina el subrayado */
+}
