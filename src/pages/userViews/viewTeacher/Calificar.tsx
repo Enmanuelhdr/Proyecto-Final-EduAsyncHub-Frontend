@@ -15,7 +15,10 @@ function CalificarComponent() {
   const [teacherId, setTeacherId] = useState();
   const [currentPeriod, setCurrentPeriod] = useState<number>(0);
   const cookies = new Cookies();
-
+  const periodoEvaluar1 = 2;
+  const periodoEvaluar2 = 2;
+  const periodoEvaluar3 = 2;
+  const periodoEvaluar4 = 2;
   useEffect(() => {
     setTeacherId(cookies.get("userId"));
     axios
@@ -73,7 +76,7 @@ function CalificarComponent() {
         id="accordionFlushExample"
         >
 {/* P1 */}
-        {   currentPeriod === 1 && (
+        {   currentPeriod === periodoEvaluar1 && (
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button
@@ -143,7 +146,7 @@ function CalificarComponent() {
      )}
 
         {/* P2 */}
-        {   currentPeriod === 2 && (
+        {   currentPeriod === periodoEvaluar2 && (
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button
@@ -213,7 +216,7 @@ function CalificarComponent() {
         )}
 
         {/* P3 */}
-        {   currentPeriod === 3 && (
+        {   currentPeriod === periodoEvaluar3 && (
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button
@@ -281,7 +284,7 @@ function CalificarComponent() {
         )}
 
          {/* P4 */}
-          {   currentPeriod === 4 && (
+          {   currentPeriod === periodoEvaluar4 && (
          <div className="accordion-item">
           <h2 className="accordion-header">
             <button
