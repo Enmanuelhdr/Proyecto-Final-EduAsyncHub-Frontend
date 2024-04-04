@@ -72,7 +72,8 @@ function ShowSubjectsActions() {
                 <td>{grades[subject.gradoId]}</td>
                 <td  className="d-flex justify-content-center gap-2">
                   <ButtonRuta className="btn btn-primary" path={`/calificar/${subject.materiaId}/${subject.gradoId}`} text="Calificar" />
-                  <button className="btn btn-primary">A</button> 
+                  <ButtonRuta className="btn btn-primary" path={`/asistencia/${subject.materiaId}/${subject.gradoId}`} text="Asistencia" />
+                  
              </td>
               </tr>
             ))}

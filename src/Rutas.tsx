@@ -17,6 +17,7 @@ import Cookies from "universal-cookie";
 import NoticiaView from "./pages/userViews/views/NoticiaView";
 import AddTeacherSubjects from "./pages/userViews/viewAdmin/AddTeacherSubjects";
 import Calificar from "./pages/userViews/viewTeacher/Calificar";
+import Asistencia from "./pages/userViews/viewTeacher/Asistencia";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -80,6 +81,7 @@ function Rutas() {
         <Route element={(isAuthenticated("Profesor", "/login"))}>
           <Route path="/dashboardProfesor" element={<DashboardTeacher />} />
           <Route path="/calificar/:materiaId/:gradoId" element={<Calificar/>} />
+          <Route path="/asistencia/:materiaId/:gradoId/" element={<Asistencia/>} />
         </Route>
       </Routes>
     </BrowserRouter>
