@@ -4,10 +4,12 @@ import  navData  from "../../../data/AdminNavbard.json"
 
 
 
+
 function DashboardTeacher() {
   return (
     <>
     <NavBar brand="DashboardTeacher" goto="/dashboardprofesor" navData={navData}/>
+
     <ShowSubjects />
     
     </>
