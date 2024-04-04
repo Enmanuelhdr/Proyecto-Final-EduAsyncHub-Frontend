@@ -15,10 +15,10 @@ function CalificarComponent() {
   const [teacherId, setTeacherId] = useState();
   const [currentPeriod, setCurrentPeriod] = useState<number>(0);
   const cookies = new Cookies();
-  const periodoEvaluar1 = 2;
+  const periodoEvaluar1 = 1;
   const periodoEvaluar2 = 2;
-  const periodoEvaluar3 = 2;
-  const periodoEvaluar4 = 2;
+  const periodoEvaluar3 = 3;
+  const periodoEvaluar4 = 4;
   useEffect(() => {
     setTeacherId(cookies.get("userId"));
     axios
