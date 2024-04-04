@@ -13,7 +13,7 @@ function CalificarComponent() {
   const [students, setStudents] = useState<Student[]>([]);
   const [calificacion, setCalificacion] = useState<number>(0);
   const [teacherId, setTeacherId] = useState();
-
+  const [currentPeriod, setCurrentPeriod] = useState<number>(0);
   const cookies = new Cookies();
 
   useEffect(() => {
@@ -27,6 +27,20 @@ function CalificarComponent() {
         setStudents(response.data);
         console.log("Estudiantes", students);
       });
+
+
+      const currentDate = new Date();
+     
+      const currentMonth = currentDate.getMonth() + 1; 
+      if (currentMonth <= 3) {
+        setCurrentPeriod(1);
+      } else if (currentMonth <= 6) {
+        setCurrentPeriod(2);
+      } else if (currentMonth <= 9) {
+        setCurrentPeriod(3);
+      } else {
+        setCurrentPeriod(4);
+      }
   }, []);
 
   const calificar = (studentId: string, materiaId: string, periodo: number) => {
@@ -57,8 +71,9 @@ function CalificarComponent() {
       <div
         className="container accordion accordion-flush"
         id="accordionFlushExample"
-      >
-        {/* P1 */}
+        >
+{/* P1 */}
+        {   currentPeriod === 1 && (
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button
@@ -125,7 +140,10 @@ function CalificarComponent() {
           </div>
         </div>
 
+     )}
+
         {/* P2 */}
+        {   currentPeriod === 2 && (
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button
@@ -192,8 +210,10 @@ function CalificarComponent() {
             </div>
           </div>
         </div>
+        )}
 
         {/* P3 */}
+        {   currentPeriod === 3 && (
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button
@@ -258,8 +278,10 @@ function CalificarComponent() {
             </div>
           </div>
         </div>
+        )}
 
          {/* P4 */}
+          {   currentPeriod === 4 && (
          <div className="accordion-item">
           <h2 className="accordion-header">
             <button
@@ -324,39 +346,10 @@ function CalificarComponent() {
             </div>
           </div>
         </div>
+        )}
       </div>
 
       
-
-      {/* <div>
-      <h1>Calificar</h1>
-      <div className="container">
-        <h1 className="d-flex justify-content-center">Calificar</h1>
-        <div className="table-responsive">
-          <table className="table table-striped table-hover table-bordered">
-            <thead>
-              <tr>
-                <th>Estudiante</th>
-                <th>Nombre</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {students.map((student, index) => (
-                <tr key={index}>
-                  <td>{student.userId}</td>
-                  <td>{student.nombreEstudiante}</td>
-                  <td  className="d-flex justify-content-center gap-2">
-                    <button className="btn btn-primary">Calificar</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-   
-    </div> */}
     </>
   );
 }
