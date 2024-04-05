@@ -1,0 +1,72 @@
+[
+    {
+        "nameSchool": "Centro Educativo La Fe",
+        "typeSchool": "una escuela pública",
+        "aboutUs": {
+            "imgAboutUs": "https://fundacion-nph.org/wp-content/uploads/2023/01/escuela-republica-dominicana.jpg",
+            "content": [
+                "Somos una escuela comprometida con la excelencia educativa y arraigada en la rica historia y cultura de la República Dominicana. Guiados por una visión moderna, abrazamos las últimas tendencias pedagógicas y tecnológicas para preparar a nuestros estudiantes para un mundo en constante cambio.",
+                "Nuestra comunidad educativa se caracteriza por su diversidad y respeto mutuo, creando un ambiente enriquecedor donde cada estudiante puede alcanzar su máximo potencial."
+
+            ]
+        }
+        ,
+        "history": {
+            "imgHistory": "https://upload.wikimedia.org/wikipedia/commons/0/06/Dominican_Republic_People.JPG",
+            "content": [
+                "En el corazón de la vibrante República Dominicana, nace nuestra querida institución educativa: la Escuela Lumina. Fundada hace más de tres décadas por un grupo de visionarios educadores, la Escuela Lumina se ha convertido en un faro de excelencia académica y compromiso con el desarrollo integral de cada estudiante.",
+                "Desde nuestros inicios, nos hemos dedicado a fusionar la rica historia y cultura de nuestra nación con una visión moderna y progresista. En la Escuela Lumina, abrazamos las últimas tendencias pedagógicas y tecnológicas para preparar a nuestros estudiantes para un mundo en constante cambio."
+            ]
+        },
+        "mission": "Nuestra misión es proporcionar educación inclusiva y de calidad que empodere a cada estudiante para alcanzar su máximo potencial, promoviendo la excelencia académica, la responsabilidad social y el respeto mutuo.",
+        "imgMission": "https://eldinero.com.do/wp-content/uploads/educacion-presupuesto-escuela.jpg",
+        "vision": "Nuestra misión es ser líderes en educación pública, ofreciendo una educación integral que nutra el desarrollo académico, social y emocional de cada estudiante, inspirándolos a convertirse en ciudadanos comprometidos y creativos.",
+        "imgVision": "https://presidencia.gob.do/sites/default/files/styles/large/public/news/2023-05/WhatsApp%20Image%202023-05-27%20at%208.08.48%20PM.jpeg?itok=yT5izn6a",
+        "values": ["Excelencia", "Integridad", "Respeto", "Innovación"],
+        "imgValues": "https://images.unsplash.com/photo-1456086272160-b28b0645b729?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "programs": [
+            {
+                "id": 1,
+                "program": "Bachillerato en Ciencias",
+                "imgProgram": "https://i.pinimg.com/564x/1f/87/b2/1f87b29a2df46100a75aa86b170a21cb.jpg"
+            },
+            {
+                "id": 2,
+                "program": "Bachillerato en Humanidades",
+                "imgProgram": "https://i.pinimg.com/564x/71/53/42/71534272bed1723803fe85452b147ecf.jpg" 
+            },
+            {
+                "id": 3,
+                "program": "Bachillerato en Artes",
+                "imgProgram": "https://i.pinimg.com/564x/08/5b/e7/085be7b941421f0493e0270784eb5495.jpg" 
+            }
+        ],
+        "niveles": [
+            {
+                "nombre": "Inicial",
+                "imagen": "https://i.pinimg.com/564x/16/86/d7/1686d7c544f8ba7843824e11354e67ae.jpg",
+                "color": "bg-primary",
+                "descripcion": "Nivel inicial para los más pequeños."
+            },
+            {
+                "nombre": "Primario",
+                "imagen": "https://www.elsoldelcentro.com.mx/local/9ezth4-alumnos-estudiantes-salondeclases/ALTERNATES/LANDSCAPE_768/Alumnos-Estudiantes-SalonDeClases",
+                "color": "bg-success",
+                "descripcion": "Nivel primario para los primeros años de escolaridad."
+            },
+            {
+                "nombre": "Secundario",
+                "imagen": "https://i.pinimg.com/564x/a7/2c/5d/a72c5d305888d2470e6a14e72c6d3b9c.jpg",
+                "color": "bg-warning",
+                "descripcion": "Nivel secundario para los últimos años de escolaridad."
+            }
+        ],
+        "imgNiveles": "https://fard.mil.do/wp-content/uploads/2023/01/img-20230129-wa0043-1280x853.jpg",
+        "contactInfo": {
+            "address": "Calle Puerto Rico, Alma Rosa I, Santo Domingo Este, Santo Domingo, República Dominicana",
+            "phone": "(123) 456-7890",
+            "email": "colegiolafe@gmail.com",
+            "mapSrc": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1590.9014154900121!2d-69.85807909882496!3d18.491715904161225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaf87d7c58ce175%3A0x2c323b5224f35977!2sLiceo%20Eugenio%20Maria%20De%20Hostos!5e0!3m2!1ses!2sdo!4v1710118671271!5m2!1ses!2sdo"
+        }
+    }
+]

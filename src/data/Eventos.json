@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "img": "https://i0.wp.com/ensegundos.do/wp-content/uploads/2022/02/san-valentin-inicio.jpg?fit=760%2C391&ssl=1",
+        "title": "Día de San Valentín",
+        "date": "14 de Febrero 2024",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+        "id": 2,
+        "img": "https://fundaciondescubre.es/wp-content/uploads/2023/10/Infografia-representativa-ciencia_1696930077-800x533.jpg",
+        "title": "Feria de Ciencias",
+        "date": "5 de Mayo 2024",
+        "description": "Presentación de proyectos científicos y actividades educativas."
+    },
+    {
+        "id": 3,
+        "img": "https://blog.rosen.cl/hubfs/dia-Internacional-del-libro-01.jpg",
+        "title": "Día del Libro",
+        "date": "23 de Abril 2024",
+        "description": "Actividades relacionadas con la lectura, cuentacuentos, intercambio de libros, etc."
+    },
+    {
+        "id": 4,
+        "img": "https://g6w7v6t9.rocketcdn.me/wp-content/uploads/2023/10/Descubre-el-verdadero-significado-y-celebracion-del-Dia-de-la-Raza-el-12-de-octubre.jpg",
+        "title": "Semana Cultural",
+        "date": "Del 10 al 15 de Junio 2024",
+        "description": "Talleres, exposiciones, representaciones teatrales y actividades artísticas."
+    },
+    {
+        "id": 5,
+        "img": "https://ucsp.edu.pe/wp-content/uploads/2023/08/Dia-Mundial-de-la-Tierra.jpeg",
+        "title": "Día de la Tierra",
+        "date": "22 de Abril 2024",
+        "description": "Celebración del Día de la Tierra con actividades relacionadas con la conciencia ambiental, charlas sobre sostenibilidad, limpieza de áreas verdes, entre otras actividades."
+    },
+    {
+        "id": 6,
+        "img": "https://grandluxorhotels.com/wp-content/uploads/2018/06/festivales-musica-benidorm-grand-luxor-hotel-1024x681.jpg",
+        "title": "Festival de Música",
+        "date": "20 de Julio 2024",
+        "description": "Un día lleno de música y diversión con la participación de bandas locales e internacionales, actividades para toda la familia, puestos de comida y más."
+    }
+]
