@@ -1,6 +1,7 @@
 import Cookies from "universal-cookie";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ButtonRuta from "../../../components/ButtonRuta";
 
 interface Subject {
   materiaId: number;
@@ -8,7 +9,7 @@ interface Subject {
   gradoId: number;
 }
 
-function ShowSubjects() {
+function ShowSubjectsActions() {
   const [subjects, setSubjects] = useState<Subject[]>([]);
   const [error, setError] = useState("");
   const cookies = new Cookies();
@@ -61,6 +62,7 @@ function ShowSubjects() {
             <tr>
               <th>Materia</th>
               <th>Grado</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -68,6 +70,11 @@ function ShowSubjects() {
               <tr key={index}>
                 <td>{subject.nombreMateria}</td>
                 <td>{grades[subject.gradoId]}</td>
+                <td  className="d-flex justify-content-center gap-2">
+                  <ButtonRuta className="btn btn-primary" path={`/calificar/${subject.materiaId}/${subject.gradoId}`} text="Calificar" />
+                  <ButtonRuta className="btn btn-primary" path={`/asistencia/${subject.materiaId}/${subject.gradoId}`} text="Asistencia" />
+                  
+             </td>
               </tr>
             ))}
           </tbody>
@@ -80,4 +87,4 @@ function ShowSubjects() {
   );
 }
 
-export default ShowSubjects;
+export default ShowSubjectsActions;
