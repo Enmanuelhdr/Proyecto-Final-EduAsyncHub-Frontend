@@ -196,41 +196,40 @@ function MiCalificacion() {
                     </th>
                   </tr>
                   <tr>
-                    <th className="sticky-th w-25">Materia</th>
-                    <th className="sticky-th col-2">Período</th>
-                    <th className="sticky-th col-2">Nota Final</th>
-                    <th className="sticky-th col-2">Asistencias</th>
-                    <th className="sticky-th col-2">Ausencias</th>
+                    <th className="sticky-th w-25 text-center">Materia</th>
+                    <th className="sticky-th col-2 text-center">Período</th>
+                    <th className="sticky-th col-2 text-center">Nota Final</th>
+                    <th className="sticky-th text-center ">Ausencias</th>
                   </tr>
                 </thead>
                 <tbody>
                   {calificaciones.map((materia, index) => (
                     <tr key={index}>
-                      <th>{materia.materia}</th>
+                      <th className="text-center">{materia.materia}</th>
                       <td>
-                        <ul className="list-unstyled">
+                        <ul className="list-unstyled text-center">
                           {materia.notas.map((nota, i) => (
-                            <li key={i}>
+                            <li key={i} >
                               P{nota.periodo}: {nota.calificacion}
                             </li>
                           ))}
                         </ul>
                       </td>
-                      <td>
+                      <td className="text-center">
                         {materia.notaTotal == null ? "0" : materia.notaTotal}
                       </td>
-                      <td>
+                      <td className="text-center">
                         {
                           getAsistenciaPorMateria(materia.materia)
                             .asistenciasMateria
                         }
                       </td>
-                      <td>
+                      {/* <td>
                         {
                           getAsistenciaPorMateria(materia.materia)
                             .ausenciasMateria
                         }
-                      </td>
+                      </td> */}
                     </tr>
                   ))}
                 </tbody>
