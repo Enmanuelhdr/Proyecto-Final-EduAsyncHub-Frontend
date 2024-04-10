@@ -182,6 +182,7 @@ function Calendar() {
                         data-bs-toggle="modal"
                         data-bs-target="#modalVisualizar"
                         onClick={() => {
+                          setTemporalId(actividad.id)
                           setTitle(actividad.title);
                           setDate(actividad.date);
                           setHora(actividad.hora);
