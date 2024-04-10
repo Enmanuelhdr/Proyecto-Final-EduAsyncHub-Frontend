@@ -142,7 +142,7 @@ function Actividades() {
           <table className="table table-striped table-hover">
             <thead>
               <tr>
-                <th className="sticky-th">#</th>
+                <th className="sticky-th">Id</th>
                 <th className="sticky-th">Titulo</th>
                 <th className="sticky-th">Acciones</th>
               </tr>
