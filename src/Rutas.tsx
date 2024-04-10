@@ -18,6 +18,7 @@ import NoticiaView from "./pages/userViews/views/NoticiaView";
 import AddTeacherSubjects from "./pages/userViews/viewAdmin/AddTeacherSubjects";
 import Calificar from "./pages/userViews/viewTeacher/Calificar";
 import Asistencia from "./pages/userViews/viewTeacher/Asistencia";
+import Calendar from "./pages/userViews/viewAdmin/Calendar";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -71,6 +72,7 @@ function Rutas() {
           <Route path="/eventosAdmin" element={<EventosAdmin/>}/>
           <Route path="/noticiasAdmin" element={<NoticiasAdmin/>}/>
           <Route path="/materiasAdmin" element={<AddTeacherSubjects/>} />
+          <Route path="/actividades" element={<Calendar/>}/>
          
         </Route>
 
