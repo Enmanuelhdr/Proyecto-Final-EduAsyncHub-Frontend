@@ -19,7 +19,7 @@ import AddTeacherSubjects from "./pages/userViews/viewAdmin/AddTeacherSubjects";
 import Calificar from "./pages/userViews/viewTeacher/Calificar";
 import Asistencia from "./pages/userViews/viewTeacher/Asistencia";
 import Calendar from "./pages/userViews/viewAdmin/Calendar";
-
+import SolicitarAdmision from "./pages/userViews/viewStudent/SolicitarAdmision";
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -64,8 +64,11 @@ function Rutas() {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/eventos/:id" element={<EventoView />} />
         <Route path="/noticias/:id" element={<NoticiaView />} />
-
-        {/* Rutas privadas */}
+        <Route path="/solicitarAdmision" element={<SolicitarAdmision/>}/>
+       
+       
+       
+       {/* Rutas privadas */}
         <Route element={(isAuthenticated("Administrador", "/login"))}>
           <Route path="/dashboardAdministrador" element={<DashboardAdmin />} />
           <Route path="/usuariosAdmin" element={<UsuariosAdmin />} />
