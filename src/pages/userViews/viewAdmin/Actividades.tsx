@@ -3,7 +3,7 @@ import axios from "axios";
 import { FaPencilAlt, FaTrashAlt, FaPlus, FaEye } from "react-icons/fa";
 import { CgDanger } from "react-icons/cg";
 
-function Calendar() {
+function Actividades() {
   interface Actividad {
     id: number;
     title: string;
@@ -105,7 +105,7 @@ function Calendar() {
   return (
     <>
     {/* Filtro */}
-      <div className="container pt-3">
+      <div className=" p-4">
         <div className="row align-items-center justify-content-end">
           <div className="col-12 col-md-6 mb-2 mb-md-0 order-md-1">
             <h3>
@@ -137,7 +137,7 @@ function Calendar() {
 
       {/* Tabla */}
 
-      <div className="container">
+      <div className="p-4">
         <div className="table-responsive">
           <table className="table table-striped table-hover">
             <thead>
@@ -552,4 +552,4 @@ function Calendar() {
   );
 }
 
-export default Calendar;
+export default Actividades;
