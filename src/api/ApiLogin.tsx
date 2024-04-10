@@ -100,8 +100,8 @@ const cookies = new Cookies()
                 autoComplete="on"
                 required
               />
-              <a href="#" className="text-white">
-                ¿Olvidaste tu contraseña?
+              <a href="/" className="text-white">
+                Regresar a la página principal
               </a>
             </div>
             <div className="form-group mt-3">
