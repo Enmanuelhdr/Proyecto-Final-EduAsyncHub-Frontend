@@ -7,7 +7,7 @@ function DashboardStudent() {
     <>
    <NavBar
         brand="Panel Estudiante"
-        goto="/dashboardprofesor"
+        goto="/dashboardestudiante"
         navData={navData}
       />
       <div className="mt-4">
