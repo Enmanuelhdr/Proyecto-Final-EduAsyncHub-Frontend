@@ -18,8 +18,9 @@ import NoticiaView from "./pages/userViews/views/NoticiaView";
 import AddTeacherSubjects from "./pages/userViews/viewAdmin/AddTeacherSubjects";
 import Calificar from "./pages/userViews/viewTeacher/Calificar";
 import Asistencia from "./pages/userViews/viewTeacher/Asistencia";
-import SolicitarAdmision from "./pages/userViews/viewStudent/SolicitarAdmision";
 import GestionarActividades from "./pages/userViews/viewAdmin/GestionarActividades";
+import Admisiones from "./pages/userViews/viewAdmin/Admisiones";
+import FormularioAdmision from "./pages/FormularioAdmision";
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -64,7 +65,7 @@ function Rutas() {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/eventos/:id" element={<EventoView />} />
         <Route path="/noticias/:id" element={<NoticiaView />} />
-        <Route path="/solicitarAdmision" element={<SolicitarAdmision/>}/>
+        <Route path="/solicitarAdmision" element={<FormularioAdmision/>}/>
        
        
        
@@ -76,6 +77,7 @@ function Rutas() {
           <Route path="/noticiasAdmin" element={<NoticiasAdmin/>}/>
           <Route path="/materiasAdmin" element={<AddTeacherSubjects/>} />
           <Route path="/actividades" element={<GestionarActividades/>}/>
+          <Route path="/administrarAdmisiones" element={<Admisiones/>}/>
          
         </Route>
 
