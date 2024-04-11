@@ -18,7 +18,9 @@ import NoticiaView from "./pages/userViews/views/NoticiaView";
 import AddTeacherSubjects from "./pages/userViews/viewAdmin/AddTeacherSubjects";
 import Calificar from "./pages/userViews/viewTeacher/Calificar";
 import Asistencia from "./pages/userViews/viewTeacher/Asistencia";
-
+import GestionarActividades from "./pages/userViews/viewAdmin/GestionarActividades";
+import Admisiones from "./pages/userViews/viewAdmin/Admisiones";
+import FormularioAdmision from "./pages/FormularioAdmision";
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -63,14 +65,19 @@ function Rutas() {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/eventos/:id" element={<EventoView />} />
         <Route path="/noticias/:id" element={<NoticiaView />} />
-
-        {/* Rutas privadas */}
+        <Route path="/solicitarAdmision" element={<FormularioAdmision/>}/>
+       
+       
+       
+       {/* Rutas privadas */}
         <Route element={(isAuthenticated("Administrador", "/login"))}>
           <Route path="/dashboardAdministrador" element={<DashboardAdmin />} />
           <Route path="/usuariosAdmin" element={<UsuariosAdmin />} />
           <Route path="/eventosAdmin" element={<EventosAdmin/>}/>
           <Route path="/noticiasAdmin" element={<NoticiasAdmin/>}/>
           <Route path="/materiasAdmin" element={<AddTeacherSubjects/>} />
+          <Route path="/actividades" element={<GestionarActividades/>}/>
+          <Route path="/administrarAdmisiones" element={<Admisiones/>}/>
          
         </Route>
 

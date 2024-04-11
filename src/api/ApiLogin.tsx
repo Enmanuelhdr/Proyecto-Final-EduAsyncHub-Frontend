@@ -48,10 +48,15 @@ const cookies = new Cookies()
      
       cookies.set("token", token);
   
-      const decodedToken = jwtDecode(token) as { role: string ,nameid:string}; 
-  
+      const decodedToken = jwtDecode(token) as { role: string ,nameid:string,UserName:string}; 
+
+      console.log(decodedToken);
+      
       const roleId = decodedToken.role || "";
+      const userName = decodedToken.UserName || "";
+      cookies.set("userName",userName)
       cookies.set("userId",decodedToken.nameid)
+
       updateUserRole(roleId);
   
       handleNavigation(roleId);
@@ -100,8 +105,8 @@ const cookies = new Cookies()
                 autoComplete="on"
                 required
               />
-              <a href="#" className="text-white">
-                ¿Olvidaste tu contraseña?
+              <a href="/" className="text-white">
+                Regresar a la página principal
               </a>
             </div>
             <div className="form-group mt-3">

@@ -42,7 +42,7 @@ function EventoView() {
   if (!evento) {
     return (
       <>
-        <NavBar navData={Navbardata} brand='EduAsyncHub' goto='/eventos'/>
+        <NavBar navData={Navbardata} brand='EduAsyncHub' goto='/'/>
         <div>Evento no encontrado</div>
         <ButtonRuta path="/eventos" text="Volver a eventos" className='btn btn-primary' />
         <Footer />

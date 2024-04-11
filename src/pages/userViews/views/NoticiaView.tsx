@@ -43,7 +43,7 @@ function NoticiaView() {
   if (!noticia) {
     return (
       <>
-        <NavBar navData={Navbardata} brand='EduAsyncHub' goto='/noticias'/>
+        <NavBar navData={Navbardata} brand='EduAsyncHub' goto='/'/>
         <div>noticia no encontrada</div>
         <ButtonRuta path="/noticias" text="Volver a noticias" className='btn btn-primary' />
       </>
