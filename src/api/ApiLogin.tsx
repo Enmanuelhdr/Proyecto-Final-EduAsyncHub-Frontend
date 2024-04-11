@@ -48,10 +48,15 @@ const cookies = new Cookies()
      
       cookies.set("token", token);
   
-      const decodedToken = jwtDecode(token) as { role: string ,nameid:string}; 
-  
+      const decodedToken = jwtDecode(token) as { role: string ,nameid:string,UserName:string}; 
+
+      console.log(decodedToken);
+      
       const roleId = decodedToken.role || "";
+      const userName = decodedToken.UserName || "";
+      cookies.set("userName",userName)
       cookies.set("userId",decodedToken.nameid)
+
       updateUserRole(roleId);
   
       handleNavigation(roleId);
