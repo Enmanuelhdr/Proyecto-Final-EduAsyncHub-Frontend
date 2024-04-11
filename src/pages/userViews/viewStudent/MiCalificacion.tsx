@@ -42,12 +42,13 @@ function MiCalificacion() {
       role: string;
       nameid: string;
       unique_name: string;
+      UserName:string;
     };
     console.log(decodedToken);
 
     const matricula = decodedToken.nameid || "";
     const email = decodedToken.unique_name || "";
-    const nombre = "Adal Dame El Nombre";
+    const nombre = decodedToken.UserName || "";
     const fecha = "2023-2024";
     setUserData({ matricula, email, nombre, fecha });
   };
@@ -104,11 +105,16 @@ function MiCalificacion() {
 
   return (
     <>
-      <div className="informe container">
+      <div className="container border  shadow p-3 rounded  mb-4 ">
+        <div className="row m-0 p-3 rounded  mb-4">
+          <div className="col-12">
+            <h1 className="text-center display-6 "><strong>Resumen Estudiantil </strong></h1>
+          </div>
+        </div>
 
         {/* Datos */}
-        <div className="row m-0 px-4 justify-content-md-between align-itemns-center justify-content-center">
-          <div className="card shadow">
+        <div className="row m-0 px-2 justify-content-md-between align-itemns-center justify-content-center">
+          <div className=" ">
             <div className="card-body">
               <div className="row">
                 {/* Dias de Clase */}
@@ -174,16 +180,93 @@ function MiCalificacion() {
           </div>
         </div>
 
-        <div className="container  mt-4  p-3">
-          <div className="border  shadow p-3 rounded  mb-4">
-            {userData.matricula && <p className="h4"> Matricula: {userData.matricula}</p>}
+        <div className="container   mt-4  p-3">
+          <div className="row     p-3 rounded  mb-4">
+            <div className="col-12 col-md-6">
+            {/* {userData.matricula && <p className="h4"> Matricula: {userData.matricula}</p>}
             {userData.nombre && <p className="h4">Nombre: {userData.nombre}</p>}
             {userData.email && <p className="h4">Email: {userData.email}</p>}
-            {userData.fecha && <p className="h4">Año escolar: {userData.fecha}</p>}
+            {userData.fecha && <p className="h4">Año escolar: {userData.fecha}</p>} */}
+         
+
+            <table className="table table-hover shadow border border-3 border-dark">
+             <thead>
+               <tr>
+               <th colSpan={5}  className="text-center bg-dark text-white display-6">Información</th>
+               </tr>
+               <tr>
+                 <th className="text-center">Nombre</th>
+                 
+               </tr>
+               <tr> 
+                 <td className="text-center">{userData.nombre && <p className="">{userData.nombre}</p>}</td>
+               </tr>
+               <tr>
+                 <th className="text-center">Matricula</th>
+               </tr>
+               <tr>
+                 <td className="text-center">{userData.matricula && <p className="">{userData.matricula}</p>}</td>
+               </tr>
+               <tr>
+                 <th className="text-center">Email</th>
+               </tr>
+               <tr>
+                 <td className="text-center">{userData.email && <p className="">{userData.email}</p>}</td>
+               </tr>
+               <tr>
+                 <th className="text-center">Año escolar</th>
+               </tr>
+               <tr>
+                 <td className="text-center">{userData.fecha && <p className="">{userData.fecha}</p>}</td>
+               </tr>
+      
+
+             </thead>
+           
+
+            </table>
+
+            </div>
+            <div className="col-12 col-md-6 d-flex itemns-center">
+            <table className="table table-hover shadow border border-3 border-dark">
+             <thead>
+               <tr>
+               <th colSpan={5}  className="text-center bg-dark text-white display-6">Sistema de calificación</th>
+               </tr>
+               <tr>
+                 <th className="text-center">Rango</th>
+                 <th className="text-center">Descripción</th>
+               </tr>
+
+             </thead>
+             <tbody>
+               <tr>
+                 <td className="text-center">0-69</td>
+                 <td className="text-center">Insuficiente</td>
+               </tr>
+               <tr>
+                 <td className="text-center">70-79</td>
+                 <td className="text-center">Suficiente</td>
+               </tr>
+               <tr>
+                 <td className="text-center">80-89</td>
+                 <td className="text-center">Bueno</td>
+               </tr>
+               <tr>
+                 <td className="text-center">90-100</td>
+                 <td className="text-center">Excelente</td>
+               </tr>
+             </tbody>
+
+            </table>
+
+            </div>
+         
+         
           </div>
 
           
-          <div className="row">
+          <div className="row   mb-4">
             <div className="col">
               <table className="table table-hover shadow border border-3 border-dark">
                 <thead>
@@ -198,8 +281,8 @@ function MiCalificacion() {
                   <tr>
                     <th className="sticky-th w-25 text-center">Materia</th>
                     <th className="sticky-th col-2 text-center">Período</th>
-                    <th className="sticky-th col-2 text-center">Nota Final</th>
-                    <th className="sticky-th text-center ">Ausencias</th>
+                    <th className="sticky-th col-2 text-center ">Ausencias</th>
+                    <th className="sticky-th  text-center">Nota Final</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -216,14 +299,15 @@ function MiCalificacion() {
                         </ul>
                       </td>
                       <td className="text-center">
-                        {materia.notaTotal == null ? "0" : materia.notaTotal}
-                      </td>
-                      <td className="text-center">
                         {
                           getAsistenciaPorMateria(materia.materia)
                             .asistenciasMateria
                         }
                       </td>
+                      <td className="text-center">
+                        {materia.notaTotal == null ? "0" : materia.notaTotal}
+                      </td>
+                     
                       {/* <td>
                         {
                           getAsistenciaPorMateria(materia.materia)
