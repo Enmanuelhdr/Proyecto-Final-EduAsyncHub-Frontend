@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { IoMdAlert } from "react-icons/io";
+import NavBar from "../../../components/NavBar";
+import navData from "../../../data/HomeNavbard.json";
 
 function SolicitarAdmision() {
   const [datosFormulario, setDatosFormulario] = useState({
@@ -97,6 +99,13 @@ function SolicitarAdmision() {
   };
 
   return (
+    <>
+     <NavBar
+        brand="EduAsyncHub"
+        goto="/"
+        navData={navData}
+      />
+    
     <div className="container p-4">
       <h2 className="text-center">Formulario de Solicitud de Admisión</h2>
       
@@ -321,6 +330,8 @@ function SolicitarAdmision() {
         </button>
       </form>
     </div>
+
+    </>
   );
 }
 
