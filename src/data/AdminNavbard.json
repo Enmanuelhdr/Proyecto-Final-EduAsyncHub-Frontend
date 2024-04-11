@@ -18,6 +18,10 @@
     {
         "name": "Actividades",
         "url": "/actividades"
+    },
+    {
+        "name": "Admisiones",
+        "url": "/administrarAdmisiones"
     }
     
 ]
