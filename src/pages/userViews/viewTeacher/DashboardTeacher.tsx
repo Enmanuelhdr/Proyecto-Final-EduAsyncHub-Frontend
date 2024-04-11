@@ -1,19 +1,20 @@
-import NavBar from "../../../components/NavBar"
-import ShowSubjects from "./ShowSubjects"
-import  navData  from "../../../data/AdminNavbard.json"
-
-
-
+import NavBar from "../../../components/NavBar";
+import ShowSubjects from "./ShowSubjects";
+import navData from "../../../data/ProfesorNavbar.json";
 
 function DashboardTeacher() {
   return (
     <>
-    <NavBar brand="DashboardTeacher" goto="/dashboardprofesor" navData={navData}/>
-
-    <ShowSubjects />
-    
+      <NavBar
+        brand="Panel Profesor"
+        goto="/dashboardprofesor"
+        navData={navData}
+      />
+      <div className="mt-4">
+        <ShowSubjects />
+      </div>
     </>
-  )
+  );
 }
 
-export default DashboardTeacher
+export default DashboardTeacher;
