@@ -2,7 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Cookies from "universal-cookie";
-
+import navData from "../../../data/ProfesorNavbar.json";
+import NavBar from "../../../components/NavBar";
 interface Student {
   nombreEstudiante: string;
   userId: string;
@@ -31,7 +32,7 @@ function CalificarComponent() {
         console.log("Estudiantes", students);
       });
 
-
+   
       const currentDate = new Date();
      
       const currentMonth = currentDate.getMonth() + 1; 
@@ -71,11 +72,22 @@ function CalificarComponent() {
   };
   return (
     <>
+         <NavBar
+        brand="Panel Profesor"
+        goto="/dashboardprofesor"
+        navData={navData}
+      />
+    <div className="container mb-4 mt-4">
+      <h1 className="text-center">Calificaciones</h1>
+    
+      
+    </div>
+
       <div
         className="container accordion accordion-flush"
         id="accordionFlushExample"
         >
-{/* P1 */}
+        {/* P1 */}
         {   currentPeriod === periodoEvaluar1 && (
         <div className="accordion-item">
           <h2 className="accordion-header">

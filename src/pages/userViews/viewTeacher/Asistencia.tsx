@@ -2,7 +2,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
-
+import navData from "../../../data/ProfesorNavbar.json";
+import NavBar from "../../../components/NavBar";
 interface Student {
   nombreEstudiante: string;
   userId: string;
@@ -47,9 +48,14 @@ function Asistencia() {
 
   return (
     <>
-      <div>
+      <NavBar
+        brand="Panel Profesor"
+        goto="/dashboardprofesor"
+        navData={navData}
+      />
+      <div className="mt-4">
         <div className="container">
-          <h1 className="d-flex justify-content-center">Asistencia</h1>
+          <h1 className="d-flex justify-content-center mb-4">Asistencia</h1>
           <div className="table-responsive">
             <table className="table table-striped table-hover table-bordered">
               <thead>
