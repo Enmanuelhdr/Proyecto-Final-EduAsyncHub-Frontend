@@ -108,7 +108,7 @@ function MiCalificacion() {
       <div className="container border  shadow p-3 rounded  mb-4 ">
         <div className="row m-0 p-3 rounded  mb-4">
           <div className="col-12">
-            <h1 className="text-center display-6 "><strong>Resumen Estudiantil </strong></h1>
+            <h1 className="text-center display-6 fw-bold ">Resumen Estudiantil </h1>
           </div>
         </div>
 
@@ -192,7 +192,7 @@ function MiCalificacion() {
             <table className="table table-hover shadow border border-3 border-dark">
              <thead>
                <tr>
-               <th colSpan={5}  className="text-center bg-dark text-white display-6">Información</th>
+               <th colSpan={5}  className="text-center bg-dark text-white display-6 fw-bold">Información</th>
                </tr>
                <tr>
                  <th className="text-center">Nombre</th>
@@ -231,7 +231,7 @@ function MiCalificacion() {
             <table className="table table-hover shadow border border-3 border-dark">
              <thead>
                <tr>
-               <th colSpan={5}  className="text-center bg-dark text-white display-6">Sistema de calificación</th>
+               <th colSpan={5}  className="text-center bg-dark text-white display-6 fw-bold">Sistema de calificación</th>
                </tr>
                <tr>
                  <th className="text-center">Rango</th>
@@ -273,7 +273,7 @@ function MiCalificacion() {
                   <tr>
                     <th
                       colSpan={5}
-                      className="text-center bg-dark text-white display-6"
+                      className="text-center bg-dark text-white display-6 fw-bold"
                     >
                       Materias
                     </th>
