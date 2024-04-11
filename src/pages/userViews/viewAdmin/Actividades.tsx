@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { FaPencilAlt, FaTrashAlt, FaPlus, FaEye } from "react-icons/fa";
 import { CgDanger } from "react-icons/cg";
@@ -51,11 +51,11 @@ function Actividades() {
           hora: hora,
         }
       );
-      if (response.status === 200) {
+    
         console.log("Actividad agregada correctamente");
         fetchActividad();
         clearData();
-      }
+    
     } catch (error) {
       console.error("Error al agregar la actividad:", error);
     }
@@ -72,12 +72,12 @@ function Actividades() {
         }
       );
 
-      if (response.status === 200) {
+     
         console.log("Actividad actualizada correctamente");
         fetchActividad();
         clearData();
         setTemporalId(null);
-      }
+      
     } catch (error) {
       console.error("Error al editar la actividad:", error);
     }
@@ -88,10 +88,10 @@ function Actividades() {
       const response = await axios.delete(
         `http://www.eduasynchub.somee.com/api/CalendarioEspecifico/EliminarActividad/${id}`
       );
-      if (response.status === 200) {
+     
         console.log("Actividad eliminada correctamente");
         fetchActividad();
-      }
+      
     } catch (error) {
       console.error("Error al eliminar la actividad:", error);
     }
