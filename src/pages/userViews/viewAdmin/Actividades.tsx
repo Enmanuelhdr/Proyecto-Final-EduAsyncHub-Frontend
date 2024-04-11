@@ -51,11 +51,11 @@ function Actividades() {
           hora: hora,
         }
       );
-      if (response.status === 200) {
+    
         console.log("Actividad agregada correctamente");
         fetchActividad();
         clearData();
-      }
+    
     } catch (error) {
       console.error("Error al agregar la actividad:", error);
     }
@@ -72,12 +72,12 @@ function Actividades() {
         }
       );
 
-      if (response.status === 200) {
+     
         console.log("Actividad actualizada correctamente");
         fetchActividad();
         clearData();
         setTemporalId(null);
-      }
+      
     } catch (error) {
       console.error("Error al editar la actividad:", error);
     }
@@ -88,10 +88,10 @@ function Actividades() {
       const response = await axios.delete(
         `http://www.eduasynchub.somee.com/api/CalendarioEspecifico/EliminarActividad/${id}`
       );
-      if (response.status === 200) {
+     
         console.log("Actividad eliminada correctamente");
         fetchActividad();
-      }
+      
     } catch (error) {
       console.error("Error al eliminar la actividad:", error);
     }
@@ -104,7 +104,7 @@ function Actividades() {
 
   return (
     <>
-    {/* Filtro */}
+      {/* Filtro */}
       <div className=" p-4">
         <div className="row align-items-center justify-content-end">
           <div className="col-12 col-md-6 mb-2 mb-md-0 order-md-1">
@@ -152,7 +152,7 @@ function Actividades() {
                 <tr key={actividad.id}>
                   <th scope="row">{actividad.id}</th>
                   <td>{actividad.title}</td>
-                
+
                   <td>
                     <div
                       className="btn-group"
@@ -182,13 +182,13 @@ function Actividades() {
                         data-bs-toggle="modal"
                         data-bs-target="#modalVisualizar"
                         onClick={() => {
-                          setTemporalId(actividad.id)
+                          setTemporalId(actividad.id);
                           setTitle(actividad.title);
                           setDate(actividad.date);
                           setHora(actividad.hora);
                         }}
                       >
-                        <FaEye/>
+                        <FaEye />
                       </button>
 
                       <button
@@ -201,7 +201,6 @@ function Actividades() {
                           setTitle(actividad.title);
                           setDate(actividad.date);
                           setHora(actividad.hora);
-                          
                         }}
                       >
                         <FaTrashAlt style={{ color: "red" }} />
@@ -254,7 +253,7 @@ function Actividades() {
                     Fecha:
                   </label>
                   <input
-                    type="text"
+                    type="date"
                     className="form-control"
                     id="date"
                     value={date}
@@ -288,8 +287,8 @@ function Actividades() {
                 className="btn btn-primary"
                 data-bs-dismiss="modal"
                 onClick={() => {
-                  handleSubmit(),
-                  clearData()
+                  handleSubmit();
+                  clearData();
                 }}
               >
                 Agregar Actividad
@@ -320,8 +319,7 @@ function Actividades() {
                 onClick={() => {
                   clearData();
                   setTemporalId(null);
-                }
-              }
+                }}
               ></button>
             </div>
             <div className="modal-body">
@@ -343,7 +341,7 @@ function Actividades() {
                     Fecha:
                   </label>
                   <input
-                    type="text"
+                    type="date"
                     className="form-control"
                     id="editDate"
                     value={date}
@@ -372,8 +370,7 @@ function Actividades() {
                 onClick={() => {
                   clearData();
                   setTemporalId(null);
-                }
-                }
+                }}
               >
                 Cancelar
               </button>
@@ -381,11 +378,11 @@ function Actividades() {
                 type="button"
                 className="btn btn-success"
                 data-bs-dismiss="modal"
-                onClick={() => {handleUpdate(),
-                clearData(),
-                setTemporalId(null)
-                }
-              }
+                onClick={() => {
+                  handleUpdate();
+                  clearData();
+                  setTemporalId(null);
+                }}
               >
                 Actualizar
               </button>
@@ -416,8 +413,7 @@ function Actividades() {
                 onClick={() => {
                   clearData();
                   setTemporalId(null);
-                }
-                }
+                }}
               ></button>
             </div>
             <div className="modal-body">
@@ -460,8 +456,7 @@ function Actividades() {
                 onClick={() => {
                   clearData();
                   setTemporalId(null);
-                }
-                }
+                }}
               >
                 Cancelar
               </button>
@@ -474,7 +469,6 @@ function Actividades() {
                   temporalId && handleDelete(temporalId);
                   clearData();
                   setTemporalId(null);
-
                 }}
               >
                 Eliminar
@@ -506,13 +500,10 @@ function Actividades() {
                 onClick={() => {
                   clearData();
                   setTemporalId(null);
-                }
-                }
+                }}
               ></button>
             </div>
             <div className="modal-body">
-            
-            
               <div className="form-group mb-2">
                 <label className="mb-2 fw-bold">ID</label>
                 <p>{temporalId}</p>
@@ -538,9 +529,7 @@ function Actividades() {
                 onClick={() => {
                   clearData();
                   setTemporalId(null);
-                
-                }
-                }
+                }}
               >
                 Cancelar
               </button>
