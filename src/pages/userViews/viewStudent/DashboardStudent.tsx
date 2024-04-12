@@ -1,8 +1,20 @@
-
+import MiCalificacion from "./MiCalificacion"
+import navData from "../../../data/EstudianteNavbar.json";
+import NavBar from "../../../components/NavBar";
 
 function DashboardStudent() {
   return (
-    <div>DashboardStudent</div>
+    <>
+   <NavBar
+        brand="Panel Estudiante"
+        goto="/dashboardestudiante"
+        navData={navData}
+      />
+      <div className="mt-4">
+
+  <MiCalificacion />
+      </div>
+    </>
   )
 }
 

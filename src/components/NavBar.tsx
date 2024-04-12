@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Cookies from "universal-cookie";
 import { FaRegUserCircle } from "react-icons/fa";
@@ -27,7 +27,7 @@ function NavBar(props: NavBarProps) {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-5 pb-3">
+      <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <button
             className="navbar-toggler"
@@ -74,7 +74,23 @@ function NavBar(props: NavBarProps) {
               >
                 <li>
                   {isLogged ? (
+                    <>
+                    <Link
+                    to={'/'}
+                    className="dropdown-item text-white"
+                    style={{ backgroundColor: "transparent" }}
+                  >
+                    Home
+                  </Link>
+                    <Link
+                      to={`/dashboard${cookies.get("userRole")}`}
+                      className="dropdown-item text-primary"
+                      style={{ backgroundColor: "transparent" }}
+                    >
+                      Dashboard
+                    </Link>
                     <ButtonLogout />
+                    </>
                   ) : (
                     <Link
                       to="/login"

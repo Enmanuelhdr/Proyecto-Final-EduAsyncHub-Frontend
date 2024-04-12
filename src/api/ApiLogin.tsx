@@ -22,13 +22,13 @@ const cookies = new Cookies()
     clearFields();
     switch (roleId) {
       case "Estudiante":
-        navigate("/dashboardstudent");
+        navigate("/dashboardEstudiante");
         break;
       case "Profesor":
-        navigate("/dashboardteacher");
+        navigate("/dashboardProfesor");
         break;
       case "Administrador":
-        navigate("/dashboardadmin");
+        navigate("/dashboardAdministrador");
         break;
       default:
         navigate("/login");
@@ -40,7 +40,7 @@ const cookies = new Cookies()
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://localhost:7152/api/User/LoguearUsuarios",
+        "http://www.eduasynchub.somee.com/api/User/LoguearUsuarios",
         { correoElectronico: email, contraseña: password }
       );
   
@@ -48,10 +48,15 @@ const cookies = new Cookies()
      
       cookies.set("token", token);
   
-      const decodedToken = jwtDecode(token) as { role: string ,nameid:string}; 
-  
+      const decodedToken = jwtDecode(token) as { role: string ,nameid:string,UserName:string}; 
+
+      console.log(decodedToken);
+      
       const roleId = decodedToken.role || "";
+      const userName = decodedToken.UserName || "";
+      cookies.set("userName",userName)
       cookies.set("userId",decodedToken.nameid)
+
       updateUserRole(roleId);
   
       handleNavigation(roleId);
@@ -67,9 +72,9 @@ const cookies = new Cookies()
     <>
       <div className="container-fluid bg-dark vh-100 d-flex justify-content-center align-items-center">
         <div className="text-white p-4">
-          <h1 className="mb-4 text-center">Login</h1>
+          <h1 className="mb-4 text-center">Iniciar Sesión</h1>
           <h5 className="mb-4 text-center">
-            Hello! Entra con tu correo institucional
+            ¡Bienvenido! Ingresa con tu correo institucional
           </h5>
 
           {error && (
@@ -100,16 +105,16 @@ const cookies = new Cookies()
                 autoComplete="on"
                 required
               />
-              <a href="#" className="text-white">
-                ¿Olvidaste tu contraseña?
+              <a href="/" className="text-white">
+                Regresar a la página principal
               </a>
             </div>
             <div className="form-group mt-3">
               <button
                 type="submit"
-                className="btn btn-success btn-block mb-2 w-100"
+                className="btn btn-primary btn-block mb-2 w-100"
               >
-                Iniciar sesión
+                Ingresar
               </button>
             </div>
           </form>

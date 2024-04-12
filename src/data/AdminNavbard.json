@@ -1,11 +1,27 @@
 [
     {
+        "name": "Usuarios",
+        "url": "/usuariosAdmin"
+    },
+    {
+        "name": "Asignar Materias",
+        "url": "/materiasAdmin"
+    },
+    {
         "name": "Noticias",
-        "url": "/noticias"
+        "url": "/noticiasAdmin"
     },
     {
         "name": "Eventos",
-        "url": "/eventos"
+        "url": "/eventosAdmin"
+    },
+    {
+        "name": "Actividades",
+        "url": "/actividades"
+    },
+    {
+        "name": "Admisiones",
+        "url": "/administrarAdmisiones"
     }
-   
+    
 ]
