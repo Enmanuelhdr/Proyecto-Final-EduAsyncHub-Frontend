@@ -16,7 +16,7 @@ function ShowSubjectsActions() {
   const userId = cookies.get("userId");
   
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [grades, setGrades ] = useState<{ [key: number]: string }>({ 
+  const [grades ] = useState<{ [key: number]: string }>({ 
     1: "Primero de Primaria",
     2: "Segundo de Primaria",
     3: "Tercero de Primaria",

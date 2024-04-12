@@ -52,7 +52,7 @@ function Actividades() {
         }
       );
     
-        console.log("Actividad agregada correctamente");
+        console.log("Actividad agregada correctamente",response);
         fetchActividad();
         clearData();
     
@@ -73,7 +73,7 @@ function Actividades() {
       );
 
      
-        console.log("Actividad actualizada correctamente");
+        console.log("Actividad actualizada correctamente",response);
         fetchActividad();
         clearData();
         setTemporalId(null);
@@ -89,7 +89,7 @@ function Actividades() {
         `http://www.eduasynchub.somee.com/api/CalendarioEspecifico/EliminarActividad/${id}`
       );
      
-        console.log("Actividad eliminada correctamente");
+        console.log("Actividad eliminada correctamente",response);
         fetchActividad();
       
     } catch (error) {
