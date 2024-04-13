@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 // import axios from 'axios';
 // import Cookies from "universal-cookie";
 import { BiCommentDetail } from "react-icons/bi";
@@ -25,7 +25,7 @@ interface CardData {
 function Foros(props: ForosProps) {
     const [room, setRoom] = useState("");
     const [showChat, setShowChat] = useState(false);
-    const [cardData, setCardData] = useState<CardData[]>(jsonData);
+    const [cardData] = useState<CardData[]>(jsonData);
 
     // Función para determinar el color del borde según la cantidad de elementos
     const getBorderColor = (index: number): string => {
