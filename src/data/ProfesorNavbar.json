@@ -2,6 +2,10 @@
     {
         "name": "Mis Materias",
         "url": "/dashboardProfesor"
+    },
+    {
+        "name": "Foro Escolar",
+        "url": "/foroProfesor"
     }
     
 ]

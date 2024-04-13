@@ -22,6 +22,9 @@ import GestionarActividades from "./pages/userViews/viewAdmin/GestionarActividad
 import FormularioAdmision from "./pages/FormularioAdmision";
 import AdministrarAdmisiones from "./pages/AdministrarAdmisiones";
 import ListaActividad from "./pages/userViews/viewAdmin/ListaActividad";
+import ForumAdmin from "./pages/userViews/viewAdmin/ForumAdmin";
+import Forum from "./pages/userViews/Forum";
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -79,6 +82,7 @@ function Rutas() {
           <Route path="/materiasAdmin" element={<AddTeacherSubjects/>} />
           <Route path="/actividades" element={<GestionarActividades/>}/>
           <Route path="/administrarAdmisiones" element={<AdministrarAdmisiones/>}/>
+          <Route path="/foroAdmin" element={<ForumAdmin/>}/>
           <Route path="/verCalendario" element={<ListaActividad/>}/>
          
         </Route>
@@ -86,6 +90,7 @@ function Rutas() {
         <Route element={(isAuthenticated("Estudiante", "/login"))}>
           <Route path="/dashboardEstudiante" element={<DashboardStudent />} />
           <Route path="/verCalendario" element={<ListaActividad/>}/>
+          <Route path="/foro" element={<Forum/>}/>
         </Route>
 
         <Route element={(isAuthenticated("Profesor", "/login"))}>
@@ -93,6 +98,7 @@ function Rutas() {
           <Route path="/calificar/:materiaId/:gradoId" element={<Calificar/>} />
           <Route path="/asistencia/:materiaId/:gradoId/" element={<Asistencia/>} />
           <Route path="/verCalendario" element={<ListaActividad/>}/>
+          <Route path="/foroProfesor" element={<Forum/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
