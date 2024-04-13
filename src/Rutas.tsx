@@ -19,8 +19,9 @@ import AddTeacherSubjects from "./pages/userViews/viewAdmin/AddTeacherSubjects";
 import Calificar from "./pages/userViews/viewTeacher/Calificar";
 import Asistencia from "./pages/userViews/viewTeacher/Asistencia";
 import GestionarActividades from "./pages/userViews/viewAdmin/GestionarActividades";
-import Admisiones from "./pages/userViews/viewAdmin/Admisiones";
 import FormularioAdmision from "./pages/FormularioAdmision";
+import AdministrarAdmisiones from "./pages/AdministrarAdmisiones";
+import ListaActividad from "./pages/userViews/viewAdmin/ListaActividad";
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -77,18 +78,21 @@ function Rutas() {
           <Route path="/noticiasAdmin" element={<NoticiasAdmin/>}/>
           <Route path="/materiasAdmin" element={<AddTeacherSubjects/>} />
           <Route path="/actividades" element={<GestionarActividades/>}/>
-          <Route path="/administrarAdmisiones" element={<Admisiones/>}/>
+          <Route path="/administrarAdmisiones" element={<AdministrarAdmisiones/>}/>
+          <Route path="/verCalendario" element={<ListaActividad/>}/>
          
         </Route>
 
         <Route element={(isAuthenticated("Estudiante", "/login"))}>
           <Route path="/dashboardEstudiante" element={<DashboardStudent />} />
+          <Route path="/verCalendario" element={<ListaActividad/>}/>
         </Route>
 
         <Route element={(isAuthenticated("Profesor", "/login"))}>
           <Route path="/dashboardProfesor" element={<DashboardTeacher />} />
           <Route path="/calificar/:materiaId/:gradoId" element={<Calificar/>} />
           <Route path="/asistencia/:materiaId/:gradoId/" element={<Asistencia/>} />
+          <Route path="/verCalendario" element={<ListaActividad/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
