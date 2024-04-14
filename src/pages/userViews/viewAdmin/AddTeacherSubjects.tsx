@@ -125,7 +125,7 @@ const AddTeacherSubjects: React.FC = () => {
         <div className="table-responsive pt-4">
           <h1 className="d-flex justify-content-center">Profesores</h1>
           <table className="table table-hover">
-            <thead>
+            <thead className="table-light">
               <tr>
                 <th className="sticky-th">Id</th>
                 <th className="sticky-th">Nombre</th>

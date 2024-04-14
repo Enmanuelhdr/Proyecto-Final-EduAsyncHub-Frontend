@@ -46,7 +46,7 @@ function Admisiones() {
   const [comentarioExtra, setComentarioExtra] = useState("");
   const [selectedState, setSelectedState] = useState("Todos");
 
- 
+
 
 
   useEffect(() => {
@@ -58,7 +58,7 @@ function Admisiones() {
     axios
       .get("http://www.eduasynchub.somee.com/api/Admisiones")
       .then((response) => {
-     
+
         console.log(response.data);
         setAdmisiones(response.data);
       })
@@ -133,46 +133,46 @@ function Admisiones() {
 
   const handleApprove = async () => {
     try {
-   
-      
+
+
       await axios.put(`http://www.eduasynchub.somee.com/api/Admisiones/Approve/${solicitudId}?comentario=${encodeURIComponent(comentarioExtra)}`);
-       
-     
-    
+
+
+
     } catch (error) {
-      
+
       console.error('Es necesario enviar un comentario para aprobar la solicitud, o su solicitud ya ha sido aprobada.', error);
 
     }
-    finally{
+    finally {
       window.location.reload()
     }
   };
 
   const handleReject = async () => {
     try {
-   
-      
+
+
       await axios.put(`http://www.eduasynchub.somee.com/api/Admisiones/Reject/${solicitudId}?comentario=${encodeURIComponent(comentarioExtra)}`);
-     fetchAdmisiones()
-    
+      fetchAdmisiones()
+
     } catch (error) {
-      
+
       console.error('Es necesario enviar un comentario para rechazar la solicitud, o su solicitud ya ha sido rechazada.', error);
-   
+
     }
-    finally{
+    finally {
       window.location.reload()
     }
   };
 
 
 
-const filteredAdmisiones = admisiones.filter((admision) =>
+  const filteredAdmisiones = admisiones.filter((admision) =>
     admision.nombreEstudiante.toLowerCase().includes(searchTerm.toLowerCase()) &&
     (selectedState === "Todos" || admision.estadoSolicitud.toLowerCase() === selectedState.toLowerCase())
   );
-  
+
 
   return (
     <>
@@ -194,16 +194,16 @@ const filteredAdmisiones = admisiones.filter((admision) =>
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
 
-<select
-  className="form-select"
-  value={selectedState}
-  onChange={(e) => setSelectedState(e.target.value)}
->
-  <option value="Todos">Todos</option>
-  <option value="Pendiente">Pendiente</option>
-  <option value="Aprobada">Aprobada</option>
-  <option value="Rechazada">Rechazada</option>
-</select>
+              <select
+                className="form-select"
+                value={selectedState}
+                onChange={(e) => setSelectedState(e.target.value)}
+              >
+                <option value="Todos">Todos</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Aprobada">Aprobada</option>
+                <option value="Rechazada">Rechazada</option>
+              </select>
 
               <button
                 type="button"
@@ -222,8 +222,8 @@ const filteredAdmisiones = admisiones.filter((admision) =>
       {/* Tabla */}
       <div className="p-4">
         <div className="table-responsive">
-          <table className="table table-striped table-hover">
-            <thead>
+          <table className="table table-hover">
+            <thead className="table-light">
               <tr>
                 <th className="sticky-th">ID</th>
                 <th className="sticky-th">Nombre del Estudiante</th>
@@ -780,23 +780,23 @@ const filteredAdmisiones = admisiones.filter((admision) =>
                   value={comentarioExtra}
                   onChange={(e) => setComentarioExtra(e.target.value)}
                 ></textarea>
-              <p className="text-danger">Nota: Para poder Aprobar o Rechazar una solicitud debe ingresar un comentario. </p>
-              
+                <p className="text-danger">Nota: Para poder Aprobar o Rechazar una solicitud debe ingresar un comentario. </p>
 
-              
+
+
                 <div className="d-flex gap-4 pt-4">
-                {/* <Approve id={solicitudId.toString()} comentario={comentarioExtra}  /> */}
-                <button onClick={handleApprove} className='btn btn-success' >
-                  {estadoSolicitud=="Aprobada"?"Aprobado":"Aprobar"} 
+                  {/* <Approve id={solicitudId.toString()} comentario={comentarioExtra}  /> */}
+                  <button onClick={handleApprove} className='btn btn-success' >
+                    {estadoSolicitud == "Aprobada" ? "Aprobado" : "Aprobar"}
                   </button>
 
                   <button onClick={handleReject} className='btn btn-danger' >
-                  {estadoSolicitud=="Rechazada"?"Rechazado":"Rechazar"}
+                    {estadoSolicitud == "Rechazada" ? "Rechazado" : "Rechazar"}
                   </button>
 
-                {/* <Reject id={solicitudId.toString()} comentario={comentarioExtra} /> */}
+                  {/* <Reject id={solicitudId.toString()} comentario={comentarioExtra} /> */}
                 </div>
-</div>
+              </div>
 
             </div>
             <div className="modal-footer">
@@ -813,7 +813,7 @@ const filteredAdmisiones = admisiones.filter((admision) =>
                 Cerrar
               </button>
 
-           
+
             </div>
           </div>
         </div>

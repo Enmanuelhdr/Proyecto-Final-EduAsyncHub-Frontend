@@ -5,6 +5,7 @@ interface ForosProps {
     userName: string;
     userId: string;
     room: string;
+    role: string;
 }
 
 interface MessageInfo {
@@ -15,7 +16,7 @@ interface MessageInfo {
     time: string;
 }
 
-const Chat = ({ userName, room, userId }: ForosProps) => {
+const Chat = ({ userName, room, userId, role }: ForosProps) => {
     const [currentMessage, setCurrentMessage] = useState<string>("");
     const [currentUser, setCurrentUser] = useState<string>("");
     const [messagesList, setMessagesList] = useState<MessageInfo[]>([]);
@@ -45,14 +46,26 @@ const Chat = ({ userName, room, userId }: ForosProps) => {
         };
     }, [room]);
 
+    const formatTime = (date: Date): string => {
+        const hours = padZero(date.getHours());
+        const minutes = padZero(date.getMinutes());
+        return `${hours}:${minutes}`;
+    };
+
+    const padZero = (num: number): string => {
+        return num < 10 ? '0' + num : num.toString();
+    };
+
     const sendMessage = async () => {
         if (userName && userId && currentMessage && room && socket) {
+            const currentTime = new Date(Date.now());
+            const formattedTime = formatTime(currentTime);
             const info: MessageInfo = {
                 message: currentMessage,
                 room: room,
                 author: userName,
                 userId: userId,
-                time: `${new Date(Date.now()).getHours()}:${new Date(Date.now()).getMinutes()}`
+                time: `${formattedTime} - ${currentTime.getDate()}/${currentTime.getMonth() + 1}`
             };
 
             // Enviar mensaje al servidor
@@ -66,23 +79,28 @@ const Chat = ({ userName, room, userId }: ForosProps) => {
         }
     };
 
+
     return (
-        <div className="col-xl-10 col-lg-10 col-md-12 col-sm-12 mb-2 vh-100">
-            <div className="card">
-                <div className="card-header fw-bold">Foro | Sala: {room}</div>
-                <div className="card-body">
+        <div className="col-xl-10 col-lg-10 col-md-12 col-sm-12 mb-2 overflow-auto">
+            <div className="card" style={{ maxHeight: '600px' }}>
+                <div className="card-header bg-primary text-light fw-bold">
+                    <h5 className='fw-bold'>Foro | Sala:</h5><h5>{room}</h5>
+                </div>
+                <div className="card-body" style={{ backgroundColor: '#f8f9fa', maxHeight: '500px', overflowY: 'auto' }}>
                     {messagesList.map((item, i) => (
-                        <div key={i} className={`message card mb-2 p-3 ${currentUser === item.userId ? 'text-right border border-success' : 'text-left border border-primary'}`}>
-                            <h5 className="fw-bold">{item.author}</h5>
-                            <p className="card-text">{item.message}</p>
-                            <p className="card-text"><i>{item.time}</i></p>
+                        <div key={i} className={`message card mb-2 ${currentUser === item.userId ? 'text-end border border-success' : 'text-start border border-primary'}`}>
+                            <div className="card-body">
+                                <h5 className="fw-bold">{item.author}</h5>
+                                <p className="card-text">{item.message}</p>
+                                <p className="card-text small"><i>{item.time}</i></p>
+                            </div>
                         </div>
                     ))}
                 </div>
                 <div className="card-footer">
                     <div className="input-group">
                         <input type="text" className="form-control" placeholder="Escribe tu mensaje..." value={currentMessage} onChange={(e) => setCurrentMessage(e.target.value)} />
-                        <button className="btn btn-outline-primary" type="button" onClick={sendMessage}>Enviar</button>
+                        <button className="btn btn-primary" type="button" onClick={sendMessage}>Enviar</button>
                     </div>
                 </div>
             </div>

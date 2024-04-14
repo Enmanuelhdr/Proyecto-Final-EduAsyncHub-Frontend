@@ -142,7 +142,7 @@ function NewsTable() {
             <div className="container">
                 <div className="table-responsive">
                     <table className="table table-hover">
-                        <thead>
+                        <thead className="table-light">
                             <tr>
                                 <th className="sticky-th">Id</th>
                                 <th className="sticky-th">Titulo</th>

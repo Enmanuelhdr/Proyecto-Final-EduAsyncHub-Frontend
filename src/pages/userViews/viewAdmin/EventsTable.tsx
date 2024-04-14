@@ -106,7 +106,7 @@ function EventsTable() {
                 </div>
             )}
 
-            <div className="container">
+            <div className="container-fluid">
                 <div className="pt-3">
                     <div className="row align-items-center justify-content-end">
                         <div className="col-12 col-md-6 mb-2 mb-md-0 order-md-1"> 
@@ -141,7 +141,7 @@ function EventsTable() {
             <div className="container">
                 <div className="table-responsive">
                     <table className="table table-hover">
-                        <thead>
+                        <thead className="table-light">
                             <tr>
                                 <th className="sticky-th">Id</th>
                                 <th className="sticky-th">Titulo</th>
