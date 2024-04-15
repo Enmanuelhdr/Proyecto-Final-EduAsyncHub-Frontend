@@ -27,8 +27,8 @@ const AddTeacherSubjects: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [formData, setFormData] = useState<FormData>({
     teacherUserId: "",
-    materiaId: 0,
-    gradoId: 0,
+    materiaId: 1,
+    gradoId: 1,
   });
   const [temporalTeacherId, setTemporalTeacherId] = useState("");
   const [temporalTeacherName, setTemporalTeacherName] = useState("");
