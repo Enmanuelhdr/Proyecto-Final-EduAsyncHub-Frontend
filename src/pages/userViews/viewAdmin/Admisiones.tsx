@@ -109,6 +109,24 @@ function Admisiones() {
       );
 
       console.log("Solicitud de admisión actualizada correctamente", response);
+
+      // Envío de correo electrónico si es el primer cambio de estado
+      if (estadoSolicitud !== '' && notasComentarios !== '') {
+        await axios.post(
+          "https://backend-chat-en-tiempo-real-dev-haxk.4.us-1.fl0.io/email/",
+          new URLSearchParams({
+            email: correoElectronico,
+            mensaje: `Su solicitud de admisión ha sido actualizada. Comentario: ${notasComentarios}`,
+            asunto: "Actualización de Solicitud de Admisión",
+          }).toString(),
+          {
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+          }
+        );
+      }
+
       fetchAdmisiones();
       clearData();
       setTemporalId(0);
@@ -227,6 +245,7 @@ function Admisiones() {
               <tr>
                 <th className="sticky-th">ID</th>
                 <th className="sticky-th">Nombre del Estudiante</th>
+                <th className="sticky-th">Estado</th>
                 <th className="sticky-th">Acciones</th>
               </tr>
             </thead>
@@ -235,6 +254,13 @@ function Admisiones() {
                 <tr key={admision.solicitudId}>
                   <th scope="row">{admision.solicitudId}</th>
                   <td>{admision.nombreEstudiante}</td>
+                  <td><span className={`badge rounded-pill d-inline ${admision.estadoSolicitud === "Pendiente" || admision.estadoSolicitud === "pendiente" ? "badge bg-primary" :
+                    admision.estadoSolicitud === "Aprobada" ? "badge bg-success" :
+                      admision.estadoSolicitud === "Rechazada" ? "badge bg-danger" : ""}`}>
+                    {admision.estadoSolicitud === "Pendiente" || admision.estadoSolicitud === "pendiente" ? "Pendiente" :
+                      admision.estadoSolicitud === "Aprobada" ? "Aprobada" :
+                        admision.estadoSolicitud === "Rechazada" ? "Rechazada" : ""}
+                  </span></td>
                   <td>
                     <div
                       className="btn-group"
@@ -338,7 +364,7 @@ function Admisiones() {
               ></button>
             </div>
             <div className="modal-body">
-              <SolicitarAdmision />
+              <SolicitarAdmision titulo={false} />
             </div>
             <div className="modal-footer">
               <button
@@ -782,10 +808,8 @@ function Admisiones() {
                 ></textarea>
                 <p className="text-danger">Nota: Para poder Aprobar o Rechazar una solicitud debe ingresar un comentario. </p>
 
-
-
                 <div className="d-flex gap-4 pt-4">
-                  {/* <Approve id={solicitudId.toString()} comentario={comentarioExtra}  /> */}
+                  {/* <Approve id={solicitudId.toString()} comentario={comentarioExtra} /> */}
                   <button onClick={handleApprove} className='btn btn-success' >
                     {estadoSolicitud == "Aprobada" ? "Aprobado" : "Aprobar"}
                   </button>

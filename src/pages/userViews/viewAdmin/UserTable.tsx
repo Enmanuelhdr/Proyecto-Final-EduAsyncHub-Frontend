@@ -119,8 +119,8 @@ function UserTable() {
             )}
 
             <div className="container">
-                <div className="pt-3">
-                    <div className="row align-items-center justify-content-end">
+                <div className="pt-4">
+                    <div className="row align-items-center justify-content-end pb-2">
                         <div className="col-12 col-md-6 mb-2 mb-md-0 order-md-1">
                             <h3>Gestión de <b>Usuarios</b></h3>
                         </div>
@@ -136,7 +136,7 @@ function UserTable() {
                                     onChange={(e) => setSearchTerm(e.target.value)}
                                 />
                                 <select className="form-select me-2" onChange={handleUserRoleChange}>
-                                    <option selected value="">Todos</option>
+                                    <option value="">Todos</option>
                                     <option value="1">Estudiantes</option>
                                     <option value="2">Profesores</option>
                                 </select>
@@ -161,6 +161,7 @@ function UserTable() {
                         <thead className="table-light">
                             <tr>
                                 {/* <th className="sticky-th">Id</th> */}
+                                <th className="sticky-th">ID</th>
                                 <th className="sticky-th">Nombre</th>
                                 <th className="sticky-th">Rol</th>
                                 <th className="sticky-th">Acciones</th>
@@ -170,7 +171,9 @@ function UserTable() {
                             {filteredUsers.map((user) => (
                                 <tr key={user.usuarioId}>
                                     {/* <th scope="row">{user.usuarioId}</th> */}
+                                    <td><p className="fw-bold">{user.usuarioId}</p></td>
                                     <td> <div className="ms-3">
+                                        
                                         <p className="fw-bold mb-1">{user.nombre}</p>
                                         <p className="text-muted mb-0">{user.correoElectronico}</p>
                                     </div></td>
@@ -367,7 +370,7 @@ function UserTable() {
                                     className="btn btn-success"
                                     data-bs-dismiss="modal"
                                     onClick={() => {
-                                        handleEditSubmit;
+                                        handleEditSubmit();
                                         setTemporalUser(null);
                                         setTemporalUserId(0);
                                         setTemporalUserName("");

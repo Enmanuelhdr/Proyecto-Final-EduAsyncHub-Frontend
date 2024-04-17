@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
-import { FaPlus, FaPencilAlt, FaTrashAlt,FaEye } from "react-icons/fa"; 
+import { FaPlus, FaPencilAlt, FaTrashAlt, FaEye } from "react-icons/fa";
 import { CgDanger } from "react-icons/cg";
 import ModalAgregarEvento from "./ModalAgregarEvento";
 
@@ -16,7 +16,7 @@ function EventsTable() {
 
     const [temporalEvent, setTemporalEvent] = useState<Event | null>(null);
     const [events, setEvents] = useState<Event[]>([]);
-    const [successMessage, setSuccessMessage] =useState<string | null>(null);
+    const [successMessage, setSuccessMessage] = useState<string | null>(null);
     const [temporalEventTitle, setTemporalEventTitle] = useState("");
     const [temporalEventId, setTemporalEventId] = useState(0);
     const [temporalEventDate, setTemporalEventDate] = useState("");
@@ -25,8 +25,8 @@ function EventsTable() {
     const [searchTerm, setSearchTerm] = useState("");
     const [viewModalOpen, setViewModalOpen] = useState(false);
     const [fetchEventsTrigger, setFetchEventsTrigger] = useState(false);
-    const cookies = new Cookies();  
-    
+    const cookies = new Cookies();
+
 
     const fetchEvents = async () => {
         try {
@@ -53,14 +53,14 @@ function EventsTable() {
 
     const deleteEvent = (id: number) => {
         axios
-        .delete(`http://www.eduasynchub.somee.com/api/Evento/EliminarEvento/${id}`
-        )
-        .then(() => {
-            fetchEvents();
-        })
-        .catch((error) => {
-            console.error("Error al eliminar el evento:", error);
-        });
+            .delete(`http://www.eduasynchub.somee.com/api/Evento/EliminarEvento/${id}`
+            )
+            .then(() => {
+                fetchEvents();
+            })
+            .catch((error) => {
+                console.error("Error al eliminar el evento:", error);
+            });
     };
 
 
@@ -78,7 +78,7 @@ function EventsTable() {
             setTimeout(() => {
                 setSuccessMessage(null);
             }, 3000);
-        } catch(error) {
+        } catch (error) {
             console.error("Error al editar el evento:", error);
         }
     };
@@ -88,7 +88,7 @@ function EventsTable() {
     };
 
     const handleEditSubmit = () => {
-        if(temporalEvent) {
+        if (temporalEvent) {
             editEvent(temporalEvent);
             setTemporalEvent(null);
         }
@@ -98,7 +98,7 @@ function EventsTable() {
         event.id.toString().includes(searchTerm)
     );
 
-    return(
+    return (
         <div className="row gap-3">
             {successMessage && (
                 <div className="alert alert-success" role="alert">
@@ -109,12 +109,12 @@ function EventsTable() {
             <div className="container-fluid">
                 <div className="pt-3">
                     <div className="row align-items-center justify-content-end">
-                        <div className="col-12 col-md-6 mb-2 mb-md-0 order-md-1"> 
+                        <div className="col-12 col-md-6 mb-2 mb-md-0 order-md-1">
                             <h3>Gestión de <b>Eventos</b></h3>
                         </div>
                         <div className="col-12 col-md-4 order-md-3"></div>
 
-                        <div className="col-12 col-md-6 mb-2 mb-md-0 order-md-2 text-end"> 
+                        <div className="col-12 col-md-6 mb-2 mb-md-0 order-md-2 text-end">
                             <div className="input-group">
                                 <input
                                     className="form-control me-2"
@@ -123,13 +123,13 @@ function EventsTable() {
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
                                 />
-                                <button 
+                                <button
                                     type="button"
                                     className="btn btn-success"
                                     data-bs-toggle="modal"
                                     data-bs-target="#modalAgregar"
                                 >
-                                    <FaPlus className="me-2"/>
+                                    <FaPlus className="me-2" />
                                     Agregar
                                 </button>
                             </div>
@@ -137,7 +137,7 @@ function EventsTable() {
                     </div>
                 </div>
             </div>
-            
+
             <div className="container">
                 <div className="table-responsive">
                     <table className="table table-hover">
@@ -152,85 +152,85 @@ function EventsTable() {
                         </thead>
                         <tbody>
                             {filteredEvents.map((event) => (
-                            <tr key={event.id}>
-                                <th scope="row">{event.id}</th>
-                                <td>{event.title}</td>
-                                <td>
-                                    <a href={event.img} target="_blank">{event.img}</a>
-                                    <br></br>
-                                    <img src={event.img} className="rounded-3 img-thumbnail" style={{ maxWidth: '100px', maxHeight: '100px' }}/>
-                                </td>
-                                <td>{event.date}</td>
-                                <td>
-                                    <div className="btn-group" role="group" aria-label="Acciones">
-                                        {/* Boton de editar */}
-                                        <button 
-                                            type="button" 
-                                            className="btn"
-                                            data-toggle="tooltip"
-                                            title="Editar"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#modalEdit"
-                                            onClick={() => {
-                                                handleEditModal(event);
-                                            }}
-                                        >
-                                            <FaPencilAlt className="color-primary" style={{ color: "#005e93" }}/>
-                                        </button>
+                                <tr key={event.id}>
+                                    <th scope="row">{event.id}</th>
+                                    <td>{event.title}</td>
+                                    <td>
+                                        <a href={event.img} target="_blank">{event.img}</a>
+                                        <br></br>
+                                        <img src={event.img} className="rounded-3 img-thumbnail" style={{ maxWidth: '100px', maxHeight: '100px' }} />
+                                    </td>
+                                    <td>{event.date}</td>
+                                    <td>
+                                        <div className="btn-group" role="group" aria-label="Acciones">
+                                            {/* Boton de editar */}
+                                            <button
+                                                type="button"
+                                                className="btn"
+                                                data-toggle="tooltip"
+                                                title="Editar"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalEdit"
+                                                onClick={() => {
+                                                    handleEditModal(event);
+                                                }}
+                                            >
+                                                <FaPencilAlt className="color-primary" style={{ color: "#005e93" }} />
+                                            </button>
 
-                                        {/* Boton de ver  */}
-                                        <button 
-                                            type="button"
-                                            className="btn"
-                                            data-toggle="tooltip"
-                                            title="Ver usuario"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#modalView"
-                                            onClick={() => {
-                                                setTemporalEventId(event.id);
-                                                setTemporalEventTitle(event.title);
-                                                setTemporalEventDescription(event.description);
-                                                setTemporalEventImage(event.img);
-                                                setTemporalEventDate(event.date);
-                                                setViewModalOpen(true);
-                                                console.log(viewModalOpen);
-                                            }}
-                                        >
-                                            <FaEye/>
-                                        </button>
-                                        {/* Boton de eliminar */}
-                                        <button 
-                                            type="button" 
-                                            className="btn"
-                                            data-toggle="tooltip"
-                                            title="Eliminar"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#modalDelete"
-                                            onClick={() => {
-                                                setTemporalEventId(event.id);
-                                                setTemporalEventTitle(event.title);
-                                            }}
-                                        >
-                                            <FaTrashAlt style={{ color: "red" }} />
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
+                                            {/* Boton de ver  */}
+                                            <button
+                                                type="button"
+                                                className="btn"
+                                                data-toggle="tooltip"
+                                                title="Ver usuario"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalView"
+                                                onClick={() => {
+                                                    setTemporalEventId(event.id);
+                                                    setTemporalEventTitle(event.title);
+                                                    setTemporalEventDescription(event.description);
+                                                    setTemporalEventImage(event.img);
+                                                    setTemporalEventDate(event.date);
+                                                    setViewModalOpen(true);
+                                                    console.log(viewModalOpen);
+                                                }}
+                                            >
+                                                <FaEye />
+                                            </button>
+                                            {/* Boton de eliminar */}
+                                            <button
+                                                type="button"
+                                                className="btn"
+                                                data-toggle="tooltip"
+                                                title="Eliminar"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalDelete"
+                                                onClick={() => {
+                                                    setTemporalEventId(event.id);
+                                                    setTemporalEventTitle(event.title);
+                                                }}
+                                            >
+                                                <FaTrashAlt style={{ color: "red" }} />
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
                             ))}
                         </tbody>
                     </table>
                 </div>
             </div>
 
-             {/* Modal para agregar */}
-             <div
+            {/* Modal para agregar */}
+            <div
                 className="modal fade"
                 id="modalAgregar"
                 aria-labelledby="modalagregar"
                 aria-hidden="true"
             >
                 <ModalAgregarEvento onAddEvent={handleAddEvent} />
-                
+
             </div>
 
             {/* Modal para editar */}
@@ -245,9 +245,9 @@ function EventsTable() {
                         <form>
                             <div className="modal-header">
                                 <h4 className="modal-title">Editar Evento</h4>
-                                <button 
-                                    type="button" 
-                                    className="btn-close" 
+                                <button
+                                    type="button"
+                                    className="btn-close"
                                     data-bs-dismiss="modal"
                                     aria-label="Close"
                                     onClick={() => {
@@ -264,9 +264,9 @@ function EventsTable() {
                                 <div className="modal-body">
                                     <div className="form-group mb-2">
                                         <label className="mb-2 fw-bold">Título</label>
-                                        <input 
-                                            type="text" 
-                                            className="form-control" 
+                                        <input
+                                            type="text"
+                                            className="form-control"
                                             required
                                             id="title"
                                             name="title"
@@ -278,13 +278,13 @@ function EventsTable() {
                                         />
                                     </div>
                                     <div className="form-group mb-2">
-                                        <label className="mb-2 fw-bold">Fecha</label>
+                                        <label htmlFor="date" className="form-label">
+                                            Fecha:
+                                        </label>
                                         <input
-                                            type="text"
+                                            type="date"
                                             className="form-control"
                                             id="date"
-                                            name="date"
-                                            required
                                             defaultValue={temporalEvent.date}
                                             onChange={(e) => setTemporalEvent({
                                                 ...temporalEvent,
@@ -325,8 +325,8 @@ function EventsTable() {
                                 </div>
                             )}
                             <div className="modal-footer">
-                                <input 
-                                    type="button" 
+                                <input
+                                    type="button"
                                     className="btn btn-default"
                                     data-bs-dismiss="modal"
                                     value="Cancelar"
@@ -370,9 +370,9 @@ function EventsTable() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h4 className="modal-title">Información del Evento</h4>
-                            <button 
-                                type="button" 
-                                className="btn-close" 
+                            <button
+                                type="button"
+                                className="btn-close"
                                 data-bs-dismiss="modal"
                                 aria-label="Close"
                                 onClick={() => {
@@ -384,7 +384,7 @@ function EventsTable() {
                                     setTemporalEventDate("");
                                 }}
                             ></button>
-                            
+
                         </div>
 
                         <div className="modal-body">
@@ -402,19 +402,19 @@ function EventsTable() {
                             </div>
                             <div className="form-group mb-2">
                                 <label className="mb-2 fw-bold">Imagen</label>
-                                <img src={temporalEventImage} loading='lazy' className="rounded-3 w-100"/>
+                                <img src={temporalEventImage} loading='lazy' className="rounded-3 w-100" />
                             </div>
                             <div className="form-group mb-2">
                                 <label className="mb-2 fw-bold">Contenido:</label>
                                 <p>{temporalEventDescription.length > 100 ? temporalEventDescription.slice(0, 100) + "..." : temporalEventDescription}</p>
-                                
+
                             </div>
-                                       
+
                         </div>
-                            
+
                         <div className="modal-footer">
-                            <input 
-                                type="button" 
+                            <input
+                                type="button"
                                 className="btn btn-default"
                                 data-bs-dismiss="modal"
                                 value="Cancelar"
@@ -444,9 +444,9 @@ function EventsTable() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h4 className="modal-title">¿Desea eliminar este evento?</h4>
-                            <button 
-                                type="button" 
-                                className="btn-close" 
+                            <button
+                                type="button"
+                                className="btn-close"
                                 data-bs-dismiss="modal"
                                 aria-label="Close"
                                 onClick={() => {
@@ -458,12 +458,12 @@ function EventsTable() {
                                     setTemporalEventDate("");
                                 }}
                             ></button>
-                            
+
                         </div>
 
                         <div className="modal-body">
                             <div className="alert alert-danger d-flex align-items-center" role="alert">
-                                <CgDanger className="flex-shrink-0 me-2" style={{ color: "red", fontSize: "24px"}}/>
+                                <CgDanger className="flex-shrink-0 me-2" style={{ color: "red", fontSize: "24px" }} />
                                 <div className="pl-5">
                                     Al realizar esta acción se eliminará permanentemente el evento y no se podrá deshacer.
                                 </div>
@@ -479,12 +479,12 @@ function EventsTable() {
                             <div className="form-group mb-2">
                                 <label className="mb-2 fw-bold">Fecha</label>
                                 <p>{temporalEventDate}</p>
-                            </div>    
+                            </div>
                         </div>
-                            
+
                         <div className="modal-footer">
-                            <input 
-                                type="button" 
+                            <input
+                                type="button"
                                 className="btn btn-default"
                                 data-bs-dismiss="modal"
                                 value="Cancelar"

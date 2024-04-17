@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 import { MdDangerous } from "react-icons/md";
 import { AiFillSafetyCertificate } from "react-icons/ai";
-import { IoTimerSharp } from "react-icons/io5";
+import { FaBook } from 'react-icons/fa';
 import { jwtDecode } from "jwt-decode";
+import Calendar from "../viewAdmin/ListaActividad";
 
 interface Calificacion {
   materia: string;
@@ -29,12 +30,12 @@ function MiCalificacion() {
   const [asistencias, setAsistencias] = useState<Asistencia[]>([]);
   const [asistenciaTotal, setAsistenciaTotal] = useState(0);
   const [ausenciaTotal, setAusenciaTotal] = useState(0);
-  const diasDeClase = 220;
   const [userData, setUserData] = useState({
     matricula: "",
     email: "",
     nombre: "",
     fecha: "",
+    rol: "",
   });
 
   const getUserData = (token: string) => {
@@ -42,15 +43,16 @@ function MiCalificacion() {
       role: string;
       nameid: string;
       unique_name: string;
-      UserName:string;
+      UserName: string;
     };
     console.log(decodedToken);
 
     const matricula = decodedToken.nameid || "";
     const email = decodedToken.unique_name || "";
     const nombre = decodedToken.UserName || "";
+    const rol = decodedToken.role || "";
     const fecha = "2023-2024";
-    setUserData({ matricula, email, nombre, fecha });
+    setUserData({ matricula, email, nombre, fecha, rol });
   };
 
   useEffect(() => {
@@ -105,37 +107,33 @@ function MiCalificacion() {
 
   return (
     <>
-      <div className="container border  shadow p-3 rounded  mb-4 ">
-        <div className="row m-0 p-3 rounded  mb-4">
-          <div className="col-12">
-            <h1 className="text-center display-6 fw-bold ">Resumen Estudiantil </h1>
-          </div>
-        </div>
-
-        {/* Datos */}
-        <div className="row m-0 px-2 justify-content-md-between align-itemns-center justify-content-center">
-          <div className=" ">
+      <div className="row m-0 px-4 justify-content-md-between align-items-center justify-content-center">
+        {/* Columna de estadísticas generales */}
+        <div className="col-12 col-lg-6 mb-4">
+          <div className="card shadow-sm">
             <div className="card-body">
+              <h5 className="fw-bold">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="feather feather-bar-chart-2 me-2 text-primary"
+                >
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+                Estadísticas Generales
+              </h5>
               <div className="row">
-                {/* Dias de Clase */}
-                <div className="col-lg-6 col-xl-4 mb-4">
-                  <div className="card bg-primary text-white h-100">
-                    <div className="card-body">
-                      <div className="d-flex justify-content-between align-items-center">
-                        <div className="me-3">
-                          <div className="text-white-75 fs-6">
-                            Días de Clase
-                          </div>
-                          <div className="display-5 fw-bold">{diasDeClase}</div>
-                        </div>
-                        <IoTimerSharp size={50} className="text-white-50" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Asistencia Total */}
-                <div className="col-lg-6 col-xl-4 mb-4">
+                <div className="col-12 col-6 mb-4">
                   <div className="card bg-success text-white h-100">
                     <div className="card-body">
                       <div className="d-flex justify-content-between align-items-center">
@@ -155,10 +153,8 @@ function MiCalificacion() {
                     </div>
                   </div>
                 </div>
-
                 {/* Ausencia Total */}
-
-                <div className="col-lg-6 col-xl-4 mb-4">
+                <div className="col-12 col-6 mb-4">
                   <div className="card bg-danger text-white h-100">
                     <div className="card-body">
                       <div className="d-flex justify-content-between align-items-center">
@@ -180,148 +176,117 @@ function MiCalificacion() {
           </div>
         </div>
 
-        <div className="container   mt-4  p-3">
-          <div className="row     p-3 rounded  mb-4">
-            <div className="col-12 col-md-6">
-            {/* {userData.matricula && <p className="h4"> Matricula: {userData.matricula}</p>}
-            {userData.nombre && <p className="h4">Nombre: {userData.nombre}</p>}
-            {userData.email && <p className="h4">Email: {userData.email}</p>}
-            {userData.fecha && <p className="h4">Año escolar: {userData.fecha}</p>} */}
-         
-
-            <table className="table table-hover shadow border border-3 border-dark">
-             <thead>
-               <tr>
-               <th colSpan={5}  className="text-center bg-dark text-white display-6 fw-bold">Información</th>
-               </tr>
-               <tr>
-                 <th className="text-center">Nombre</th>
-                 
-               </tr>
-               <tr> 
-                 <td className="text-center">{userData.nombre && <p className="">{userData.nombre}</p>}</td>
-               </tr>
-               <tr>
-                 <th className="text-center">Matricula</th>
-               </tr>
-               <tr>
-                 <td className="text-center">{userData.matricula && <p className="">{userData.matricula}</p>}</td>
-               </tr>
-               <tr>
-                 <th className="text-center">Email</th>
-               </tr>
-               <tr>
-                 <td className="text-center">{userData.email && <p className="">{userData.email}</p>}</td>
-               </tr>
-               <tr>
-                 <th className="text-center">Año escolar</th>
-               </tr>
-               <tr>
-                 <td className="text-center">{userData.fecha && <p className="">{userData.fecha}</p>}</td>
-               </tr>
-      
-
-             </thead>
-           
-
-            </table>
-
-            </div>
-            <div className="col-12 col-md-6 d-flex itemns-center">
-            <table className="table table-hover shadow border border-3 border-dark">
-             <thead>
-               <tr>
-               <th colSpan={5}  className="text-center bg-dark text-white display-6 fw-bold">Sistema de calificación</th>
-               </tr>
-               <tr>
-                 <th className="text-center">Rango</th>
-                 <th className="text-center">Descripción</th>
-               </tr>
-
-             </thead>
-             <tbody>
-               <tr>
-                 <td className="text-center">0-69</td>
-                 <td className="text-center">Insuficiente</td>
-               </tr>
-               <tr>
-                 <td className="text-center">70-79</td>
-                 <td className="text-center">Suficiente</td>
-               </tr>
-               <tr>
-                 <td className="text-center">80-89</td>
-                 <td className="text-center">Bueno</td>
-               </tr>
-               <tr>
-                 <td className="text-center">90-100</td>
-                 <td className="text-center">Excelente</td>
-               </tr>
-             </tbody>
-
-            </table>
-
-            </div>
-         
-         
-          </div>
-
-          
-          <div className="row   mb-4">
-            <div className="col">
-              <table className="table table-hover shadow border border-3 border-dark">
-                <thead>
-                  <tr>
-                    <th
-                      colSpan={5}
-                      className="text-center bg-dark text-white display-6 fw-bold"
-                    >
-                      Materias
-                    </th>
-                  </tr>
-                  <tr>
-                    <th className="sticky-th w-25 text-center">Materia</th>
-                    <th className="sticky-th col-2 text-center">Período</th>
-                    <th className="sticky-th col-2 text-center ">Ausencias</th>
-                    <th className="sticky-th  text-center">Nota Final</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {calificaciones.map((materia, index) => (
-                    <tr key={index}>
-                      <th className="text-center">{materia.materia}</th>
-                      <td>
-                        <ul className="list-unstyled text-center">
-                          {materia.notas.map((nota, i) => (
-                            <li key={i} >
-                              P{nota.periodo}: {nota.calificacion}
-                            </li>
-                          ))}
-                        </ul>
-                      </td>
-                      <td className="text-center">
-                        {
-                          getAsistenciaPorMateria(materia.materia)
-                            .asistenciasMateria
-                        }
-                      </td>
-                      <td className="text-center">
-                        {materia.notaTotal == null ? "0" : materia.notaTotal}
-                      </td>
-                     
-                      {/* <td>
-                        {
-                          getAsistenciaPorMateria(materia.materia)
-                            .ausenciasMateria
-                        }
-                      </td> */}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+        {/* Columna para información del estudiante */}
+        <div className="col-lg-6 mb-4">
+          <div className="card shadow-sm">
+            <div className="card-body">
+              <h5 className="card-title fw-bold">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="feather feather-user me-2 text-primary"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Información del Usuario
+              </h5>
+              <div className="card-text">
+                <div className="row mb-3 my-3 p-6">
+                  <div className="col-sm-3 fw-bold">Nombre:</div>
+                  <div className="col-sm-9">{userData.nombre}</div>
+                </div>
+                <hr />
+                <div className="row mb-3 my-3">
+                  <div className="col-sm-3 fw-bold">Matrícula:</div>
+                  <div className="col-sm-9">{userData.matricula}</div>
+                </div>
+                <hr />
+                <div className="row mb-3 my-3">
+                  <div className="col-sm-3 fw-bold">Email:</div>
+                  <div className="col-sm-9">{userData.email}</div>
+                </div>
+                <hr />
+                <div className="row mb-3 my-3">
+                  <div className="col-sm-3 fw-bold">Año Escolar:</div>
+                  <div className="col-sm-9">{userData.fecha}</div>
+                </div>
+                <hr />
+                <div className="row mb-3 my-3">
+                  <div className="col-sm-3 fw-bold">Rol</div>
+                  <div className="col-sm-9">
+                    <span className={`badge rounded-pill d-inline ${userData.rol == "Estudiante" ? "badge bg-primary" :
+                      userData.rol == "Profesor" ? "badge bg-success" :
+                        userData.rol == "Administrado" ? "badge bg-danger" : ""}`}>
+                      {userData.rol}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Mis materias y mis calificaciones */}
+        <div className="col-12 mb-4">
+          <div className="card shadow-sm">
+            <div className="card-body">
+              <div className="d-flex align-items-center mb-3">
+                <div className="text-primary">
+                  <FaBook />
+                </div>
+                <h5 className="ps-2 card-title fw-bold mb-0">Materias y Calificaciones</h5>
+              </div>
+              <div className="row">
+                {calificaciones.map((materia, index) => (
+                  <div key={index} className="col-md-6 mb-3">
+                    <div className="card border border-3 border-secondary">
+                      <div className="card-header bg-secondary text-white fw-bold">
+                        {materia.materia}
+                      </div>
+                      <div className="card-body">
+                        <ul className="list-unstyled mb-0">
+                          {materia.notas.map((nota, i) => (
+                            <li key={i} className="mb-2">
+                              <span className="fw-bold">P{nota.periodo}:</span> {nota.calificacion}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="card-footer d-flex justify-content-between align-items-center">
+                        <span className="fw-bold">Ausencias:</span>
+                        <span>{getAsistenciaPorMateria(materia.materia).asistenciasMateria}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+                {calificaciones.length === 0 && (
+                  <div className="col-12 mb-4">
+                    <div className="card shadow-sm">
+                      <div className="card-body">
+                        <p className="fw-bold text-center">Aún no se han añadido calificaciones.</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-12 mb-4">
+          <Calendar/>
+        </div>
+
       </div>
+
     </>
   );
 }
