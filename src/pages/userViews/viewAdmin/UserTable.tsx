@@ -120,9 +120,18 @@ function UserTable() {
       })
       .then(() => {
         fetchUsers();
+        setSuccessMessage("Usuario eliminado con éxito");
+        setTimeout(() => {
+          setSuccessMessage(null);
+        }, 3000);
+
       })
       .catch((error) => {
         console.error("Error al eliminar el usuario:", error);
+        setErrorMessage("Error al eliminar el usuario");
+        setTimeout(() => {
+          setErrorMessage(null);
+        }, 3000);
       });
   };
 
