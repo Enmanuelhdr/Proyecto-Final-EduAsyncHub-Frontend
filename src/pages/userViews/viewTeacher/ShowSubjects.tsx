@@ -45,7 +45,7 @@ function ShowSubjectsActions() {
       })
       .catch(error => {
         console.error("Error al obtener materias:", error);
-        setError("Hubo un error al obtener las materias");
+        setError("No cuenta con materias asignadas");
       });
   }, []);
 
