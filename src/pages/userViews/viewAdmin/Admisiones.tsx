@@ -110,22 +110,7 @@ function Admisiones() {
 
       console.log("Solicitud de admisión actualizada correctamente", response);
 
-      // Envío de correo electrónico si es el primer cambio de estado
-      if (estadoSolicitud !== '' && notasComentarios !== '') {
-        await axios.post(
-          "https://backend-chat-en-tiempo-real-dev-haxk.4.us-1.fl0.io/email/",
-          new URLSearchParams({
-            email: correoElectronico,
-            mensaje: `Su solicitud de admisión ha sido actualizada. Comentario: ${notasComentarios}`,
-            asunto: "Actualización de Solicitud de Admisión",
-          }).toString(),
-          {
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-          }
-        );
-      }
+ 
 
       fetchAdmisiones();
       clearData();
@@ -154,7 +139,39 @@ function Admisiones() {
 
 
       await axios.put(`http://www.eduasynchub.somee.com/api/Admisiones/Approve/${solicitudId}?comentario=${encodeURIComponent(comentarioExtra)}`);
-
+     // Envío de correo electrónico si es el primer cambio de estado
+     if (estadoSolicitud !== '' && notasComentarios !== '') {
+      await axios.post(
+        "https://backend-chat-en-tiempo-real-dev-haxk.4.us-1.fl0.io/email/",
+        new URLSearchParams({
+          institucion: "EduAsynchub@outlook.com",
+          email: correoElectronico,
+          mensaje: `Su solicitud de admisión ha sido actualizada. Comentario: ${notasComentarios}`,
+          asunto: "Actualización de Solicitud de Admisión",
+        }).toString(),
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      );
+    }     // Envío de correo electrónico si es el primer cambio de estado
+    if (estadoSolicitud !== '' && notasComentarios !== '') {
+      await axios.post(
+        "https://backend-chat-en-tiempo-real-dev-haxk.4.us-1.fl0.io/email/",
+        new URLSearchParams({
+          institucion: "EduAsynchub@outlook.com",
+          email: correoElectronico,
+          mensaje: `Su solicitud de admisión ha sido actualizada. Comentario: ${notasComentarios}`,
+          asunto: "Actualización de Solicitud de Admisión",
+        }).toString(),
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      );
+    }
 
 
     } catch (error) {
@@ -172,6 +189,23 @@ function Admisiones() {
 
 
       await axios.put(`http://www.eduasynchub.somee.com/api/Admisiones/Reject/${solicitudId}?comentario=${encodeURIComponent(comentarioExtra)}`);
+           // Envío de correo electrónico si es el primer cambio de estado
+           if (estadoSolicitud !== '' && notasComentarios !== '') {
+            await axios.post(
+              "https://backend-chat-en-tiempo-real-dev-haxk.4.us-1.fl0.io/email/",
+              new URLSearchParams({
+                institucion: "EduAsynchub@outlook.com",
+                email: correoElectronico,
+                mensaje: `Su solicitud de admisión ha sido actualizada. Comentario: ${notasComentarios}`,
+                asunto: "Actualización de Solicitud de Admisión",
+              }).toString(),
+              {
+                headers: {
+                  "Content-Type": "application/x-www-form-urlencoded",
+                },
+              }
+            );
+          }
       fetchAdmisiones()
 
     } catch (error) {
