@@ -64,7 +64,7 @@ const SendMail: React.FC = () => {
             <div className="form-group mb-4">
                 <label className="form-label fw-bold fs-4" >Email:</label>
                 <input
-                    type="email"
+                    type="text"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}

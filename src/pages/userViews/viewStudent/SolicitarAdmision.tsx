@@ -67,7 +67,7 @@ function SolicitarAdmision({ titulo }: SolicitarAdmisionProps) {
       !direccionPadreTutor ||
       !numeroTelefono ||
       !correoElectronico ||
-      !fechaHoraSolicitud ||
+       !fechaHoraSolicitud ||
       !notasComentarios
     ) {
       setError("Todos los campos son requeridos.");
@@ -324,7 +324,7 @@ function SolicitarAdmision({ titulo }: SolicitarAdmisionProps) {
                 />
               </div>
             </div>
-            <div className="col-12 col-md-6">
+            {/* <div className="col-12 col-md-6">
               <div className="mb-3">
                 <label htmlFor="fechaHoraSolicitud" className="form-label fw-bold">
                   Fecha y hora de la solicitud
@@ -338,7 +338,7 @@ function SolicitarAdmision({ titulo }: SolicitarAdmisionProps) {
                   onChange={handleInputChange}
                 />
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="row">
             <div className="mb-3">
