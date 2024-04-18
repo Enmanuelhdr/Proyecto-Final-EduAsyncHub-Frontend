@@ -107,9 +107,13 @@ const AddTeacherSubjects: React.FC = () => {
     <>
       <NavBar
         brand="Asignar Materias"
-        goto="/materiasAdmin"
+        goto="/dashboardAdministrador"
         navData={NavBarData}
       />
+
+      <div className="row gap-3">
+
+      </div>
 
       <div className="container">
         {successMessage && (
@@ -122,10 +126,13 @@ const AddTeacherSubjects: React.FC = () => {
             {errorMessage}
           </div>
         )}
+        <div className="row pt-5">
+
+          <h3>Gestión de <b>Usuarios</b> : Profesores</h3>
+        </div>
         <div className="table-responsive pt-4">
-          <h1 className="d-flex justify-content-center">Profesores</h1>
           <table className="table table-hover">
-            <thead>
+            <thead className="table-light">
               <tr>
                 <th className="sticky-th">Id</th>
                 <th className="sticky-th">Nombre</th>
@@ -153,7 +160,7 @@ const AddTeacherSubjects: React.FC = () => {
                     >
                       <IoIosAddCircleOutline
                         className="text-primary fs-3 "
-                       
+
                       />
                     </button>
                   </td>

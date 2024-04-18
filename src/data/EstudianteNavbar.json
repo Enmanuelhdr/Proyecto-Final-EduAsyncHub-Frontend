@@ -2,6 +2,10 @@
     {
         "name": "Calificación",
         "url": "/dashboardEstudiante"
+    },
+    {
+        "name": "Foro Escolar",
+        "url": "/foro"
     }
     
 ]

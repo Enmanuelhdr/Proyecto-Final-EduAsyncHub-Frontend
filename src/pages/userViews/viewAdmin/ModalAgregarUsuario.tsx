@@ -167,6 +167,7 @@ const ModalAgregarUsuario: React.FC<Props> = ({ onAddUser }) => {
                             id="gradoId"
                             value={formData.gradoId}
                             onChange={handleChange}
+                            disabled={formData.rolID !== "1"} 
                         >
                             <option value="1">Primero de Primaria</option>
                             <option value="2">Segundo de Primaria</option>

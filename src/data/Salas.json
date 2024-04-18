@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "title": "Título 1",
+      "published": "2024-04-12",
+      "comments": 5
+    },
+    {
+      "id": 2,
+      "title": "Título 2",
+      "published": "2024-04-11",
+      "comments": 10
+    },
+    {
+      "id": 3,
+      "title": "Título 3",
+      "published": "2024-04-11",
+      "comments": 10
+    },
+    {
+      "id": 4,
+      "title": "Título 3",
+      "published": "2024-04-11",
+      "comments": 10
+    }
+  ]
+  

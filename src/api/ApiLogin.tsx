@@ -72,7 +72,7 @@ const cookies = new Cookies()
     <>
       <div className="container-fluid bg-dark vh-100 d-flex justify-content-center align-items-center">
         <div className="text-white p-4">
-          <h1 className="mb-4 text-center">Iniciar Sesión</h1>
+          <h1 className="mb-4 text-center fw-bold">EduAsyncHub</h1>
           <h5 className="mb-4 text-center">
             ¡Bienvenido! Ingresa con tu correo institucional
           </h5>
