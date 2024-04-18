@@ -26,6 +26,10 @@
     {
         "name": "Foro Escolar",
         "url": "/foroAdmin"
+    },
+    {
+        "name": "Emails",
+        "url": "/enviarEmail"
     }
     
     

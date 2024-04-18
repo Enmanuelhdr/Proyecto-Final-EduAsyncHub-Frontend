@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
-import { FaPlus, FaPencilAlt, FaTrashAlt,FaEye } from "react-icons/fa"; 
+import { FaPlus, FaPencilAlt, FaTrashAlt, FaEye } from "react-icons/fa";
 import { CgDanger } from "react-icons/cg";
 import ModalAgregarUsuario from "./ModalAgregarUsuario";
 
@@ -31,7 +31,7 @@ function UserTable() {
     const fetchUsers = async () => {
         try {
             const token = cookies.get("token");
-            axios.defaults.headers.common["Authorization"] =   `Bearer ${token}`;
+            axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
             const response = await axios.get(
                 "http://www.eduasynchub.somee.com/api/Admin/ObtenerUsuarios"
             );
@@ -53,17 +53,17 @@ function UserTable() {
 
     const deleteUser = (id: number) => {
         axios
-        .delete("http://www.eduasynchub.somee.com/api/Admin/EliminarUsuario", {
-            data: {
-                userId: id,
-            },
-        })
-        .then(() => {
-            fetchUsers();
-        })
-        .catch((error) => {
-            console.error("Error al eliminar el usuario:", error);
-        });
+            .delete("http://www.eduasynchub.somee.com/api/Admin/EliminarUsuario", {
+                data: {
+                    userId: id,
+                },
+            })
+            .then(() => {
+                fetchUsers();
+            })
+            .catch((error) => {
+                console.error("Error al eliminar el usuario:", error);
+            });
     };
 
 
@@ -91,7 +91,7 @@ function UserTable() {
     };
 
     const handleEditSubmit = () => {
-        if(temporalUser) {
+        if (temporalUser) {
             editUser(temporalUser);
             setTemporalUser(null);
         }
@@ -111,7 +111,7 @@ function UserTable() {
     });
 
     return (
-       <div className="row gap-3">
+        <div className="row gap-3">
             {successMessage && (
                 <div className="alert alert-success" role="alert">
                     {successMessage}
@@ -119,14 +119,14 @@ function UserTable() {
             )}
 
             <div className="container">
-                <div className="pt-3">
-                    <div className="row align-items-center justify-content-end">
-                        <div className="col-12 col-md-6 mb-2 mb-md-0 order-md-1"> 
+                <div className="pt-4">
+                    <div className="row align-items-center justify-content-end pb-2">
+                        <div className="col-12 col-md-6 mb-2 mb-md-0 order-md-1">
                             <h3>Gestión de <b>Usuarios</b></h3>
                         </div>
                         <div className="col-12 col-md-4 order-md-3"></div>
 
-                        <div className="col-12 col-md-6 mb-2 mb-md-0 order-md-2 text-end"> 
+                        <div className="col-12 col-md-6 mb-2 mb-md-0 order-md-2 text-end">
                             <div className="input-group">
                                 <input
                                     className="form-control me-2"
@@ -136,17 +136,17 @@ function UserTable() {
                                     onChange={(e) => setSearchTerm(e.target.value)}
                                 />
                                 <select className="form-select me-2" onChange={handleUserRoleChange}>
-                                    <option selected value="">Todos</option>
+                                    <option value="">Todos</option>
                                     <option value="1">Estudiantes</option>
                                     <option value="2">Profesores</option>
                                 </select>
-                                <button 
+                                <button
                                     type="button"
                                     className="btn btn-success"
                                     data-bs-toggle="modal"
                                     data-bs-target="#modalAgregar"
                                 >
-                                    <FaPlus className="me-2"/>
+                                    <FaPlus className="me-2" />
                                     Agregar
                                 </button>
                             </div>
@@ -154,94 +154,109 @@ function UserTable() {
                     </div>
                 </div>
             </div>
-            
+
             <div className="container">
                 <div className="table-responsive">
                     <table className="table table-hover">
-                        <thead>
+                        <thead className="table-light">
                             <tr>
-                                <th className="sticky-th">Id</th>
+                                {/* <th className="sticky-th">Id</th> */}
+                                <th className="sticky-th">ID</th>
                                 <th className="sticky-th">Nombre</th>
-                                <th className="sticky-th">Correo</th>
+                                <th className="sticky-th">Rol</th>
                                 <th className="sticky-th">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             {filteredUsers.map((user) => (
-                            <tr key={user.usuarioId}>
-                                <th scope="row">{user.usuarioId}</th>
-                                <td>{user.nombre}</td>
-                                <td>{user.correoElectronico}</td>
-                                <td>
-                                    <div className="btn-group" role="group" aria-label="Acciones">
-                                        {/* Boton de editar */}
-                                        <button 
-                                            type="button" 
-                                            className="btn"
-                                            data-toggle="tooltip"
-                                            title="Editar"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#modalEdit"
-                                            onClick={() => {
-                                                handleEditModal(user);
-                                            }}
-                                        >
-                                            <FaPencilAlt className="color-primary" style={{ color: "#005e93" }}/>
-                                        </button>
+                                <tr key={user.usuarioId}>
+                                    {/* <th scope="row">{user.usuarioId}</th> */}
+                                    <td><p className="fw-bold">{user.usuarioId}</p></td>
+                                    <td> <div className="ms-3">
+                                        
+                                        <p className="fw-bold mb-1">{user.nombre}</p>
+                                        <p className="text-muted mb-0">{user.correoElectronico}</p>
+                                    </div></td>
+                                    <td>
+                                        <span className={`badge rounded-pill d-inline ${user.rolId === 1 ? "badge bg-primary" :
+                                            user.rolId === 2 ? "badge bg-success" :
+                                                user.rolId === 3 ? "badge bg-danger" : ""}`}>
+                                            {user.rolId === 1 ? "Estudiante" :
+                                                user.rolId === 2 ? "Profesor" :
+                                                    user.rolId === 3 ? "Administrador" : "Desconocido"}
+                                        </span>
+                                    </td>
 
-                                        {/* Boton de ver  */}
-                                        <button 
-                                            type="button"
-                                            className="btn"
-                                            data-toggle="tooltip"
-                                            title="Ver usuario"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#modalView"
-                                            onClick={() => {
-                                                setTemporalUserId(user.usuarioId);
-                                                setTemporalUserName(user.nombre);
-                                                setTemporalUserEmail(user.correoElectronico);
-                                                setTemporalUserRolId(user.rolId);
-                                                setViewModalOpen(true);
-                                                console.log(viewModalOpen);
-                                            }}
-                                        >
-                                            <FaEye/>
-                                        </button>
-                                        {/* Boton de eliminar */}
-                                        <button 
-                                            type="button" 
-                                            className="btn"
-                                            data-toggle="tooltip"
-                                            title="Eliminar"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#modalDelete"
-                                            onClick={() => {
-                                                setTemporalUserId(user.usuarioId);
-                                                setTemporalUserName(user.nombre);
-                                                setTemporalUserEmail(user.correoElectronico);
-                                            }}
-                                        >
-                                            <FaTrashAlt style={{ color: "red" }} />
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
+                                    <td>
+                                        <div className="btn-group" role="group" aria-label="Acciones">
+                                            {/* Boton de editar */}
+                                            <button
+                                                type="button"
+                                                className="btn"
+                                                data-toggle="tooltip"
+                                                title="Editar"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalEdit"
+                                                onClick={() => {
+                                                    handleEditModal(user);
+                                                }}
+                                            >
+                                                <FaPencilAlt className="color-primary" style={{ color: "#005e93" }} />
+                                            </button>
+
+                                            {/* Boton de ver  */}
+                                            <button
+                                                type="button"
+                                                className="btn"
+                                                data-toggle="tooltip"
+                                                title="Ver usuario"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalView"
+                                                onClick={() => {
+                                                    setTemporalUserId(user.usuarioId);
+                                                    setTemporalUserName(user.nombre);
+                                                    setTemporalUserEmail(user.correoElectronico);
+                                                    setTemporalUserRolId(user.rolId);
+                                                    setViewModalOpen(true);
+                                                    console.log(viewModalOpen);
+                                                }}
+                                            >
+                                                <FaEye />
+                                            </button>
+                                            {/* Boton de eliminar */}
+                                            <button
+                                                type="button"
+                                                className="btn"
+                                                data-toggle="tooltip"
+                                                title="Eliminar"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalDelete"
+                                                onClick={() => {
+                                                    setTemporalUserId(user.usuarioId);
+                                                    setTemporalUserName(user.nombre);
+                                                    setTemporalUserEmail(user.correoElectronico);
+                                                }}
+                                            >
+                                                <FaTrashAlt style={{ color: "red" }} />
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
                             ))}
                         </tbody>
                     </table>
                 </div>
             </div>
 
-             {/* Modal para agregar */}
-             <div
+            {/* Modal para agregar */}
+            <div
                 className="modal fade"
                 id="modalAgregar"
                 aria-labelledby="modalagregar"
                 aria-hidden="true"
             >
                 <ModalAgregarUsuario onAddUser={handleAddUser} />
-                
+
             </div>
 
             {/* Modal para editar */}
@@ -256,9 +271,9 @@ function UserTable() {
                         <form>
                             <div className="modal-header">
                                 <h4 className="modal-title">Editar Usuario</h4>
-                                <button 
-                                    type="button" 
-                                    className="btn-close" 
+                                <button
+                                    type="button"
+                                    className="btn-close"
                                     data-bs-dismiss="modal"
                                     aria-label="Close"
                                     onClick={() => {
@@ -273,9 +288,9 @@ function UserTable() {
                                 <div className="modal-body">
                                     <div className="form-group mb-2">
                                         <label className="mb-2 fw-bold">Nombre</label>
-                                        <input 
-                                            type="text" 
-                                            className="form-control" 
+                                        <input
+                                            type="text"
+                                            className="form-control"
                                             required
                                             id="nombre"
                                             name="nombre"
@@ -338,8 +353,8 @@ function UserTable() {
                                 </div>
                             )}
                             <div className="modal-footer">
-                                <input 
-                                    type="button" 
+                                <input
+                                    type="button"
                                     className="btn btn-default"
                                     data-bs-dismiss="modal"
                                     value="Cancelar"
@@ -355,7 +370,7 @@ function UserTable() {
                                     className="btn btn-success"
                                     data-bs-dismiss="modal"
                                     onClick={() => {
-                                        handleEditSubmit;
+                                        handleEditSubmit();
                                         setTemporalUser(null);
                                         setTemporalUserId(0);
                                         setTemporalUserName("");
@@ -379,9 +394,9 @@ function UserTable() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h4 className="modal-title">Información del Usuario</h4>
-                            <button 
-                                type="button" 
-                                className="btn-close" 
+                            <button
+                                type="button"
+                                className="btn-close"
                                 data-bs-dismiss="modal"
                                 aria-label="Close"
                                 onClick={() => {
@@ -392,7 +407,7 @@ function UserTable() {
                                     setTemporalUserRolId(0);
                                 }}
                             ></button>
-                            
+
                         </div>
 
                         <div className="modal-body">
@@ -411,17 +426,17 @@ function UserTable() {
                             <div className="form-group mb-2">
                                 <label className="mb-2 fw-bold">Rol</label>
                                 <p>
-                                    {temporalUserRolId === 1 ? 'Estudiante' : 
-                                    temporalUserRolId === 2 ? 'Profesor' : 
-                                    temporalUserRolId === 3 ? 'Administrador' : 'Rol desconocido'} 
+                                    {temporalUserRolId === 1 ? 'Estudiante' :
+                                        temporalUserRolId === 2 ? 'Profesor' :
+                                            temporalUserRolId === 3 ? 'Administrador' : 'Rol desconocido'}
                                 </p>
                             </div>
-                                       
+
                         </div>
-                            
+
                         <div className="modal-footer">
-                            <input 
-                                type="button" 
+                            <input
+                                type="button"
                                 className="btn btn-default"
                                 data-bs-dismiss="modal"
                                 value="Cancelar"
@@ -450,9 +465,9 @@ function UserTable() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h4 className="modal-title">¿Desea eliminar este usuario?</h4>
-                            <button 
-                                type="button" 
-                                className="btn-close" 
+                            <button
+                                type="button"
+                                className="btn-close"
                                 data-bs-dismiss="modal"
                                 aria-label="Close"
                                 onClick={() => {
@@ -462,12 +477,12 @@ function UserTable() {
                                     setTemporalUserEmail("");
                                 }}
                             ></button>
-                            
+
                         </div>
 
                         <div className="modal-body">
                             <div className="alert alert-danger d-flex align-items-center" role="alert">
-                                <CgDanger className="flex-shrink-0 me-2" style={{ color: "red", fontSize: "24px"}}/>
+                                <CgDanger className="flex-shrink-0 me-2" style={{ color: "red", fontSize: "24px" }} />
                                 <div className="pl-5">
                                     Al realizar esta acción se eliminará permanentemente al usuario y no se podrá deshacer.
                                 </div>
@@ -483,12 +498,12 @@ function UserTable() {
                             <div className="form-group mb-2">
                                 <label className="mb-2 fw-bold">Correo Electrónico</label>
                                 <p>{temporalUserEmail}</p>
-                            </div>    
+                            </div>
                         </div>
-                            
+
                         <div className="modal-footer">
-                            <input 
-                                type="button" 
+                            <input
+                                type="button"
                                 className="btn btn-default"
                                 data-bs-dismiss="modal"
                                 value="Cancelar"

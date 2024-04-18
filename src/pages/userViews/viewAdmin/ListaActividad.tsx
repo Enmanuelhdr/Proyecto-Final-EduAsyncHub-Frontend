@@ -1,5 +1,6 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { FaCalendarAlt } from "react-icons/fa";
 
 function Calendar() {
     interface Actividad {
@@ -35,31 +36,32 @@ function Calendar() {
         activitiesByDate[actividad.date].push(actividad);
     });
 
-    
-    const renderActivities = () => {
-        return Object.keys(activitiesByDate).map((date) => (
-          
-            <div key={date} className="border border-dark w-50 mx-auto p-4">
-                <h2>{date}</h2>
-                <ul>
-                    {activitiesByDate[date].map((actividad) => (
-                        <li key={actividad.id}className="list-unstyled">
-                            <h3>{actividad.title}</h3>
-                            <p>{actividad.hora}</p>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        ));
-    };
 
     return (
-        <>
-        <div className="container">
-
-            {renderActivities()}
+        <div className="col-12 mb-4">
+            <div className="card shadow-sm">
+                <div className="card-body">
+                    <div className="d-flex align-items-center mb-3">
+                        <div className="text-primary me-3">
+                            <FaCalendarAlt /> {/* Icono de calendario */}
+                        </div>
+                        <h5 className="card-title fw-bold mb-0">Calendario</h5>
+                    </div>
+                    <hr className="my-3 border-primary" /> {/* Línea azul separadora */}
+                    <ul className="list-unstyled">
+                        {actividades.map((actividad, index) => (
+                            <>
+                                <li key={index}>
+                                    <h6 className="fw-bold">{actividad.title}</h6>
+                                    <p>{actividad.date} - {actividad.hora}</p>
+                                </li>
+                                <hr className="my-3 border-primary" />
+                            </>
+                        ))}
+                    </ul>
+                </div>
             </div>
-        </>
+        </div>
     );
 }
 
