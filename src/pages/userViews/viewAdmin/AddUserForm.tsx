@@ -77,6 +77,7 @@ const AddUserForm: React.FC = () => {
           {errorMessage}
         </div>
       )}
+      
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="nombre" className="form-label">

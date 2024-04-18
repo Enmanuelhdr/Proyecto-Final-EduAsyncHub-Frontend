@@ -16,6 +16,8 @@ function Actividades() {
   const [actividades, setActividades] = useState<Actividad[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [temporalId, setTemporalId] = useState<number | null>(null);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     fetchActividad();
@@ -53,11 +55,21 @@ function Actividades() {
       );
     
         console.log("Actividad agregada correctamente",response);
+        setSuccessMessage("Actividad agregada correctamente");
+        setTimeout(() => {
+          setSuccessMessage("");
+        }
+        , 3000);
         fetchActividad();
         clearData();
     
     } catch (error) {
       console.error("Error al agregar la actividad:", error);
+      setErrorMessage("Error al agregar la actividad");
+      setTimeout(() => {
+        setErrorMessage("");
+      }
+      , 3000);
     }
   };
 
@@ -77,9 +89,20 @@ function Actividades() {
         fetchActividad();
         clearData();
         setTemporalId(null);
+        setSuccessMessage("Actividad actualizada correctamente");
+        setTimeout(() => {
+          setSuccessMessage("");
+        }
+        , 3000);
+
       
     } catch (error) {
       console.error("Error al editar la actividad:", error);
+      setErrorMessage("Error al editar la actividad");
+      setTimeout(() => {
+        setErrorMessage("");
+      }
+      , 3000);
     }
   };
 
@@ -91,9 +114,19 @@ function Actividades() {
      
         console.log("Actividad eliminada correctamente",response);
         fetchActividad();
+        setSuccessMessage("Actividad eliminada correctamente");
+        setTimeout(() => {
+          setSuccessMessage("");
+        }
+        , 3000);
       
     } catch (error) {
       console.error("Error al eliminar la actividad:", error);
+      setErrorMessage("Error al eliminar la actividad");
+      setTimeout(() => {
+        setErrorMessage("");
+      }
+      , 3000);
     }
     clearData();
   };
@@ -103,10 +136,27 @@ function Actividades() {
   );
 
   return (
-    <>
+    <>  
+
       {/* Filtro */}
       <div className=" p-4">
         <div className="row align-items-center justify-content-end">
+        <div className="container">
+      {
+        successMessage && (
+          <div className="alert alert-success" role="alert">
+            {successMessage}
+          </div>
+        )
+      }
+      {
+        errorMessage && (
+          <div className="alert alert-danger" role="alert">
+            {errorMessage}
+          </div>
+        )
+      }
+      </div>
           <div className="col-12 col-md-6 mb-2 mb-md-0 order-md-1">
             <h3>
               Gestión de <b>Actividades</b>
