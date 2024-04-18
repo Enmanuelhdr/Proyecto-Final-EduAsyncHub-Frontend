@@ -6,6 +6,7 @@ interface SolicitarAdmisionProps {
   titulo: boolean;
 }
 
+
 function SolicitarAdmision({ titulo }: SolicitarAdmisionProps) {
   const [datosFormulario, setDatosFormulario] = useState({
     solicitudId: 0,
@@ -36,7 +37,6 @@ function SolicitarAdmision({ titulo }: SolicitarAdmisionProps) {
       [name]: value,
     });
   };
-
 
   const handleSubmit = async () => {
     const {
