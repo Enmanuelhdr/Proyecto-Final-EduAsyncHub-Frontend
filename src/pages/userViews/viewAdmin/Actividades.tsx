@@ -139,8 +139,8 @@ function Actividades() {
 
       <div className="p-4">
         <div className="table-responsive">
-          <table className="table table-striped table-hover">
-            <thead>
+          <table className="table table-hover">
+            <thead className="table-light">
               <tr>
                 <th className="sticky-th">Id</th>
                 <th className="sticky-th">Titulo</th>

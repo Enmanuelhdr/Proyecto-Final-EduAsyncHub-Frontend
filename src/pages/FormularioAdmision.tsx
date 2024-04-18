@@ -11,7 +11,7 @@ function FormularioAdmision() {
         navData={navData}
       />
 
-      <SolicitarAdmision/>
+      <SolicitarAdmision titulo={true}/>
     </>
   )
 }

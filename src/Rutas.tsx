@@ -24,6 +24,7 @@ import AdministrarAdmisiones from "./pages/AdministrarAdmisiones";
 import ListaActividad from "./pages/userViews/viewAdmin/ListaActividad";
 import ForumAdmin from "./pages/userViews/viewAdmin/ForumAdmin";
 import Forum from "./pages/userViews/Forum";
+import EmailAdmin from "./pages/userViews/viewAdmin/EmailAdmin";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -84,6 +85,7 @@ function Rutas() {
           <Route path="/administrarAdmisiones" element={<AdministrarAdmisiones/>}/>
           <Route path="/foroAdmin" element={<ForumAdmin/>}/>
           <Route path="/verCalendario" element={<ListaActividad/>}/>
+          <Route path="/enviarEmail" element={<EmailAdmin/>}/>
          
         </Route>
 
